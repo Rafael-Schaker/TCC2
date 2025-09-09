@@ -1,0 +1,23 @@
+=============================================================
+timestamp : 2025-09-08 22:25:17
+modelo    : deepseek-r1:7b
+ttft      : 15.959s
+total     : 23.684s
+resposta_redigida:
+[REDACTED_REASONING]
+
+verde
+=============================================================
+
+=============================================================
+timestamp : 2025-09-08 22:33:29
+modelo    : deepseek-r1:7b
+pergunta  : Escolha uma cor.
+ttft      : 19.108s
+total     : 31.789s
+saida_redigida:
+[REDACTED_REASONING]
+
+Azul
+=============================================================
+

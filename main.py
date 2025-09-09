@@ -5,92 +5,90 @@ from typing import List, Optional, Tuple
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_ollama.llms import OllamaLLM
 
-# Modelos instalados no seu Ollama
+# ================== CONFIG ==================
 MODELOS: List[str] = [
     "gpt-oss:20b",
+    #"qwen3:4b",
+    #"gemma3:4b",
+    #"deepseek-r1:7b",
     "qwen3:30b",
     "gemma3:27b",
     "deepseek-r1:32b",
 ]
 
 TEMPERATURE = 0.2
+KEEP_ALIVE = "10m"   # opcional: mantém o modelo carregado entre chamadas
 
+PERGUNTA = "Escolha uma cor."
 TEMPLATE = (
-    "Instrução: responda com apenas UMA cor em português, "
-    "em UMA palavra (sem frases, sem explicações).\n\n"
-    "Pergunta: {pergunta}\n\n"
+    "Responda com APENAS UMA cor em português (uma única palavra). "
+    "Não explique, não use frases nem tags.\n"
+    "Pergunta: {pergunta}\n"
     "Resposta:"
 )
 prompt = ChatPromptTemplate.from_template(TEMPLATE)
+# ============================================
 
-def strip_reasoning(texto: str) -> str:
-    """Remove blocos <think>...</think> se existirem e espaços extras."""
-    return re.sub(r"<think>.*?</think>", "", texto, flags=re.DOTALL | re.IGNORECASE).strip()
+def remove_think(texto: str) -> str:
+    """Remove blocos <think>...</think> (se existirem) apenas para facilitar a extração da resposta."""
+    return re.sub(r"<think>.*?</think>", "", texto, flags=re.DOTALL | re.IGNORECASE)
 
-def medir_stream(chain, entrada: dict) -> Tuple[Optional[str], float, float]:
+def extrair_primeira_palavra(texto: str) -> str:
+    """Extrai a primeira palavra com letras (inclui acentos). Caso não exista, retorna o texto aparado."""
+    m = re.search(r"[A-Za-zÀ-ÿ]+", texto)
+    return m.group(0) if m else texto.strip()
+
+def medir_stream_full(chain, entrada: dict) -> Tuple[str, float, float]:
     """
-    Executa o chain em streaming e mede:
-    - TTFT (tempo até o 1º token)
-    - Tempo total (até terminar)
-    Retorna (texto_final, ttft_s, total_s).
-    Em caso de erro, retorna (None, 0.0, 0.0) e a exceção será tratada fora.
+    Faz streaming sem limitar/cortar:
+      - TTFT = tempo até o primeiro token chegar
+      - total = tempo até o término natural da geração
+    Retorna (texto_completo, ttft_s, total_s).
     """
     inicio = time.perf_counter()
     ttft: Optional[float] = None
-    acumulado = ""
+    buf = ""
 
     for chunk in chain.stream(entrada):
+        now = time.perf_counter()
         if ttft is None:
-            ttft = time.perf_counter() - inicio
-        acumulado += str(chunk)
+            ttft = now - inicio
+        buf += str(chunk)
 
     total = time.perf_counter() - inicio
-    return acumulado, (ttft if ttft is not None else total), total
+    return buf, (ttft if ttft is not None else total), total
 
-def testar_modelo(nome_modelo: str) -> Tuple[str, Optional[str], Optional[float], Optional[float], Optional[str]]:
-    """
-    Testa um modelo e retorna:
-      (modelo, resposta_1_palavra, ttft_s, total_s, erro)
-    Se erro != None, os demais campos (resposta/tempos) podem vir None.
-    """
+def consultar_modelo(modelo: str, pergunta: str) -> Tuple[str, Optional[str], Optional[float], Optional[float], Optional[str]]:
     try:
-        llm = OllamaLLM(model=nome_modelo, temperature=TEMPERATURE)
+        llm = OllamaLLM(
+            model=modelo,
+            temperature=TEMPERATURE,
+            keep_alive=KEEP_ALIVE,
+        )
         chain = prompt | llm
-        entrada = {"pergunta": "Escolha uma cor."}
+        bruto, ttft, total = medir_stream_full(chain, {"pergunta": pergunta})
 
-        texto_stream, ttft, total = medir_stream(chain, entrada)
-        texto_final = strip_reasoning(texto_stream or "")
-        resposta = texto_final.split()[0] if texto_final else ""
-        return nome_modelo, resposta, ttft, total, None
-
+        texto = remove_think(str(bruto))
+        resposta = extrair_primeira_palavra(texto)
+        return modelo, resposta, ttft, total, None
     except Exception as e:
-        return nome_modelo, None, None, None, f"{type(e).__name__}: {e}"
+        return modelo, None, None, None, f"{type(e).__name__}: {e}"
 
-def formatar_segundos(s: Optional[float]) -> str:
-    return f"{s:.3f}s" if isinstance(s, float) else "-"
+def fmt_s(x: Optional[float]) -> str:
+    return f"{x:.3f}s" if isinstance(x, float) else "-"
 
 def main():
-    print("=== Benchmark LangChain + Ollama ===")
-    print("Pergunta: 'Escolha uma cor.' (responder 1 palavra em PT-BR)\n")
+    print(f"Pergunta: {PERGUNTA}\n")
+    header = f"{'Modelo':16} | {'Resposta':10} | {'TTFT':10} | {'Total':10}"
+    print(header)
+    print("-" * len(header))
 
-    resultados = []
     for m in MODELOS:
-        print(f"-> Modelo: {m}")
-        modelo, resposta, ttft, total, erro = testar_modelo(m)
+        modelo, resposta, ttft, total, erro = consultar_modelo(m, PERGUNTA)
         if erro:
-            print(f"   ERRO: {erro}\n")
+            print(f"{modelo:16} | {'ERRO':10} | {'-':10} | {'-':10}")
         else:
-            print(f"   Cor: {resposta}")
-            print(f"   TTFT: {formatar_segundos(ttft)} | Total: {formatar_segundos(total)}\n")
-        resultados.append((modelo, resposta, ttft, total, erro))
-
-    # Resumo final
-    print("=== Resumo ===")
-    for modelo, resposta, ttft, total, erro in resultados:
-        if erro:
-            print(f"{modelo:16} | ERRO: {erro}")
-        else:
-            print(f"{modelo:16} | Cor: {resposta:10} | TTFT: {formatar_segundos(ttft)} | Total: {formatar_segundos(total)}")
+            print(f"{modelo:16} | {resposta or '':10} | {fmt_s(ttft):10} | {fmt_s(total):10}")
 
 if __name__ == "__main__":
     main()
