@@ -1,0 +1,21 @@
+Id,nome
+1,Receita Total
+2,Lucro Líquido
+3,Investimento em Marketing e Vendas
+4,Gasto em Anúncios
+5,Número de Clientes Conquistados
+6,Número de Conversões
+7,Número de Cliques
+8,Número de Impressões
+9,Número de Sessões
+10,Sessões de Página Única (Bounces)
+11,Número de Leads
+12,Número de Pedidos
+13,Número de Usuários Ativos
+14,Ticket Médio (Valor por Pedido)
+15,Frequência de Compra
+16,Tempo Médio de Retenção do Cliente
+17,Clientes no Início do Período
+18,Clientes no Final do Período
+19,Clientes Perdidos (Churn)
+20,"Interações (curtidas, comentários, compartilhamentos, etc.)"
