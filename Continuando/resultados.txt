@@ -1,0 +1,111 @@
+Sytem Prompt:
+SYSTEM_PROMPT = (
+    "Você é um especialista em KPIs.\n"
+    "Regras de saída:\n"
+    "- Responda SOMENTE com um ARRAY JSON bruto (sem markdown, sem cercas ``` e sem rótulos como 'Input:'/'Output:').\n"
+    "- Use EXATAMENTE estas chaves por item: kpi, importancia, formula, metricas (sem acentos nas chaves).\n"
+    "- Todos os VALORES TEXTUAIS devem estar em Português do Brasil.\n"
+    "- A lista deve ser concisa (apenas os KPIs essenciais ao contexto).\n"
+    "- Fórmulas curtas, claras e computáveis.\n"
+)
+
+USER_PROMPT_TEMPLATE = (
+    "Contexto:\n"
+    "- nicho: {nicho}\n"
+    "- area: {area}\n"
+    "- objetivo: {objetivo}\n\n"
+    "Tarefa: recomende KPIs até 4 adequados ao contexto.\n\n"
+    "Formato OBRIGATÓRIO (array JSON bruto, sem markdown):\n"
+    "[{{\"kpi\":\"...\",\"importancia\":\"...\",\"formula\":\"...\",\"metricas\":[\"...\"]}}, ...]"
+)
+
+[validacao] Top 1 por cenario:
+- ads_imob_cpl: meta-llama-3.1-8b.Q4_K_M:latest | score=100 | tokens=523 | latency=11.656013600000733s
+- ads_telecom_cac: gemma3:4b | score=100 | tokens=546 | latency=14.897199099999852s
+- app_educacao_conv: gemma3:4b | score=100 | tokens=509 | latency=14.128248900000472s
+- attr_streaming_mix: gemma3:4b | score=100 | tokens=474 | latency=15.000855000000229s
+- brand_fintech_roas: gemma3:4b | score=100 | tokens=430 | latency=13.526640600000064s
+- comun_marketplace_ret30: gemma3:4b | score=100 | tokens=499 | latency=14.117743300000257s
+- crm_agritech_reativacao: gemma3:4b | score=100 | tokens=509 | latency=14.392056200000297s
+- crm_hotel_forecast: gemma3:4b | score=100 | tokens=505 | latency=14.163657400000375s
+- crm_ong_donativos: gemma3:4b | score=100 | tokens=500 | latency=13.887069299999894s
+- crm_solar_churn90: gemma3:4b | score=100 | tokens=520 | latency=14.08670979999988s
+- cs_saude_csat_fcr: gemma3:4b | score=100 | tokens=544 | latency=14.686215799999445s
+- devops_auto_uptime: gemma3:4b | score=100 | tokens=456 | latency=13.734289900000476s
+- growth_saasb2c_trialpaid: gemma3:4b | score=100 | tokens=485 | latency=13.956136900000274s
+- omni_telecom_sla: gemma3:4b | score=100 | tokens=457 | latency=13.551776000000245s
+- onboarding_imob_d7: meta-llama-3.1-8b.Q4_K_M:latest | score=100 | tokens=505 | latency=10.967446699999527s
+- ops_logtech_otif: gemma3:4b | score=100 | tokens=457 | latency=13.503327399999762s
+- people_conteudo_turnover: gemma3:4b | score=100 | tokens=496 | latency=14.021384300000136s
+- perfsec_saas_mrr: gemma3:4b | score=100 | tokens=446 | latency=13.535597500000222s
+- pricing_ondemand_ticket: gemma3:4b | score=100 | tokens=459 | latency=13.636586599999646s
+- prod_eventos_rsvp: gemma3:4b | score=100 | tokens=499 | latency=14.036638600000515s
+- prod_moda_entregab: gemma3:4b | score=100 | tokens=458 | latency=13.919048800000382s
+- retencao_saasb2b_churn: gemma3:4b | score=100 | tokens=472 | latency=14.026663399999961s
+- risco_mobilidade_fraude: gemma3:4b | score=100 | tokens=474 | latency=14.295988599999873s
+- sales_edcorp_cac: gemma3:4b | score=100 | tokens=485 | latency=13.885886200000641s
+- sales_gaming_checkout: gemma3:4b | score=100 | tokens=469 | latency=14.041023700000551s
+
+[validacao] Medias por modelo (todas as execucoes):
+- deepseek-r1:7b: score_medio=100.0 | n_kpis_med=4.1 | lat_media=29.193s | tokens_tot_med=787.5 (prompt=245.1, completion=542.4)
+- gpt-oss:20b: score_medio=100.0 | n_kpis_med=4.0 | lat_media=77.253s | tokens_tot_med=1071.6 (prompt=290.8, completion=780.8)
+- gemma3:4b: score_medio=96.0 | n_kpis_med=3.8 | lat_media=14.037s | tokens_tot_med=485.6 (prompt=240.8, completion=244.8)
+- meta-llama-3.1-8b.Q4_K_M:latest: score_medio=56.0 | n_kpis_med=2.2 | lat_media=12.160s | tokens_tot_med=610.1 (prompt=290.4, completion=319.7)
+- qwen3:4b: score_medio=0.0 | n_kpis_med=0.0 | lat_media=34.735s | tokens_tot_med=2303.1 (prompt=255.1, completion=2048.0)
+
+
+####################################################################################################
+
+SYSTEM_PROMPT = (
+    "Você é um especialista em KPIs.\n"
+    "Regras de saída:\n"
+    "- Responda SOMENTE com um ARRAY JSON bruto (sem markdown, sem cercas ``` e sem rótulos como 'Input:'/'Output:').\n"
+    "- Use EXATAMENTE estas chaves por item: kpi, importancia, formula, metricas (sem acentos nas chaves).\n"
+    "- Todos os VALORES TEXTUAIS devem estar em Português do Brasil.\n"
+    "- A lista deve ser concisa (apenas os KPIs essenciais ao contexto).\n"
+    "- Fórmulas curtas, claras e computáveis.\n"
+)
+
+USER_PROMPT_TEMPLATE = (
+    "Contexto:\n"
+    "- nicho: {nicho}\n"
+    "- area: {area}\n"
+    "- objetivo: {objetivo}\n\n"
+    "Tarefa: recomende KPIs adequados ao contexto.\n\n"
+    "Formato OBRIGATÓRIO (array JSON bruto, sem markdown):\n"
+    "[{{\"kpi\":\"...\",\"importancia\":\"...\",\"formula\":\"...\",\"metricas\":[\"...\"]}}, ...]"
+)
+
+[validacao] Top 1 por cenario:
+- ads_imob_cpl: deepseek-r1:7b | score=100 | tokens=1039 | latency=32.13417350000054s
+- ads_telecom_cac: meta-llama-3.1-8b.Q4_K_M:latest | score=100 | tokens=445 | latency=10.569277099999454s
+- app_educacao_conv: gemma3:4b | score=100 | tokens=520 | latency=14.563778699999602s
+- attr_streaming_mix: meta-llama-3.1-8b.Q4_K_M:latest | score=100 | tokens=465 | latency=1.8858921000000919s
+- brand_fintech_roas: meta-llama-3.1-8b.Q4_K_M:latest | score=100 | tokens=450 | latency=10.706762699999672s
+- comun_marketplace_ret30: meta-llama-3.1-8b.Q4_K_M:latest | score=100 | tokens=413 | latency=10.502391900001385s
+- crm_agritech_reativacao: gemma3:4b | score=100 | tokens=566 | latency=14.844991999998456s
+- crm_hotel_forecast: meta-llama-3.1-8b.Q4_K_M:latest | score=100 | tokens=458 | latency=11.242638499999885s
+- crm_ong_donativos: meta-llama-3.1-8b.Q4_K_M:latest | score=100 | tokens=492 | latency=11.260599799999909s
+- crm_solar_churn90: gemma3:4b | score=100 | tokens=520 | latency=14.754135299999689s
+- cs_saude_csat_fcr: gemma3:4b | score=100 | tokens=561 | latency=14.577358399999866s
+- devops_auto_uptime: meta-llama-3.1-8b.Q4_K_M:latest | score=100 | tokens=499 | latency=10.96189830000003s
+- growth_saasb2c_trialpaid: meta-llama-3.1-8b.Q4_K_M:latest | score=100 | tokens=417 | latency=10.300032899998769s
+- omni_telecom_sla: gemma3:4b | score=100 | tokens=449 | latency=13.585949700000128s
+- onboarding_imob_d7: meta-llama-3.1-8b.Q4_K_M:latest | score=100 | tokens=403 | latency=10.244447999999466s
+- ops_logtech_otif: meta-llama-3.1-8b.Q4_K_M:latest | score=100 | tokens=473 | latency=10.948988899999677s
+- people_conteudo_turnover: meta-llama-3.1-8b.Q4_K_M:latest | score=100 | tokens=441 | latency=10.750507300001118s
+- perfsec_saas_mrr: meta-llama-3.1-8b.Q4_K_M:latest | score=100 | tokens=482 | latency=10.960199799999828s
+- pricing_ondemand_ticket: gemma3:4b | score=100 | tokens=443 | latency=14.144358300000022s
+- prod_eventos_rsvp: meta-llama-3.1-8b.Q4_K_M:latest | score=100 | tokens=473 | latency=11.085608799998226s
+- prod_moda_entregab: gemma3:4b | score=100 | tokens=463 | latency=13.719585800001369s
+- retencao_saasb2b_churn: meta-llama-3.1-8b.Q4_K_M:latest | score=100 | tokens=481 | latency=11.27049260000058s
+- risco_mobilidade_fraude: gemma3:4b | score=100 | tokens=472 | latency=13.869050999999672s
+- sales_edcorp_cac: gemma3:4b | score=100 | tokens=547 | latency=14.876584400000866s
+- sales_gaming_checkout: meta-llama-3.1-8b.Q4_K_M:latest | score=100 | tokens=447 | latency=10.685251500000959s
+
+[validacao] Medias por modelo (todas as execucoes):
+- deepseek-r1:7b: score_medio=100.0 | n_kpis_med=6.2 | lat_media=32.806s | tokens_tot_med=1037.3 (prompt=242.1, completion=795.2)
+- gpt-oss:20b: score_medio=100.0 | n_kpis_med=6.6 | lat_media=96.088s | tokens_tot_med=1455.2 (prompt=287.8, completion=1167.4)
+- gemma3:4b: score_medio=96.0 | n_kpis_med=4.5 | lat_media=14.754s | tokens_tot_med=522.2 (prompt=237.8, completion=284.4)
+- meta-llama-3.1-8b.Q4_K_M:latest: score_medio=68.0 | n_kpis_med=2.0 | lat_media=11.091s | tokens_tot_med=512.4 (prompt=287.4, completion=225.0)
+- qwen3:4b: score_medio=4.0 | n_kpis_med=0.1 | lat_media=34.474s | tokens_tot_med=2296.2 (prompt=252.1, completion=2044.2)
