@@ -66,7 +66,6 @@ RESULTS_JSONL = os.path.join(BASE_DIR, "benchmark_results.json")
 # =========================
 
 def to_jsonable(obj):
-    """Converte objetos (Pydantic v2/v1, dataclasses, mappings, sequências) em tipos nativos JSON-serializáveis."""
     try:
         if obj is None or isinstance(obj, (str, int, float, bool)):
             return obj

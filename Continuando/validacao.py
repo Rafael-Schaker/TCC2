@@ -36,6 +36,29 @@ def _strip_accents(s: str) -> str:
     nfkd = unicodedata.normalize("NFKD", s)
     return "".join(ch for ch in nfkd if not unicodedata.combining(ch))
 
+def _canonical_key(k: str) -> str:
+    """
+    Padroniza CHAVES: remove acentos, espaços extras e mapeia variações comuns
+    para um nome canônico. Ex.: 'Importância' -> 'importancia'; 'métricas' -> 'metricas'.
+    """
+    if not isinstance(k, str):
+        k = str(k)
+
+    nk = _strip_accents(k).strip().lower()
+
+    # Mapeamento de aliases (pode ampliar se quiser)
+    if nk in ("kpi", "kpis"):
+        return "kpi"
+    if nk in ("importancia", "importância"):   # com ou sem acento
+        return "importancia"
+    if nk in ("formula", "fórmula"):
+        return "formula"
+    if nk in ("metricas", "métricas", "metrica", "métrica"):
+        return "metricas"
+
+    # fallback: retorna o normalizado
+    return nk
+
 # =========================
 # Parsing & Validação das respostas dos modelos
 # =========================
@@ -65,10 +88,10 @@ def tentar_parse_json(texto: str) -> Optional[List[dict]]:
         return None
 
 def _normalize_item_keys(obj: dict) -> dict:
-    """Normaliza CHAVES do item (remove acentos, lower, strip)."""
+    """Normaliza CHAVES do item (acentos, caixa, espaços) e aplica aliases canônicos."""
     normalized = {}
     for k, v in obj.items():
-        nk = _strip_accents(str(k)).strip().lower()
+        nk = _canonical_key(k)
         normalized[nk] = v
     return normalized
 
@@ -88,7 +111,7 @@ def _coerce_item_types(item: dict) -> dict:
 
 def validar_saida(parsed: Optional[List[dict]]) -> Dict[str, Any]:
     """
-    Score simples (0–100), tolerante a acentos nas CHAVES originais:
+    Score simples (0–100), tolerante a acentos/variações nas CHAVES originais:
       - JSON válido (40)
       - todos campos presentes (30)
       - fórmulas não vazias (30)
@@ -187,7 +210,7 @@ def load_records(base_dir: Optional[str] = None) -> Tuple[List[dict], str]:
     """Carrega APENAS benchmark_results.json do diretório informado (ou atual)."""
     if base_dir is None:
         base_dir = os.path.dirname(os.path.abspath(__file__))
-    p_json = os.path.join(base_dir, "benchmark_results copy.json")
+    p_json = os.path.join(base_dir, "benchmark_results.json")
     recs = _load_records_from_json_allow_jsonl(p_json)
     return recs, p_json
 

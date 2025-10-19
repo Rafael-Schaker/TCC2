@@ -53,7 +53,6 @@ USER_PROMPT_TEMPLATE = (
 - meta-llama-3.1-8b.Q4_K_M:latest: score_medio=56.0 | n_kpis_med=2.2 | lat_media=12.160s | tokens_tot_med=610.1 (prompt=290.4, completion=319.7)
 - qwen3:4b: score_medio=0.0 | n_kpis_med=0.0 | lat_media=34.735s | tokens_tot_med=2303.1 (prompt=255.1, completion=2048.0)
 
-
 ####################################################################################################
 
 SYSTEM_PROMPT = (
