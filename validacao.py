@@ -64,12 +64,7 @@ def _canonical_key(k: str) -> str:
 # =========================
 
 def tentar_parse_json(texto: str) -> Optional[List[dict]]:
-    """
-    Tenta parsear a resposta do modelo como JSON (array):
-      1) Limpa cercas/ruídos
-      2) Tenta JSON direto
-      3) Tenta extrair primeiro array JSON
-    """
+
     texto = _strip_code_fences(_strip_reasoning(texto))
     # 1) json direto
     try:
@@ -162,15 +157,10 @@ def validar_saida(parsed: Optional[List[dict]]) -> Dict[str, Any]:
     return result
 
 # =========================
-# Carregamento dos resultados (APENAS benchmark_results.json)
+# Carregamento dos resultados
 # =========================
 
-def _load_records_from_json_allow_jsonl(path: str) -> List[dict]:
-    """
-    Lê SOMENTE o arquivo 'benchmark_results.json'.
-    - Primeiro tenta como ARRAY JSON.
-    - Se falhar, tenta interpretar o MESMO arquivo como JSONL (um objeto por linha).
-    """
+def _load_records(path: str) -> List[dict]:
     if not os.path.exists(path):
         raise FileNotFoundError(f"Arquivo não encontrado: {path}")
 
@@ -201,17 +191,15 @@ def _load_records_from_json_allow_jsonl(path: str) -> List[dict]:
             return recs
         # se não conseguiu, propaga erro claro
         raise json.JSONDecodeError(
-            "benchmark_results.json não é um array JSON nem JSONL válido.",
             doc=text,
             pos=0
         )
 
 def load_records(base_dir: Optional[str] = None) -> Tuple[List[dict], str]:
-    """Carrega APENAS benchmark_results.json do diretório informado (ou atual)."""
     if base_dir is None:
         base_dir = os.path.dirname(os.path.abspath(__file__))
     p_json = os.path.join(base_dir, "benchmark_results.json")
-    recs = _load_records_from_json_allow_jsonl(p_json)
+    recs = _load_records(p_json)
     return recs, p_json
 
 # =========================
