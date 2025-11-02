@@ -1,309 +1,140 @@
+# validate_results.py
 import json
-import os
 import re
 import unicodedata
-from typing import Any, Dict, List, Optional, Tuple
+from collections import defaultdict
+from math import sqrt
 
-import pandas as pd
+# === Cole aqui o dict Python do gabarito (o bloco "gabarito_cenarios" acima) ===
+GABARITO_CENARIOS = {...}  # <- SUBSTITUA pelo dict do gabarito (mesma estrutura)
 
-# =========================
-# Helpers de texto
-# =========================
+def norm(txt: str) -> str:
+    if not isinstance(txt, str): return ""
+    t = unicodedata.normalize("NFKD", txt).encode("ascii","ignore").decode("ascii")
+    t = re.sub(r"[^a-z0-9]+", " ", t.lower()).strip()
+    return t
 
-def _strip_reasoning(text: str) -> str:
-    if not isinstance(text, str):
-        return ""
-    text = re.sub(r"<think>.*?</think>", "", text, flags=re.DOTALL | re.IGNORECASE)
-    return text.strip()
-
-def _strip_code_fences(text: str) -> str:
-    if not isinstance(text, str):
-        return ""
-    text = re.sub(r"^\s*```[a-zA-Z0-9]*\s*\n", "", text)
-    text = re.sub(r"\n\s*```\s*$", "", text)
-    text = re.sub(r"(?i)(^|\n)\s*(input|output)\s*:\s*", "\n", text)
-    return text.strip()
-
-def _first_json_array_block(text: str) -> Optional[str]:
-    """Retorna a string do primeiro bloco que parece um array JSON."""
-    m = re.search(r"\[\s*{.*}\s*\]", text, flags=re.DOTALL)
-    return m.group(0) if m else None
-
-def _strip_accents(s: str) -> str:
-    """Remove acentos/diacríticos de uma string (para normalização de CHAVES)."""
-    if not isinstance(s, str):
-        return s
-    nfkd = unicodedata.normalize("NFKD", s)
-    return "".join(ch for ch in nfkd if not unicodedata.combining(ch))
-
-def _canonical_key(k: str) -> str:
+def extract_kpis_from_record(rec: dict) -> list[str]:
     """
-    Padroniza CHAVES: remove acentos, espaços extras e mapeia variações comuns
-    para um nome canônico. Ex.: 'Importância' -> 'importancia'; 'métricas' -> 'metricas'.
+    Tenta extrair nomes de KPIs de diferentes formatos:
+    - rec["output_json"] já parseado (lista com objetos {kpi,...})
+    - rec["json"] string com um array JSON
+    - rec["output"] / rec["response"] texto com bullets "1. Nome"
+    Retorna lista de strings (nomes de KPI).
     """
-    if not isinstance(k, str):
-        k = str(k)
+    # 1) caminho direto: lista JSON já estruturada
+    for key in ("output_json","prediction_json","result_json"):
+        if isinstance(rec.get(key), list):
+            return [str(x.get("kpi","")).strip() for x in rec[key] if isinstance(x, dict)]
+    # 2) string JSON
+    for key in ("json","output","response","text"):
+        raw = rec.get(key)
+        if isinstance(raw, str):
+            # tenta achar primeiro array JSON
+            m = re.search(r"\[[\s\S]*\]", raw)
+            if m:
+                try:
+                    arr = json.loads(m.group(0))
+                    if isinstance(arr, list):
+                        return [str(x.get("kpi","")).strip() for x in arr if isinstance(x, dict)]
+                except Exception:
+                    pass
+            # fallback: bullets "1. KPI" / linhas com "• Fórmula:"
+            lines = [l.strip() for l in raw.splitlines() if l.strip()]
+            names = []
+            for ln in lines:
+                m1 = re.match(r"^\d+\.\s*(.+)$", ln)
+                if m1:
+                    names.append(m1.group(1).strip())
+                elif "• Fórmula" in ln and names and names[-1].endswith(":"):
+                    # não necessário aqui; manter simples
+                    pass
+            if names: return names
+    return []
 
-    nk = _strip_accents(k).strip().lower()
-
-    # Mapeamento de aliases (pode ampliar se quiser)
-    if nk in ("kpi", "kpis"):
-        return "kpi"
-    if nk in ("importancia", "importância"):   # com ou sem acento
-        return "importancia"
-    if nk in ("formula", "fórmula"):
-        return "formula"
-    if nk in ("metricas", "métricas", "metrica", "métrica"):
-        return "metricas"
-
-    # fallback: retorna o normalizado
-    return nk
-
-# =========================
-# Parsing & Validação das respostas dos modelos
-# =========================
-
-def tentar_parse_json(texto: str) -> Optional[List[dict]]:
-
-    texto = _strip_code_fences(_strip_reasoning(texto))
-    # 1) json direto
-    try:
-        parsed = json.loads(texto)
-        if isinstance(parsed, list):
-            return parsed
-    except Exception:
-        pass
-    # 2) primeiro array no texto
-    bloco = _first_json_array_block(texto)
-    if not bloco:
-        return None
-    try:
-        return json.loads(bloco)
-    except Exception:
-        return None
-
-def _normalize_item_keys(obj: dict) -> dict:
-    """Normaliza CHAVES do item (acentos, caixa, espaços) e aplica aliases canônicos."""
-    normalized = {}
-    for k, v in obj.items():
-        nk = _canonical_key(k)
-        normalized[nk] = v
-    return normalized
-
-def _coerce_item_types(item: dict) -> dict:
-    """Garante tipos básicos esperados."""
-    out = dict(item)
-    out["kpi"] = str(out.get("kpi", "") or "")
-    out["importancia"] = str(out.get("importancia", "") or "")
-    out["formula"] = str(out.get("formula", "") or "")
-    mets = out.get("metricas", [])
-    if mets is None:
-        mets = []
-    if not isinstance(mets, list):
-        mets = [mets]
-    out["metricas"] = [str(x) for x in mets]
-    return out
-
-def validar_saida(parsed: Optional[List[dict]]) -> Dict[str, Any]:
-    """
-    Score simples (0–100), tolerante a acentos/variações nas CHAVES originais:
-      - JSON válido (40)
-      - todos campos presentes (30)
-      - fórmulas não vazias (30)
-    Retorna também a lista normalizada.
-    """
-    result = {
-        "valid_json": False,
-        "n_kpis": 0,
-        "all_fields_present": False,
-        "has_formulas": False,
-        "adherence_score": 0,
-        "normalized": None,
-    }
-
-    if not isinstance(parsed, list) or len(parsed) == 0:
-        return result
-
-    norm_list = []
-    fields_ok = True
-    formulas_ok = True
-
-    for raw in parsed:
-        if not isinstance(raw, dict):
-            fields_ok = False
-            continue
-        item = _normalize_item_keys(raw)
-        item = _coerce_item_types(item)
-        if not all(k in item for k in ("kpi", "importancia", "formula", "metricas")):
-            fields_ok = False
-        if not item.get("formula", "").strip():
-            formulas_ok = False
-        norm_list.append(item)
-
-    result["valid_json"] = True
-    result["n_kpis"] = len(norm_list)
-    result["all_fields_present"] = fields_ok
-    result["has_formulas"] = formulas_ok
-    result["normalized"] = norm_list
-
-    score = 0
-    if result["valid_json"]:
-        score += 40
-    if fields_ok:
-        score += 30
-    if formulas_ok:
-        score += 30
-    result["adherence_score"] = score
-    return result
-
-# =========================
-# Carregamento dos resultados
-# =========================
-
-def _load_records(path: str) -> List[dict]:
-    if not os.path.exists(path):
-        raise FileNotFoundError(f"Arquivo não encontrado: {path}")
-
+def load_results(path: str) -> list[dict]:
     with open(path, "r", encoding="utf-8") as f:
-        text = f.read().strip()
+        data = json.load(f)
+    # suporta lista simples ou dict com 'results'
+    if isinstance(data, dict) and isinstance(data.get("results"), list):
+        return data["results"]
+    if isinstance(data, list):
+        return data
+    raise ValueError(f"Formato não suportado em {path}")
 
-    # 1) Tenta array JSON puro
-    try:
-        data = json.loads(text)
-        if isinstance(data, list):
-            return data
-        raise ValueError("Conteúdo do .json não é um ARRAY JSON.")
-    except json.JSONDecodeError:
-        # 2) Interpreta como JSONL (um objeto por linha)
-        recs: List[dict] = []
-        for ln in text.splitlines():
-            ln = ln.strip()
-            if not ln:
-                continue
-            try:
-                obj = json.loads(ln)
-                if isinstance(obj, dict):
-                    recs.append(obj)
-            except Exception:
-                # ignora linhas inválidas
-                continue
-        if recs:
-            return recs
-        # se não conseguiu, propaga erro claro
-        raise json.JSONDecodeError(
-            doc=text,
-            pos=0
-        )
-
-def load_records(base_dir: Optional[str] = None) -> Tuple[List[dict], str]:
-    if base_dir is None:
-        base_dir = os.path.dirname(os.path.abspath(__file__))
-    p_json = os.path.join(base_dir, "benchmark_results.json")
-    recs = _load_records(p_json)
-    return recs, p_json
-
-# =========================
-# Pós-validação
-# =========================
-
-def avaliar_registros(regs: List[dict]) -> pd.DataFrame:
-    """Aplica parsing/validação por registro e retorna DataFrame com métricas + scores."""
-    linhas = []
-    for r in regs:
-        scenario = r.get("scenario") or {}
-        scenario_id = scenario.get("id") or r.get("scenario_id") or ""
-        model = r.get("model") or ""
-        latency_s = r.get("latency_s")
-        prompt_tokens = r.get("prompt_tokens")
-        completion_tokens = r.get("completion_tokens")
-        total_tokens = r.get("total_tokens")
-        content = r.get("content") or ""
-
-        parsed = tentar_parse_json(content) if content else None
-        qual = validar_saida(parsed)
-
-        linhas.append({
-            "scenario_id": scenario_id,
-            "model": model,
-            "latency_s": latency_s,
-            "prompt_tokens": prompt_tokens,
-            "completion_tokens": completion_tokens,
-            "total_tokens": total_tokens,
-            "valid_json": qual["valid_json"],
-            "n_kpis": qual["n_kpis"],
-            "fields_ok": qual["all_fields_present"],
-            "has_formulas": qual["has_formulas"],
-            "adherence_score": qual["adherence_score"],
-        })
-
-    df = pd.DataFrame(linhas)
-    # Tipos numéricos seguros
-    for col in ["latency_s", "prompt_tokens", "completion_tokens", "total_tokens", "adherence_score", "n_kpis"]:
-        if col in df.columns:
-            df[col] = pd.to_numeric(df[col], errors="coerce")
-    return df
-
-def resumo_console(df: pd.DataFrame) -> None:
-    if df.empty:
-        print("(validacao) Nenhum registro válido encontrado.")
-        return
-
-    sort_cols = ["adherence_score", "total_tokens", "latency_s"]
-    ascending = [False, True, True]
-    top_por_cenario = (
-        df.sort_values(sort_cols, ascending=ascending)
-          .groupby("scenario_id", as_index=False)
-          .first()[["scenario_id", "model", "adherence_score", "total_tokens", "latency_s"]]
-    )
-
-    print("\n[validacao] Top 1 por cenario:")
-    for _, r in top_por_cenario.iterrows():
-        print(f"- {r['scenario_id']}: {r['model']} | score={r['adherence_score']} | "
-              f"tokens={r['total_tokens']} | latency={r['latency_s']}s")
-
-    medias = (
-        df.groupby("model", as_index=False)[
-            ["latency_s", "prompt_tokens", "completion_tokens", "total_tokens", "adherence_score", "n_kpis"]
-        ]
-        .mean(numeric_only=True)
-        .sort_values(["adherence_score", "total_tokens", "latency_s"], ascending=[False, True, True])
-    )
-
-    print("\n[validacao] Medias por modelo (todas as execucoes):")
-    for _, r in medias.iterrows():
-        print(f"- {r['model']}: score_medio={r['adherence_score']:.1f} | "
-              f"n_kpis_med={r['n_kpis']:.1f} | "
-              f"lat_media={r['latency_s']:.3f}s | tokens_tot_med={r['total_tokens']:.1f} "
-              f"(prompt={r['prompt_tokens']:.1f}, completion={r['completion_tokens']:.1f})")
-
-def exportar_csv(df: pd.DataFrame, base_dir: Optional[str] = None) -> str:
-    """Exporta um CSV com as métricas + scores. Retorna o caminho."""
-    if base_dir is None:
-        base_dir = os.path.dirname(os.path.abspath(__file__))
-    out = os.path.join(base_dir, "benchmark_results_scored.csv")
-    df.to_csv(out, index=False, encoding="utf-8-sig")
-    return out
-
-# =========================
-# CLI
-# =========================
+def compare_sets(pred: set[str], gold: set[str], universo: set[str]) -> dict:
+    TP = len(pred & gold)
+    FP = len(pred - gold)
+    FN = len(gold - pred)
+    # Para TN, usamos um universo fixo de KPIs (catálogo)
+    TN = max(len(universo) - (TP + FP + FN), 0)
+    precision = TP / (TP + FP) if (TP+FP) else 0.0
+    recall    = TP / (TP + FN) if (TP+FN) else 0.0
+    f1        = (2*precision*recall)/(precision+recall) if (precision+recall) else 0.0
+    denom = (TP+FP)*(TP+FN)*(TN+FP)*(TN+FN)
+    mcc = ((TP*TN - FP*FN) / sqrt(denom)) if denom>0 else 0.0
+    npv = TN / (TN + FN) if (TN+FN) else 0.0
+    fdr = FP / (TP + FP) if (TP+FP) else 0.0
+    return {"TP":TP,"FP":FP,"FN":FN,"TN":TN,
+            "precision":precision,"recall":recall,"f1":f1,
+            "mcc":mcc,"npv":npv,"fdr":fdr}
 
 def main():
-    try:
-        regs, origem = load_records()
-        print(f"(validacao) Carregado: {origem} | registros={len(regs)}")
-    except Exception as e:
-        print(f"(validacao) ERRO ao carregar resultados: {type(e).__name__}: {e}")
-        return
+    # Universo: todos KPIs do catálogo
+    # Se preferir, derive do seu catálogo carregando o arquivo.
+    UNIVERSO = {
+        # nomes normalizados dos KPIs do catálogo (mesmos do bloco do catálogo)
+        "taxa de conversao","cac","cpl","roas","aov","arpu","mrr","ltv cac",
+        "churn de clientes","retencao 30d","ctr","opt in rate","reativacao 30d",
+        "bounce rate site","payback cac","revenue growth","cash conversion cycle",
+        "inventory turnover","fill rate","lead time de pedido","otif","deployment frequency",
+        "lead time for changes","change failure rate","mttr","disponibilidade",
+        "error budget burn","build success rate","defect escape rate","ticket deflection",
+        "backlog aberto","average deal size","win rate","quota attainment",
+        "upsell cross sell rate","revenue per message","engajamento composto",
+        "taxa de abertura","mql rate"
+    }
 
-    df = avaliar_registros(regs)
-    if df.empty:
-        print("(validacao) Sem linhas para avaliar.")
-        return
+    files = ["results_wcap.json","result.json"]
+    agregado = defaultdict(list)
 
-    resumo_console(df)
-    out_csv = exportar_csv(df)
-    print(f"\n(validacao) CSV com scores salvo em: {out_csv}")
+    for fpath in files:
+        try:
+            rows = load_results(fpath)
+        except Exception as e:
+            print(f"[AVISO] Não consegui ler {fpath}: {e}")
+            continue
+
+        por_cenario = defaultdict(list)
+        for r in rows:
+            sid = r.get("scenario_id") or r.get("scenario") or r.get("id")
+            if not sid: continue
+            pred_names = [norm(n) for n in extract_kpis_from_record(r) if n]
+            por_cenario[sid].extend([p for p in pred_names if p])
+
+        # consolida por cenário (set)
+        metrics_sum = {"TP":0,"FP":0,"FN":0,"TN":0,"precision":0,"recall":0,"f1":0,"mcc":0,"npv":0,"fdr":0}
+        ncen = 0
+
+        print(f"\n==== Arquivo: {fpath} ====")
+        for sid, preds in por_cenario.items():
+            gold = {norm(x["kpi"]) for x in GABARITO_CENARIOS.get(sid, [])}
+            if not gold: 
+                # cenário sem gabarito — pula para não enviesar
+                continue
+            pred = set(preds)
+            res = compare_sets(pred, gold, UNIVERSO)
+            ncen += 1
+            for k in metrics_sum: metrics_sum[k] += res[k] if k in res else 0
+            print(f"- {sid}: P={res['precision']:.2f} R={res['recall']:.2f} F1={res['f1']:.2f} MCC={res['mcc']:.2f} (TP={res['TP']}, FP={res['FP']}, FN={res['FN']})")
+
+        if ncen:
+            media = {k:(metrics_sum[k]/ncen if k not in ("TP","FP","FN","TN") else metrics_sum[k]) for k in metrics_sum}
+            print(f"\nResumo {fpath} (média por cenário):")
+            print(f"Precision={media['precision']:.3f} | Recall={media['recall']:.3f} | F1={media['f1']:.3f} | MCC={media['mcc']:.3f} | NPV={media['npv']:.3f} | FDR={media['fdr']:.3f}")
+            print(f"Totais: TP={media['TP']} FP={media['FP']} FN={media['FN']} TN={media['TN']}")
+        else:
+            print("Nenhum cenário válido com gabarito encontrado neste arquivo.")
 
 if __name__ == "__main__":
     main()

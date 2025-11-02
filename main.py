@@ -2,6 +2,7 @@ import dataclasses
 import hashlib
 import json
 import os
+import re
 import time
 import uuid
 from collections.abc import Mapping, Sequence
@@ -16,12 +17,8 @@ from langchain_core.prompts import ChatPromptTemplate
 
 MODELOS = [
     "meta-llama-3.1-8b.Q4_K_M:latest",
-    "gpt-oss:20b",
-    "qwen3:4b",
-    "gemma3:4b",
-    "deepseek-r1:7b",
+    "llama-3.1:8b",
 ]
-
 SCENARIOS = [
     {"id": "attr_streaming_mix",          "nicho": "Mídia/Publisher & Streaming",     "area": "Atribuição & Mix de Canais",     "objetivo": "otimizar o mix de canais para contribuição real e elevar ROAS em 15%"},
     {"id": "ads_telecom_cac",             "nicho": "Telecom & Internet",              "area": "Aquisição de Tráfego",            "objetivo": "reduzir o CAC em 20% mantendo volume de novos clientes"},
@@ -50,7 +47,6 @@ SCENARIOS = [
     {"id": "ads_imob_cpl",                "nicho": "Imobiliário / Portais de leads",   "area": "Aquisição de Tráfego",            "objetivo": "reduzir CPL em 20% preservando taxa de qualificação >= 35%"},
 ]
 
-
 TEMPERATURE = 0.3
 SEED = 423
 KEEP_ALIVE = "10m"
@@ -58,7 +54,8 @@ NUM_CTX = 4096
 MAX_NEW_TOKENS = 2048
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-RESULTS_JSONL = os.path.join(BASE_DIR, "benchmark_results.json")
+RESULTS_UNLIMITED_JSON = os.path.join(BASE_DIR, "results.json")
+RESULTS_LIMITED_JSON   = os.path.join(BASE_DIR, "results_wcap.json")
 
 # =========================
 # Utils
@@ -72,9 +69,9 @@ def to_jsonable(obj):
             return obj.decode("utf-8", "replace")
         if dataclasses.is_dataclass(obj):
             return dataclasses.asdict(obj)
-        if hasattr(obj, "model_dump"):      # Pydantic v2
+        if hasattr(obj, "model_dump"):
             return obj.model_dump()
-        if hasattr(obj, "dict"):            # Pydantic v1
+        if hasattr(obj, "dict"):
             return obj.dict()
         if isinstance(obj, Mapping):
             return {to_jsonable(k): to_jsonable(v) for k, v in obj.items()}
@@ -83,6 +80,24 @@ def to_jsonable(obj):
     except Exception:
         pass
     return repr(obj)
+
+ARRAY_RE = re.compile(r"\[\s*{.*?}\s*\]", flags=re.DOTALL)
+
+def sanitize_output_to_array_text(content: str) -> str:
+    """
+    Extrai o primeiro array JSON `[...]` do texto (remove cercas ```),
+    mantendo retorno em TEXTO (formato B requer `output` como string).
+    """
+    if not isinstance(content, str):
+        return ""
+    txt = content.strip()
+    # remove cercas ```...``` se houver
+    if txt.startswith("```"):
+        txt = re.sub(r"^```[a-zA-Z0-9_+-]*\s*", "", txt)
+        txt = re.sub(r"\s*```$", "", txt)
+    # tenta capturar o primeiro array JSON
+    m = ARRAY_RE.search(txt)
+    return m.group(0) if m else txt
 
 # =========================
 # Prompts
@@ -98,7 +113,7 @@ SYSTEM_PROMPT = (
     "- Fórmulas curtas, claras e computáveis.\n"
 )
 
-USER_PROMPT_TEMPLATE = (
+USER_PROMPT_LIMITED = (
     "Contexto:\n"
     "- nicho: {nicho}\n"
     "- area: {area}\n"
@@ -108,10 +123,20 @@ USER_PROMPT_TEMPLATE = (
     "[{{\"kpi\":\"...\",\"importancia\":\"...\",\"formula\":\"...\",\"metricas\":[\"...\"]}}, ...]"
 )
 
-def montar_mensagens(scenario: Dict[str, Any]) -> Tuple[str, str]:
+USER_PROMPT_UNLIMITED = (
+    "Contexto:\n"
+    "- nicho: {nicho}\n"
+    "- area: {area}\n"
+    "- objetivo: {objetivo}\n\n"
+    "Tarefa: recomende KPIs adequados ao contexto.\n\n"
+    "Formato OBRIGATÓRIO (array JSON bruto, sem markdown):\n"
+    "[{{\"kpi\":\"...\",\"importancia\":\"...\",\"formula\":\"...\",\"metricas\":[\"...\"]}}, ...]"
+)
+
+def montar_mensagens(scenario: Dict[str, Any], limited: bool) -> Tuple[str, str]:
     template = ChatPromptTemplate.from_messages([
         ("system", SYSTEM_PROMPT),
-        ("human", USER_PROMPT_TEMPLATE),
+        ("human", USER_PROMPT_LIMITED if limited else USER_PROMPT_UNLIMITED),
     ])
     msgs = template.format_messages(
         nicho=scenario["nicho"],
@@ -126,7 +151,6 @@ def montar_mensagens(scenario: Dict[str, Any]) -> Tuple[str, str]:
 
 def run_ollama_chat(model: str, system_msg: str, user_msg: str) -> Dict[str, Any]:
     t0 = time.perf_counter()
-    
     resp = ollama.chat(
         model=model,
         messages=[
@@ -144,7 +168,7 @@ def run_ollama_chat(model: str, system_msg: str, user_msg: str) -> Dict[str, Any
     )
     latency_s = time.perf_counter() - t0
 
-    content = ""
+    # extrai conteúdo
     try:
         content = (resp.get("message", {}) or {}).get("content", "") or ""
     except AttributeError:
@@ -173,46 +197,82 @@ def run_ollama_chat(model: str, system_msg: str, user_msg: str) -> Dict[str, Any
         "raw": to_jsonable(resp),
     }
 
+# =========================
+# Main
+# =========================
+
 def main():
     request_id = str(uuid.uuid4())
 
-    with open(RESULTS_JSONL, "w", encoding="utf-8") as _f:
-        pass
+    results_unlimited = []
+    results_limited   = []
 
     for sc in SCENARIOS:
-        system_msg, user_msg = montar_mensagens(sc)
-        prompt_hash = hashlib.sha256((system_msg + "\n" + user_msg).encode("utf-8")).hexdigest()[:12]
-
         for model in MODELOS:
+            # ------ UNLIMITED ------
             try:
+                system_msg, user_msg = montar_mensagens(sc, limited=False)
+                prompt_hash = hashlib.sha256((system_msg + "\n" + user_msg).encode("utf-8")).hexdigest()[:12]
                 run = run_ollama_chat(model, system_msg, user_msg)
-                registro = {
+                results_unlimited.append({
                     "request_id": request_id,
-                    "scenario": sc,
+                    "scenario_id": sc["id"],
                     "model": model,
-                    "system_msg": system_msg,
-                    "user_msg": user_msg,
+                    "condition": "unlimited",
                     "prompt_hash": prompt_hash,
                     "latency_s": run["latency_s"],
                     "prompt_tokens": run["prompt_tokens"],
                     "completion_tokens": run["completion_tokens"],
                     "total_tokens": run["total_tokens"],
-                    "content": run["content"],    
-                    "raw": to_jsonable(run["raw"]),
-                }
-            except Exception as e:
-                registro = {
-                    "request_id": request_id,
-                    "scenario": sc,
-                    "model": model,
+                    # formato B: output como TEXTO (array JSON bruto ou texto original)
+                    "output": sanitize_output_to_array_text(run["content"]),
+                    # campos extras úteis (opcionais):
                     "system_msg": system_msg,
                     "user_msg": user_msg,
-                    "prompt_hash": prompt_hash,
+                })
+            except Exception as e:
+                results_unlimited.append({
+                    "request_id": request_id,
+                    "scenario_id": sc.get("id"),
+                    "model": model,
+                    "condition": "unlimited",
                     "error": f"{type(e).__name__}: {e}",
-                }
+                })
 
-            with open(RESULTS_JSONL, "a", encoding="utf-8") as f:
-                f.write(json.dumps(registro, ensure_ascii=False) + "\n")
+            # ------ LIMITED (até 4 KPIs) ------
+            try:
+                system_msg, user_msg = montar_mensagens(sc, limited=True)
+                prompt_hash = hashlib.sha256((system_msg + "\n" + user_msg).encode("utf-8")).hexdigest()[:12]
+                run = run_ollama_chat(model, system_msg, user_msg)
+                results_limited.append({
+                    "request_id": request_id,
+                    "scenario_id": sc["id"],
+                    "model": model,
+                    "condition": "limited",
+                    "prompt_hash": prompt_hash,
+                    "latency_s": run["latency_s"],
+                    "prompt_tokens": run["prompt_tokens"],
+                    "completion_tokens": run["completion_tokens"],
+                    "total_tokens": run["total_tokens"],
+                    "output": sanitize_output_to_array_text(run["content"]),
+                    "system_msg": system_msg,
+                    "user_msg": user_msg,
+                })
+            except Exception as e:
+                results_limited.append({
+                    "request_id": request_id,
+                    "scenario_id": sc.get("id"),
+                    "model": model,
+                    "condition": "limited",
+                    "error": f"{type(e).__name__}: {e}",
+                })
+
+    # grava no formato B: topo é uma LISTA
+    with open(RESULTS_UNLIMITED_JSON, "w", encoding="utf-8") as f:
+        json.dump(results_unlimited, f, ensure_ascii=False, indent=2)
+
+    with open(RESULTS_LIMITED_JSON, "w", encoding="utf-8") as f:
+        json.dump(results_limited, f, ensure_ascii=False, indent=2)
 
 if __name__ == "__main__":
     main()
