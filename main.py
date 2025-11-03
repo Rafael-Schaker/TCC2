@@ -399,6 +399,10 @@ def main():
     log(f"[Init] results (unlimited): {RESULTS_UNLIMITED_JSON}")
     log(f"[Init] results (limited)  : {RESULTS_LIMITED_JSON}")
 
+    for m in MODELOS:
+        if not _model_disponivel(m):
+            log(f"[WARN] Modelo não encontrado via ollama.list(): {m} (tentarei mesmo assim)")
+
     request_id = str(uuid.uuid4())
     results_unlimited: List[Dict[str, Any]] = []
     results_limited:   List[Dict[str, Any]] = []
@@ -459,7 +463,6 @@ def main():
                     "output": out_text,
                     "parsed_items": items,
                     "valid": valid,
-                    "issues": issues,
                 }
                 log(f"[OK] limited   -> {model} (valid={valid}, items={len(items)})")
             except Exception as e:

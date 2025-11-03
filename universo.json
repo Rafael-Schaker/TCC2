@@ -1,4 +1,4 @@
-UNIVERSO = {
+[
     "Taxa de Retorno sobre Atribuição",
     "Taxa de Conversão por Canal",
     "Custo por Atribuição por Canal",
@@ -366,4 +366,5 @@ UNIVERSO = {
     "Tempo de checkout (s)",
     "Abandono de checkout (%)",
     "ARPPU (R$)",
-}
+
+]
