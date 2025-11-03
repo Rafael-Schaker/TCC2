@@ -1,0 +1,200 @@
+{
+    "ads_imob_cpl": [
+        {"kpi": "CPL"},
+        {"kpi": "Taxa de Qualificação"},
+        {"kpi": "CPA"},
+        {"kpi": "CTR"},
+        {"kpi": "CPL (Custo por Lead)"},
+        {"kpi": "Taxa de Conversão de Landing Page"}
+    ],
+    "ads_telecom_cac": [
+        {"kpi": "CAC"},
+        {"kpi": "CPL"},
+        {"kpi": "Win Rate"},
+        {"kpi": "CTR"},
+        {"kpi": "Taxa de Conversão"},
+        {"kpi": "CPC"},
+        {"kpi": "CPL (Custo por Lead)"},
+        {"kpi": "Taxa de Qualificação"},
+        {"kpi": "Taxa de Conversão por Canal"},
+        {"kpi": "Custo por Aquisição (CPA)"},
+        {"kpi": "Conversão por Dispositivo"}
+    ],
+    "app_educacao_conv": [
+        {"kpi": "Taxa de Conversão"},
+        {"kpi": "DAU/MAU"},
+        {"kpi": "Taxa de Conclusão de Curso"},
+        {"kpi": "Taxa de Retenção 30d"},
+        {"kpi": "Churn de Usuários"},
+        {"kpi": "NPS"},
+        {"kpi": "Taxa de Conversão de Onboarding"},
+        {"kpi": "Bounce Rate"}
+    ],
+    "attr_streaming_mix": [
+        {"kpi": "ROAS"},
+        {"kpi": "CPA"},
+        {"kpi": "Attribution Share"},
+        {"kpi": "Incremental Revenue"},
+        {"kpi": "Taxa de Retorno sobre Atribuição"},
+        {"kpi": "Taxa de Conversão por Canal"},
+        {"kpi": "Custo por Atribuição por Canal"},
+        {"kpi": "Taxa de Retorno sobre Investimento"},
+        {"kpi": "Share of Voice"},
+        {"kpi": "CTR"},
+        {"kpi": "CPM"},
+        {"kpi": "CPC"}
+    ],
+    "brand_fintech_roas": [
+        {"kpi": "ROAS"},
+        {"kpi": "Share of Voice"},
+        {"kpi": "CTR"},
+        {"kpi": "CPM"},
+        {"kpi": "Taxa de Conversão"},
+        {"kpi": "CPC"}
+    ],
+    "comun_marketplace_ret30": [
+        {"kpi": "Retenção 30d"},
+        {"kpi": "DAU/MAU"},
+        {"kpi": "Engajamento Composto"},
+        {"kpi": "ARPU"},
+        {"kpi": "Churn de Clientes"},
+        {"kpi": "NPS"}
+    ],
+    "crm_agritech_reativacao": [
+        {"kpi": "Reativação 30d"},
+        {"kpi": "Unsubscribe Rate"},
+        {"kpi": "Taxa de Abertura"},
+        {"kpi": "CTR"},
+        {"kpi": "Taxa de Conversão"},
+        {"kpi": "Entregabilidade de E-mail"},
+        {"kpi": "Bounce Rate de E-mail"},
+        {"kpi": "Spam Complaint Rate"}
+    ],
+    "crm_hotel_forecast": [
+        {"kpi": "Acurácia de Previsão"},
+        {"kpi": "MAPE"},
+        {"kpi": "Taxa de Ocupação"},
+        {"kpi": "Taxa de No Show"},
+        {"kpi": "ARPU"}
+    ],
+    "crm_ong_donativos": [
+        {"kpi": "Taxa de Doação Recorrente"},
+        {"kpi": "Churn de Doadores"},
+        {"kpi": "LTV do Doador"},
+        {"kpi": "Custo por Doador Recorrente"},
+        {"kpi": "Taxa de Conversão"},
+        {"kpi": "ARPU"}
+    ],
+    "crm_solar_churn90": [
+        {"kpi": "Churn 90d"},
+        {"kpi": "Retenção 90d"},
+        {"kpi": "Opt-in Rate"},
+        {"kpi": "CTR"},
+        {"kpi": "Taxa de Abertura"},
+        {"kpi": "Taxa de Conversão"}
+    ],
+    "cs_saude_csat_fcr": [
+        {"kpi": "CSAT"},
+        {"kpi": "FCR"},
+        {"kpi": "Tempo Médio de Atendimento"},
+        {"kpi": "Tempo de Primeira Resposta"},
+        {"kpi": "SLA de Atendimento"},
+        {"kpi": "Taxa de Resolução no Primeiro Contato"}
+    ],
+    "devops_auto_uptime": [
+        {"kpi": "Uptime"},
+        {"kpi": "MTTR"},
+        {"kpi": "Change Failure Rate"},
+        {"kpi": "Deployment Frequency"},
+        {"kpi": "Lead Time for Changes"},
+        {"kpi": "Tempo Médio Entre Falhas (MTBF)"}
+    ],
+    "growth_saasb2c_trialpaid": [
+        {"kpi": "Conversão Trial Pago"},
+        {"kpi": "Payback CAC"},
+        {"kpi": "MRR"},
+        {"kpi": "Churn de MRR"},
+        {"kpi": "ARPU"},
+        {"kpi": "Taxa de Conversão"}
+    ],
+    "omni_telecom_sla": [
+        {"kpi": "SLA de Atendimento"},
+        {"kpi": "Tempo de Espera no Chat"},
+        {"kpi": "Atribuição de Vendas Offline"},
+        {"kpi": "Taxa de Conversão por Canal"},
+        {"kpi": "FCR"},
+        {"kpi": "CSAT"}
+    ],
+    "onboarding_imob_d7": [
+        {"kpi": "Ativação D7"},
+        {"kpi": "Conclusão de Onboarding"},
+        {"kpi": "Tempo até Primeira Ação"},
+        {"kpi": "Retenção D7"},
+        {"kpi": "Bounce Rate"},
+        {"kpi": "Tempo de Onboarding"}
+    ],
+    "ops_logtech_otif": [
+        {"kpi": "OTIF"},
+        {"kpi": "Custo por Pedido"},
+        {"kpi": "Lead Time de Pedido"},
+        {"kpi": "Fill Rate"},
+        {"kpi": "Taxa de Entrega no Prazo"}
+    ],
+    "people_conteudo_turnover": [
+        {"kpi": "Turnover"},
+        {"kpi": "Time to Hire"},
+        {"kpi": "Offer Acceptance Rate"},
+        {"kpi": "Custo por Contratação"},
+        {"kpi": "Tempo de Vaga Aberta"}
+    ],
+    "perfsec_saas_mrr": [
+        {"kpi": "MRR"},
+        {"kpi": "Average Deal Size"},
+        {"kpi": "Duração do Ciclo de Vendas"},
+        {"kpi": "MQL Rate"},
+        {"kpi": "Win Rate"},
+        {"kpi": "CPL"}
+    ],
+    "pricing_ondemand_ticket": [
+        {"kpi": "AOV"},
+        {"kpi": "Taxa de Conversão"},
+        {"kpi": "ARPU"},
+        {"kpi": "Abandono de Carrinho"},
+        {"kpi": "Preço Médio por Categoria"}
+    ],
+    "prod_eventos_rsvp": [
+        {"kpi": "RSVP confirmado"},
+        {"kpi": "Tempo para Confirmar RSVP"},
+        {"kpi": "Taxa de Comparecimento"},
+        {"kpi": "Taxa de Abertura"},
+        {"kpi": "CTR"}
+    ],
+    "prod_moda_entregab": [
+        {"kpi": "Entregabilidade de E-mail"},
+        {"kpi": "Bounce Rate de E-mail"},
+        {"kpi": "Spam Complaint Rate"},
+        {"kpi": "Taxa de Abertura"},
+        {"kpi": "CTR"}
+    ],
+    "retencao_saasb2b_churn": [
+        {"kpi": "Churn de Clientes"},
+        {"kpi": "Retenção 30d"},
+        {"kpi": "NPS"},
+        {"kpi": "Churn de MRR"},
+        {"kpi": "ARPU"}
+    ],
+    "sales_edcorp_cac": [
+        {"kpi": "CAC"},
+        {"kpi": "Win Rate"},
+        {"kpi": "Average Deal Size"},
+        {"kpi": "Duração do Ciclo de Vendas"},
+        {"kpi": "CPL"}
+    ],
+    "sales_gaming_checkout": [
+        {"kpi": "Conversão de Checkout"},
+        {"kpi": "ARPPU"},
+        {"kpi": "Abandono de Checkout"},
+        {"kpi": "Tempo de Checkout"},
+        {"kpi": "Taxa de Conversão"}
+    ]
+}

@@ -1,0 +1,2238 @@
+[
+  {
+    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "scenario_id": "attr_streaming_mix",
+    "model": "meta-llama-3.1-8b.Q4_K_M:latest",
+    "condition": "unlimited",
+    "prompt_hash": "a7c3b58eb228",
+    "latency_s": 29.672328799999377,
+    "prompt_tokens": 289,
+    "completion_tokens": 164,
+    "total_tokens": 453,
+    "output": "[{\"kpi\":\"CAC\",\"importancia\":\"medio\",\"formula\":\"CAC= Gasto em aquisição/Novos clientes\",\"metricas\":[\"gasto_m marketing\",\"novos_clientes\"]},{\"kpi\":\"AOV\",\"importancia\":\"baixa\",\"formula\":\"Receita ÷ Pedidos\",\"metricas\":[\"receita\",\"pedidos\"]},{\"kpi\":\"MQL Rate\",\"importancia\":\"media\",\"formula\":\"MQL ÷ Leads × 100%\",\"metricas\":[\"mqls\",\"leads\"]}]",
+    "parsed_items": [
+      {
+        "kpi": "CAC",
+        "importancia": "medio",
+        "formula": "CAC= Gasto em aquisição/Novos clientes",
+        "metricas": [
+          "gasto_m marketing",
+          "novos_clientes"
+        ]
+      },
+      {
+        "kpi": "AOV",
+        "importancia": "baixa",
+        "formula": "Receita ÷ Pedidos",
+        "metricas": [
+          "receita",
+          "pedidos"
+        ]
+      },
+      {
+        "kpi": "MQL Rate",
+        "importancia": "media",
+        "formula": "MQL ÷ Leads × 100%",
+        "metricas": [
+          "mqls",
+          "leads"
+        ]
+      }
+    ],
+    "valid": true,
+    "issues": []
+  },
+  {
+    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "scenario_id": "attr_streaming_mix",
+    "model": "llama3.1:8b",
+    "condition": "unlimited",
+    "prompt_hash": "a7c3b58eb228",
+    "latency_s": 39.833943500001624,
+    "prompt_tokens": 255,
+    "completion_tokens": 174,
+    "total_tokens": 429,
+    "output": "[{\"kpi\":\"Taxa de Retorno sobre Atribuição\",\"importancia\":\"Alta\",\"formula\":\"ROAS / CPA\",\"metricas\":[\"ROAS\",\"CPA\"]},{\"kpi\":\"Taxa de Conversão por Canal\",\"importancia\":\"Média\",\"formula\":\"Conversões / Impressionamentos\",\"metricas\":[\"Conversões\",\"Impressionamentos\"]},{\"kpi\":\"Custo por Atribuição por Canal\",\"importancia\":\"Baixa\",\"formula\":\"CPA / Número de Atribuições\",\"metricas\":[\"CPA\",\"Número de Atribuições\"]},{\"kpi\":\"Taxa de Retorno sobre Investimento\",\"importancia\":\"Alta\",\"formula\":\"ROAS / Custo Total\",\"metricas\":[\"ROAS\",\"Custo Total\"]}]",
+    "parsed_items": [
+      {
+        "kpi": "Taxa de Retorno sobre Atribuição",
+        "importancia": "Alta",
+        "formula": "ROAS / CPA",
+        "metricas": [
+          "ROAS",
+          "CPA"
+        ]
+      },
+      {
+        "kpi": "Taxa de Conversão por Canal",
+        "importancia": "Média",
+        "formula": "Conversões / Impressionamentos",
+        "metricas": [
+          "Conversões",
+          "Impressionamentos"
+        ]
+      },
+      {
+        "kpi": "Custo por Atribuição por Canal",
+        "importancia": "Baixa",
+        "formula": "CPA / Número de Atribuições",
+        "metricas": [
+          "CPA",
+          "Número de Atribuições"
+        ]
+      },
+      {
+        "kpi": "Taxa de Retorno sobre Investimento",
+        "importancia": "Alta",
+        "formula": "ROAS / Custo Total",
+        "metricas": [
+          "ROAS",
+          "Custo Total"
+        ]
+      }
+    ],
+    "valid": true,
+    "issues": []
+  },
+  {
+    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "scenario_id": "ads_telecom_cac",
+    "model": "meta-llama-3.1-8b.Q4_K_M:latest",
+    "condition": "unlimited",
+    "prompt_hash": "234e0f7ee429",
+    "latency_s": 11.831099400000312,
+    "prompt_tokens": 277,
+    "completion_tokens": 224,
+    "total_tokens": 501,
+    "output": "[{\"kpi\":\"CAC\",\"importancia\":\"medio\",\"formula\":\"gastos_mídia / aquisições\",\"metricas\":[\"gastos_décimo\",\"aquisiões\"]},{\"kpi\":\"AOV\",\"importancia\":\"baixa\",\"formula\":\"receita ÷ pedidos\",\"metricas\":[\"receita\",\"pedidos\"]}]",
+    "parsed_items": [
+      {
+        "kpi": "CAC",
+        "importancia": "medio",
+        "formula": "gastos_mídia / aquisições",
+        "metricas": [
+          "gastos_décimo",
+          "aquisiões"
+        ]
+      },
+      {
+        "kpi": "AOV",
+        "importancia": "baixa",
+        "formula": "receita ÷ pedidos",
+        "metricas": [
+          "receita",
+          "pedidos"
+        ]
+      }
+    ],
+    "valid": true,
+    "issues": [
+      "array_parse_failed"
+    ]
+  },
+  {
+    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "scenario_id": "ads_telecom_cac",
+    "model": "llama3.1:8b",
+    "condition": "unlimited",
+    "prompt_hash": "234e0f7ee429",
+    "latency_s": 24.484934399999474,
+    "prompt_tokens": 247,
+    "completion_tokens": 174,
+    "total_tokens": 421,
+    "output": "[{\"kpi\":\"Taxa de Conversão\",\"importancia\":\"Alta\",\"formula\":\"(Número de Novos Clientes / Número de Leads Gerados) x 100\",\"metricas\":[\"Novos Clientes\",\"Leads Gerados\"]},{\"kpi\":\"Custo por Aquisição (CAC)\",\"importancia\":\"Muito Alta\",\"formula\":\"(Despesas com Publicidade + Despesas com Agências) / Número de Novos Clientes\",\"metricas\":[\"Publicidade\",\"Agências\",\"Novos Clientes\"]},{\"kpi\":\"Taxa de Retenção de Clientes\",\"importancia\":\"Alta\",\"formula\":\"(Número de Clientes Ativos no Mês atual / Número de Clientes Ativos no Mês anterior) x 100\",\"metricas\":[\"Clientes Ativos\"]}]",
+    "parsed_items": [
+      {
+        "kpi": "Taxa de Conversão",
+        "importancia": "Alta",
+        "formula": "(Número de Novos Clientes / Número de Leads Gerados) x 100",
+        "metricas": [
+          "Novos Clientes",
+          "Leads Gerados"
+        ]
+      },
+      {
+        "kpi": "Custo por Aquisição (CAC)",
+        "importancia": "Muito Alta",
+        "formula": "(Despesas com Publicidade + Despesas com Agências) / Número de Novos Clientes",
+        "metricas": [
+          "Publicidade",
+          "Agências",
+          "Novos Clientes"
+        ]
+      },
+      {
+        "kpi": "Taxa de Retenção de Clientes",
+        "importancia": "Alta",
+        "formula": "(Número de Clientes Ativos no Mês atual / Número de Clientes Ativos no Mês anterior) x 100",
+        "metricas": [
+          "Clientes Ativos"
+        ]
+      }
+    ],
+    "valid": true,
+    "issues": []
+  },
+  {
+    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "scenario_id": "brand_fintech_roas",
+    "model": "meta-llama-3.1-8b.Q4_K_M:latest",
+    "condition": "unlimited",
+    "prompt_hash": "a497e01fd26c",
+    "latency_s": 11.26494620000085,
+    "prompt_tokens": 271,
+    "completion_tokens": 194,
+    "total_tokens": 465,
+    "output": "[{\"kpi\":\"CAC\",\"importancia\":\"medio\",\"formula\":\"gastos em aquisição/novos clientes\",\"metricas\":[\"gastos_m marketing\",\"novos_clientes\"]},{\"kpi\":\"MQL Rate\",\"importancia\":\"baixa\",\"formula\":\"MQL ÷ Leads × 100%\",\"metricas\":[\"mqls\",\"leads\"]}]",
+    "parsed_items": [
+      {
+        "kpi": "CAC",
+        "importancia": "medio",
+        "formula": "gastos em aquisição/novos clientes",
+        "metricas": [
+          "gastos_m marketing",
+          "novos_clientes"
+        ]
+      },
+      {
+        "kpi": "MQL Rate",
+        "importancia": "baixa",
+        "formula": "MQL ÷ Leads × 100%",
+        "metricas": [
+          "mqls",
+          "leads"
+        ]
+      }
+    ],
+    "valid": true,
+    "issues": [
+      "array_parse_failed"
+    ]
+  },
+  {
+    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "scenario_id": "brand_fintech_roas",
+    "model": "llama3.1:8b",
+    "condition": "unlimited",
+    "prompt_hash": "a497e01fd26c",
+    "latency_s": 29.286650500000178,
+    "prompt_tokens": 242,
+    "completion_tokens": 256,
+    "total_tokens": 498,
+    "output": "[{\"kpi\":\"Taxa de Conversão\",\"importancia\":\"Alta\",\"formula\":\"(Número de vendas / Número de impressões) x 100\",\"metricas\":[\"Vendas\",\"Impressões\"]},{\"kpi\":\"Custo por Conversão\",\"importancia\":\"Média\",\"formula\":\"Custo total / Número de vendas\",\"metricas\":[\"Custo total\",\"Vendas\"]},{\"kpi\":\"Taxa de Retorno sobre Investimento em Publicidade (ROAS)\",\"importancia\":\"Alta\",\"formula\":\"(Receita gerada / Custo da publicidade) x 100\",\"metricas\":[\"Receita gerada\",\"Custo da publicidade\"]},{\"kpi\":\"Taxa de Impressionamento\",\"importancia\":\"Baixa\",\"formula\":\"(Número de impressões / Número total de exposições) x 100\",\"metricas\":[\"Impressões\",\"Exposições\"]}]",
+    "parsed_items": [
+      {
+        "kpi": "Taxa de Conversão",
+        "importancia": "Alta",
+        "formula": "(Número de vendas / Número de impressões) x 100",
+        "metricas": [
+          "Vendas",
+          "Impressões"
+        ]
+      },
+      {
+        "kpi": "Custo por Conversão",
+        "importancia": "Média",
+        "formula": "Custo total / Número de vendas",
+        "metricas": [
+          "Custo total",
+          "Vendas"
+        ]
+      },
+      {
+        "kpi": "Taxa de Retorno sobre Investimento em Publicidade (ROAS)",
+        "importancia": "Alta",
+        "formula": "(Receita gerada / Custo da publicidade) x 100",
+        "metricas": [
+          "Receita gerada",
+          "Custo da publicidade"
+        ]
+      },
+      {
+        "kpi": "Taxa de Impressionamento",
+        "importancia": "Baixa",
+        "formula": "(Número de impressões / Número total de exposições) x 100",
+        "metricas": [
+          "Impressões",
+          "Exposições"
+        ]
+      }
+    ],
+    "valid": true,
+    "issues": []
+  },
+  {
+    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "scenario_id": "crm_ong_donativos",
+    "model": "meta-llama-3.1-8b.Q4_K_M:latest",
+    "condition": "unlimited",
+    "prompt_hash": "69a260822f55",
+    "latency_s": 11.251408699999956,
+    "prompt_tokens": 283,
+    "completion_tokens": 191,
+    "total_tokens": 474,
+    "output": "[{\"kpi\":\"Receita Recorrente Mensal (MRR)\",\"importancia\":\"terceira\",\"formula\":\"SUM(PLANS * valores)\",\"metricas\":[\"planos\",\"valores\"]},{\"kpi\":\"Churn de Doadores\",\"importancia\":\"segunda\",\"formula\":\"Doadores no início da periodâo − Doadores no fim + Novos doadores\",\"metricas\":[\"doadores_inicio\",\"doadores_fim\",\"novos_doadores\"]},{\"kpi\":\"AOV\",\"importancia\":\"terceira\",\"formula\":\"Receita ÷ Nº de pedidos\",\"metricas\":[\"receita\",\"pedidos\"]}]",
+    "parsed_items": [
+      {
+        "kpi": "Receita Recorrente Mensal (MRR)",
+        "importancia": "terceira",
+        "formula": "SUM(PLANS * valores)",
+        "metricas": [
+          "planos",
+          "valores"
+        ]
+      },
+      {
+        "kpi": "Churn de Doadores",
+        "importancia": "segunda",
+        "formula": "Doadores no início da periodâo − Doadores no fim + Novos doadores",
+        "metricas": [
+          "doadores_inicio",
+          "doadores_fim",
+          "novos_doadores"
+        ]
+      },
+      {
+        "kpi": "AOV",
+        "importancia": "terceira",
+        "formula": "Receita ÷ Nº de pedidos",
+        "metricas": [
+          "receita",
+          "pedidos"
+        ]
+      }
+    ],
+    "valid": true,
+    "issues": []
+  },
+  {
+    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "scenario_id": "crm_ong_donativos",
+    "model": "llama3.1:8b",
+    "condition": "unlimited",
+    "prompt_hash": "69a260822f55",
+    "latency_s": 32.6284085999996,
+    "prompt_tokens": 252,
+    "completion_tokens": 317,
+    "total_tokens": 569,
+    "output": "[{\"kpi\":\"Taxa de Conversão em Doações Recorrentes\",\"importancia\":\"Muito Alta\",\"formula\":\"(Número de doações recorrentes / Número de contatos gerados) x 100\",\"metricas\":[\"Doações Recorrentes\",\"Contatos Gerados\"]},{\"kpi\":\"Taxa de Churn de Doadores\",\"importancia\":\"Alta\",\"formula\":\"(Número de doadores cancelados / Número total de doadores) x 100\",\"metricas\":[\"Doadores Cancelados\",\"Doadores Totais\"]},{\"kpi\":\"Taxa de Retenção de Doadores\",\"importancia\":\"Muito Alta\",\"formula\":\"(Número de doadores ativos / Número total de doadores) x 100\",\"metricas\":[\"Doadores Ativos\",\"Doadores Totais\"]},{\"kpi\":\"Taxa de Crescimento das Doações Recorrentes\",\"importancia\":\"Muito Alta\",\"formula\":\"(Número de doações recorrentes no período atual - Número de doações recorrentes no período anterior) / Número de doações recorrentes no período anterior x 100\",\"metricas\":[\"Doações Recorrentes Atuais\",\"Doações Recorrentes Anteriores\"]}]",
+    "parsed_items": [
+      {
+        "kpi": "Taxa de Conversão em Doações Recorrentes",
+        "importancia": "Muito Alta",
+        "formula": "(Número de doações recorrentes / Número de contatos gerados) x 100",
+        "metricas": [
+          "Doações Recorrentes",
+          "Contatos Gerados"
+        ]
+      },
+      {
+        "kpi": "Taxa de Churn de Doadores",
+        "importancia": "Alta",
+        "formula": "(Número de doadores cancelados / Número total de doadores) x 100",
+        "metricas": [
+          "Doadores Cancelados",
+          "Doadores Totais"
+        ]
+      },
+      {
+        "kpi": "Taxa de Retenção de Doadores",
+        "importancia": "Muito Alta",
+        "formula": "(Número de doadores ativos / Número total de doadores) x 100",
+        "metricas": [
+          "Doadores Ativos",
+          "Doadores Totais"
+        ]
+      },
+      {
+        "kpi": "Taxa de Crescimento das Doações Recorrentes",
+        "importancia": "Muito Alta",
+        "formula": "(Número de doações recorrentes no período atual - Número de doações recorrentes no período anterior) / Número de doações recorrentes no período anterior x 100",
+        "metricas": [
+          "Doações Recorrentes Atuais",
+          "Doações Recorrentes Anteriores"
+        ]
+      }
+    ],
+    "valid": true,
+    "issues": []
+  },
+  {
+    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "scenario_id": "pricing_ondemand_ticket",
+    "model": "meta-llama-3.1-8b.Q4_K_M:latest",
+    "condition": "unlimited",
+    "prompt_hash": "9c71f2a8fcfd",
+    "latency_s": 10.83442599999944,
+    "prompt_tokens": 278,
+    "completion_tokens": 137,
+    "total_tokens": 415,
+    "output": "[{\"kpi\":\"Average Deal Size\",\"importancia\":\"medium\",\"formula\":\"Valor de negócio por acordo\",\"metricas\":[]},{\"kpi\":\"Win Rate\",\"importancia\":\"high\",\"formula\":\"Negócios ganhos ÷ Oportunidades × 100%\",\"metricas\":[]},{\"kpi\":\"ROAS\",\"importancia\":\"medium\",\"formula\":\"Receita atribuída ÷ Gasto em mídia\",\"metricas\":[]}]",
+    "parsed_items": [
+      {
+        "kpi": "Average Deal Size",
+        "importancia": "medium",
+        "formula": "Valor de negócio por acordo",
+        "metricas": []
+      },
+      {
+        "kpi": "Win Rate",
+        "importancia": "high",
+        "formula": "Negócios ganhos ÷ Oportunidades × 100%",
+        "metricas": []
+      },
+      {
+        "kpi": "ROAS",
+        "importancia": "medium",
+        "formula": "Receita atribuída ÷ Gasto em mídia",
+        "metricas": []
+      }
+    ],
+    "valid": true,
+    "issues": []
+  },
+  {
+    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "scenario_id": "pricing_ondemand_ticket",
+    "model": "llama3.1:8b",
+    "condition": "unlimited",
+    "prompt_hash": "9c71f2a8fcfd",
+    "latency_s": 29.74895319999996,
+    "prompt_tokens": 246,
+    "completion_tokens": 262,
+    "total_tokens": 508,
+    "output": "[{\"kpi\":\"Ticket Médio\",\"importancia\":\"Alto\",\"formula\":\"Soma de todos os pedidos / Número total de pedidos\",\"metricas\":[\"Valor do pedido\",\"Número de pedidos\"]},{\"kpi\":\"Taxa de Conversão\",\"importancia\":\"Muito Alto\",\"formula\":\"Número de vendas efetivadas / Número total de pedidos\",\"metricas\":[\"Número de vendas efetivadas\",\"Número de pedidos\"]},{\"kpi\":\"Custo por Transação\",\"importancia\":\"Alto\",\"formula\":\"Soma dos custos associados a cada pedido / Número total de pedidos\",\"metricas\":[\"Custo fixo\",\"Custo variável\"]},{\"kpi\":\"Margem Bruta\",\"importancia\":\"Muito Alto\",\"formula\":\"Valor das vendas - Custo total / Valor das vendas\",\"metricas\":[\"Valor das vendas\",\"Custo total\"]},{\"kpi\":\"Ticket Médio por Canal de Venda\",\"importancia\":\"Alto\",\"formula\":\"Soma do ticket médio por cada canal de venda / Número total de canais de venda\",\"metricas\":[\"Ticket médio por cada canal de venda\",\"Número total de canais de venda\"]}]",
+    "parsed_items": [
+      {
+        "kpi": "Ticket Médio",
+        "importancia": "Alto",
+        "formula": "Soma de todos os pedidos / Número total de pedidos",
+        "metricas": [
+          "Valor do pedido",
+          "Número de pedidos"
+        ]
+      },
+      {
+        "kpi": "Taxa de Conversão",
+        "importancia": "Muito Alto",
+        "formula": "Número de vendas efetivadas / Número total de pedidos",
+        "metricas": [
+          "Número de vendas efetivadas",
+          "Número de pedidos"
+        ]
+      },
+      {
+        "kpi": "Custo por Transação",
+        "importancia": "Alto",
+        "formula": "Soma dos custos associados a cada pedido / Número total de pedidos",
+        "metricas": [
+          "Custo fixo",
+          "Custo variável"
+        ]
+      },
+      {
+        "kpi": "Margem Bruta",
+        "importancia": "Muito Alto",
+        "formula": "Valor das vendas - Custo total / Valor das vendas",
+        "metricas": [
+          "Valor das vendas",
+          "Custo total"
+        ]
+      },
+      {
+        "kpi": "Ticket Médio por Canal de Venda",
+        "importancia": "Alto",
+        "formula": "Soma do ticket médio por cada canal de venda / Número total de canais de venda",
+        "metricas": [
+          "Ticket médio por cada canal de venda",
+          "Número total de canais de venda"
+        ]
+      }
+    ],
+    "valid": true,
+    "issues": []
+  },
+  {
+    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "scenario_id": "onboarding_imob_d7",
+    "model": "meta-llama-3.1-8b.Q4_K_M:latest",
+    "condition": "unlimited",
+    "prompt_hash": "85ca3d03f863",
+    "latency_s": 9.694194899999275,
+    "prompt_tokens": 278,
+    "completion_tokens": 117,
+    "total_tokens": 395,
+    "output": "[{\"kpi\":\"CAC\",\"importancia\":\"medio\",\"formula\":\"Custo de aquisição*número de novos clientes\",\"metricas\":[\"cac\",\"novos_clientes\"]},{\"kpi\":\"Churn de Clientes\",\"importancia\":\"baixa\",\"formula\":\"Clientes perdidos * 100% / Base inicial\",\"metricas\":[\"clientes_perdidos\",\"base_inicial\"]}]",
+    "parsed_items": [
+      {
+        "kpi": "CAC",
+        "importancia": "medio",
+        "formula": "Custo de aquisição*número de novos clientes",
+        "metricas": [
+          "cac",
+          "novos_clientes"
+        ]
+      },
+      {
+        "kpi": "Churn de Clientes",
+        "importancia": "baixa",
+        "formula": "Clientes perdidos * 100% / Base inicial",
+        "metricas": [
+          "clientes_perdidos",
+          "base_inicial"
+        ]
+      }
+    ],
+    "valid": true,
+    "issues": []
+  },
+  {
+    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "scenario_id": "onboarding_imob_d7",
+    "model": "llama3.1:8b",
+    "condition": "unlimited",
+    "prompt_hash": "85ca3d03f863",
+    "latency_s": 34.82071689999975,
+    "prompt_tokens": 248,
+    "completion_tokens": 361,
+    "total_tokens": 609,
+    "output": "[{\"kpi\":\"Taxa de Ativação\",\"importancia\":\"Alta\",\"formula\":\"(Número de novos usuários ativos / Número total de novos usuários) x 100\",\"metricas\":[\"D7\",\"D30\"]},{\"kpi\":\"Taxa de Abandono no D7\",\"importancia\":\"Alta\",\"formula\":\"(Número de novos usuários que abandonaram o sistema / Número total de novos usuários) x 100\",\"metricas\":[\"D7\"]},{\"kpi\":\"Taxa de Conclusão do Onboarding\",\"importancia\":\"Alta\",\"formula\":\"(Número de novos usuários que concluíram o onboarding / Número total de novos usuários) x 100\",\"metricas\":[\"D7\",\"D30\"]},{\"kpi\":\"Tempo Médio de Ativação\",\"importancia\":\"Média\",\"formula\":\"(Soma do tempo de ativação de todos os novos usuários / Número total de novos usuários)\",\"metricas\":[\"D7\",\"D30\"]},{\"kpi\":\"Taxa de Retenção dos Usuários Ativos\",\"importancia\":\"Alta\",\"formula\":\"(Número de usuários ativos no mês seguinte / Número total de usuários ativos no mês atual) x 100\",\"metricas\":[\"M3\",\"M6\"]}]",
+    "parsed_items": [
+      {
+        "kpi": "Taxa de Ativação",
+        "importancia": "Alta",
+        "formula": "(Número de novos usuários ativos / Número total de novos usuários) x 100",
+        "metricas": [
+          "D7",
+          "D30"
+        ]
+      },
+      {
+        "kpi": "Taxa de Abandono no D7",
+        "importancia": "Alta",
+        "formula": "(Número de novos usuários que abandonaram o sistema / Número total de novos usuários) x 100",
+        "metricas": [
+          "D7"
+        ]
+      },
+      {
+        "kpi": "Taxa de Conclusão do Onboarding",
+        "importancia": "Alta",
+        "formula": "(Número de novos usuários que concluíram o onboarding / Número total de novos usuários) x 100",
+        "metricas": [
+          "D7",
+          "D30"
+        ]
+      },
+      {
+        "kpi": "Tempo Médio de Ativação",
+        "importancia": "Média",
+        "formula": "(Soma do tempo de ativação de todos os novos usuários / Número total de novos usuários)",
+        "metricas": [
+          "D7",
+          "D30"
+        ]
+      },
+      {
+        "kpi": "Taxa de Retenção dos Usuários Ativos",
+        "importancia": "Alta",
+        "formula": "(Número de usuários ativos no mês seguinte / Número total de usuários ativos no mês atual) x 100",
+        "metricas": [
+          "M3",
+          "M6"
+        ]
+      }
+    ],
+    "valid": true,
+    "issues": []
+  },
+  {
+    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "scenario_id": "retencao_saasb2b_churn",
+    "model": "meta-llama-3.1-8b.Q4_K_M:latest",
+    "condition": "unlimited",
+    "prompt_hash": "dcbc8932ec16",
+    "latency_s": 10.677972399998907,
+    "prompt_tokens": 278,
+    "completion_tokens": 140,
+    "total_tokens": 418,
+    "output": "[{\"kpi\":\"Churn de Clientes\",\"importancia\":\"HUMANA\",\"formula\":\"Clientes perdidos ÷ Base inicial × 100%\",\"metricas\":[\"clientes_perdidos\",\"base_inicial\"]},{\"kpi\":\"NPS\",\"importancia\":\"ATTITUDINAL\",\"formula\":\"(Promotores↓Detratores) - Detratores\",\"metricas\":[\"promotores\",\"detratores\",\"neutros\"]}]",
+    "parsed_items": [
+      {
+        "kpi": "Churn de Clientes",
+        "importancia": "HUMANA",
+        "formula": "Clientes perdidos ÷ Base inicial × 100%",
+        "metricas": [
+          "clientes_perdidos",
+          "base_inicial"
+        ]
+      },
+      {
+        "kpi": "NPS",
+        "importancia": "ATTITUDINAL",
+        "formula": "(Promotores↓Detratores) - Detratores",
+        "metricas": [
+          "promotores",
+          "detratores",
+          "neutros"
+        ]
+      }
+    ],
+    "valid": true,
+    "issues": []
+  },
+  {
+    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "scenario_id": "retencao_saasb2b_churn",
+    "model": "llama3.1:8b",
+    "condition": "unlimited",
+    "prompt_hash": "dcbc8932ec16",
+    "latency_s": 26.710567599999194,
+    "prompt_tokens": 247,
+    "completion_tokens": 206,
+    "total_tokens": 453,
+    "output": "[{\"kpi\":\"Taxa de Churn Mensal\",\"importancia\":\"Alta\",\"formula\":\"(Número de Cancelamentos / Número de Assinantes) x 100\",\"metricas\":[\"%\"]},{\"kpi\":\"NPS (Net Promoter Score)\",\"importancia\":\"Muito Alta\",\"formula\":\"(Porcentagem de Defensores - Porcentagem de Detratores) / Total de Respostas\",\"metricas\":[\"Pontuação\"]},{\"kpi\":\"Taxa de Renovação\",\"importancia\":\"Alta\",\"formula\":\"(Número de Assinantes Renovados / Número de Assinantes Vencidos) x 100\",\"metricas\":[\"%\"]},{\"kpi\":\"Custo de Aquisição de Novos Clientes\",\"importancia\":\"Média\",\"formula\":\"Custo Total de Campanha / Número de Novos Clientes Adquiridos\",\"metricas\":[\"R$\"]}]",
+    "parsed_items": [
+      {
+        "kpi": "Taxa de Churn Mensal",
+        "importancia": "Alta",
+        "formula": "(Número de Cancelamentos / Número de Assinantes) x 100",
+        "metricas": [
+          "%"
+        ]
+      },
+      {
+        "kpi": "NPS (Net Promoter Score)",
+        "importancia": "Muito Alta",
+        "formula": "(Porcentagem de Defensores - Porcentagem de Detratores) / Total de Respostas",
+        "metricas": [
+          "Pontuação"
+        ]
+      },
+      {
+        "kpi": "Taxa de Renovação",
+        "importancia": "Alta",
+        "formula": "(Número de Assinantes Renovados / Número de Assinantes Vencidos) x 100",
+        "metricas": [
+          "%"
+        ]
+      },
+      {
+        "kpi": "Custo de Aquisição de Novos Clientes",
+        "importancia": "Média",
+        "formula": "Custo Total de Campanha / Número de Novos Clientes Adquiridos",
+        "metricas": [
+          "R$"
+        ]
+      }
+    ],
+    "valid": true,
+    "issues": []
+  },
+  {
+    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "scenario_id": "growth_saasb2c_trialpaid",
+    "model": "meta-llama-3.1-8b.Q4_K_M:latest",
+    "condition": "unlimited",
+    "prompt_hash": "4478ba440b88",
+    "latency_s": 9.916571899999326,
+    "prompt_tokens": 279,
+    "completion_tokens": 132,
+    "total_tokens": 411,
+    "output": "[{\"kpi\":\"Churn de Clientes\",\"importancia\":\"medio\",\"formula\":\"Clientes perdidos ÷ Base inicial × 100%\",\"metricas\":[\"clientes_perdidos\",\"base_inicial\"]},{\"kpi\":\"NPS\",\"importancia\":\"baixa\",\"formula\":\"%Promotores−%Detratores\",\"metricas\":[\"promotores\",\"detratores\",\"neutros\"]}]",
+    "parsed_items": [
+      {
+        "kpi": "Churn de Clientes",
+        "importancia": "medio",
+        "formula": "Clientes perdidos ÷ Base inicial × 100%",
+        "metricas": [
+          "clientes_perdidos",
+          "base_inicial"
+        ]
+      },
+      {
+        "kpi": "NPS",
+        "importancia": "baixa",
+        "formula": "%Promotores−%Detratores",
+        "metricas": [
+          "promotores",
+          "detratores",
+          "neutros"
+        ]
+      }
+    ],
+    "valid": true,
+    "issues": []
+  },
+  {
+    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "scenario_id": "growth_saasb2c_trialpaid",
+    "model": "llama3.1:8b",
+    "condition": "unlimited",
+    "prompt_hash": "4478ba440b88",
+    "latency_s": 33.40387190000001,
+    "prompt_tokens": 248,
+    "completion_tokens": 327,
+    "total_tokens": 575,
+    "output": "[{\"kpi\":\"Taxa de Conversão de Trial para Pago\",\"importancia\":\"Alta\",\"formula\":\"(Número de assinantes pagos / Número de usuários em trial) x 100\",\"metricas\":[\"Taxa de conversão, Taxa de sucesso\"]}]",
+    "parsed_items": [
+      {
+        "kpi": "Taxa de Conversão de Trial para Pago",
+        "importancia": "Alta",
+        "formula": "(Número de assinantes pagos / Número de usuários em trial) x 100",
+        "metricas": [
+          "Taxa de conversão, Taxa de sucesso"
+        ]
+      }
+    ],
+    "valid": true,
+    "issues": [
+      "array_parse_failed"
+    ]
+  },
+  {
+    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "scenario_id": "comun_marketplace_ret30",
+    "model": "meta-llama-3.1-8b.Q4_K_M:latest",
+    "condition": "unlimited",
+    "prompt_hash": "78a420e59f25",
+    "latency_s": 10.69344700000147,
+    "prompt_tokens": 270,
+    "completion_tokens": 171,
+    "total_tokens": 441,
+    "output": "[{\"kpi\":\"Churn de Clientes\",\"importancia\":\"critica\",\"formula\":\"Clientes perdidos ÷ Base inicial × 100%\",\"metricas\":[\"clientes_perdidos\",\"base_inicial\"]},{\"kpi\":\"LTV/CAC\",\"importancia\":\"medio-termal\",\"formula\":\"LTV ÷ CAC\",\"metricas\":[\"ltv\",\"cac\"]},{\"kpi\":\"NPS\",\"importancia\":\"brand\",\"formula\":\"%Promotores − %Detratores\",\"metricas\":[\"promotores\",\"detratores\",\"neutros\"]}]",
+    "parsed_items": [
+      {
+        "kpi": "Churn de Clientes",
+        "importancia": "critica",
+        "formula": "Clientes perdidos ÷ Base inicial × 100%",
+        "metricas": [
+          "clientes_perdidos",
+          "base_inicial"
+        ]
+      },
+      {
+        "kpi": "LTV/CAC",
+        "importancia": "medio-termal",
+        "formula": "LTV ÷ CAC",
+        "metricas": [
+          "ltv",
+          "cac"
+        ]
+      },
+      {
+        "kpi": "NPS",
+        "importancia": "brand",
+        "formula": "%Promotores − %Detratores",
+        "metricas": [
+          "promotores",
+          "detratores",
+          "neutros"
+        ]
+      }
+    ],
+    "valid": true,
+    "issues": []
+  },
+  {
+    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "scenario_id": "comun_marketplace_ret30",
+    "model": "llama3.1:8b",
+    "condition": "unlimited",
+    "prompt_hash": "78a420e59f25",
+    "latency_s": 30.114412099999754,
+    "prompt_tokens": 238,
+    "completion_tokens": 281,
+    "total_tokens": 519,
+    "output": "[{\"kpi\":\"Retenção 30 dias\",\"importancia\":\"Alta\",\"formula\":\"(Número de usuários ativos após 30 dias / Número total de usuários) x 100%\",\"metricas\":[\"Usuários ativos após 30 dias\",\"Número total de usuários\"]},{\"kpi\":\"Taxa de Engajamento\",\"importancia\":\"Média\",\"formula\":\"(Número de interações / Número de usuários) x 100%\",\"metricas\":[\"Interações\",\"Usuários\"]},{\"kpi\":\"Satisfação dos Usuários\",\"importancia\":\"Alta\",\"formula\":\"(Número de avaliações positivas / Número total de avaliações) x 100%\",\"metricas\":[\"Avaliações positivas\",\"Número total de avaliações\"]},{\"kpi\":\"Taxa de Criação de Conteúdo\",\"importancia\":\"Média\",\"formula\":\"(Número de conteúdos criados / Número de usuários) x 100%\",\"metricas\":[\"Conteúdos criados\",\"Usuários\"]}]",
+    "parsed_items": [
+      {
+        "kpi": "Retenção 30 dias",
+        "importancia": "Alta",
+        "formula": "(Número de usuários ativos após 30 dias / Número total de usuários) x 100%",
+        "metricas": [
+          "Usuários ativos após 30 dias",
+          "Número total de usuários"
+        ]
+      },
+      {
+        "kpi": "Taxa de Engajamento",
+        "importancia": "Média",
+        "formula": "(Número de interações / Número de usuários) x 100%",
+        "metricas": [
+          "Interações",
+          "Usuários"
+        ]
+      },
+      {
+        "kpi": "Satisfação dos Usuários",
+        "importancia": "Alta",
+        "formula": "(Número de avaliações positivas / Número total de avaliações) x 100%",
+        "metricas": [
+          "Avaliações positivas",
+          "Número total de avaliações"
+        ]
+      },
+      {
+        "kpi": "Taxa de Criação de Conteúdo",
+        "importancia": "Média",
+        "formula": "(Número de conteúdos criados / Número de usuários) x 100%",
+        "metricas": [
+          "Conteúdos criados",
+          "Usuários"
+        ]
+      }
+    ],
+    "valid": true,
+    "issues": []
+  },
+  {
+    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "scenario_id": "cs_saude_csat_fcr",
+    "model": "meta-llama-3.1-8b.Q4_K_M:latest",
+    "condition": "unlimited",
+    "prompt_hash": "88e1bf7a1c72",
+    "latency_s": 11.632436099998813,
+    "prompt_tokens": 289,
+    "completion_tokens": 188,
+    "total_tokens": 477,
+    "output": "[{\"kpi\":\"CSAT\",\"importancia\":\"medio\",\"formula\":\"satisfação‡ Σ respostas positivas\",\"metricas\":[\"satisfeita\",\"resposta\"]},{\"kpi\":\"Churn de Clientes\",\"importancia\":\"baixa\",\"formula\":\"Clientes perdidos ÷ Base inicial × 100%\",\"metricas\":[\"clientes_perdidos\",\"base_inicial\"]}]",
+    "parsed_items": [
+      {
+        "kpi": "CSAT",
+        "importancia": "medio",
+        "formula": "satisfação‡ Σ respostas positivas",
+        "metricas": [
+          "satisfeita",
+          "resposta"
+        ]
+      },
+      {
+        "kpi": "Churn de Clientes",
+        "importancia": "baixa",
+        "formula": "Clientes perdidos ÷ Base inicial × 100%",
+        "metricas": [
+          "clientes_perdidos",
+          "base_inicial"
+        ]
+      }
+    ],
+    "valid": true,
+    "issues": [
+      "array_parse_failed"
+    ]
+  },
+  {
+    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "scenario_id": "cs_saude_csat_fcr",
+    "model": "llama3.1:8b",
+    "condition": "unlimited",
+    "prompt_hash": "88e1bf7a1c72",
+    "latency_s": 35.39456559999962,
+    "prompt_tokens": 257,
+    "completion_tokens": 386,
+    "total_tokens": 643,
+    "output": "[{\"kpi\":\"Taxa de Resposta\",\"importancia\":\"Alta\",\"formula\":\"(Número de mensagens respondidas / Número total de mensagens) x 100%\",\"metricas\":[\"Tempo médio de resposta\",\"Canal de comunicação mais utilizado\"]},{\"kpi\":\"Taxa de Resolução de Problemas\",\"importancia\":\"Alta\",\"formula\":\"(Número de problemas resolvidos / Número total de mensagens) x 100%\",\"metricas\":[\"Tempo médio de resolução\",\"Métodos mais eficazes para resolver problemas\"]},{\"kpi\":\"Taxa de Satisfação do Cliente (CSAT)\",\"importancia\":\"Alta\",\"formula\":\"(Número de clientes satisfeitos / Número total de clientes) x 100%\",\"metricas\":[\"Perguntas de satisfação\",\"Frequência e método de coleta\"]},{\"kpi\":\"Taxa de Recontato\",\"importancia\":\"Alta\",\"formula\":\"(Número de recontatos / Número total de interações) x 100%\",\"metricas\":[\"Causas mais comuns de recontato\",\"Métodos para reduzir recontato\"]},{\"kpi\":\"Taxa de Retenção do Cliente\",\"importancia\":\"Alta\",\"formula\":\"(Número de clientes retidos / Número total de clientes) x 100%\",\"metricas\":[\"Frequência e método de coleta\",\"Relação entre retenção e outros KPIs\"]}]",
+    "parsed_items": [
+      {
+        "kpi": "Taxa de Resposta",
+        "importancia": "Alta",
+        "formula": "(Número de mensagens respondidas / Número total de mensagens) x 100%",
+        "metricas": [
+          "Tempo médio de resposta",
+          "Canal de comunicação mais utilizado"
+        ]
+      },
+      {
+        "kpi": "Taxa de Resolução de Problemas",
+        "importancia": "Alta",
+        "formula": "(Número de problemas resolvidos / Número total de mensagens) x 100%",
+        "metricas": [
+          "Tempo médio de resolução",
+          "Métodos mais eficazes para resolver problemas"
+        ]
+      },
+      {
+        "kpi": "Taxa de Satisfação do Cliente (CSAT)",
+        "importancia": "Alta",
+        "formula": "(Número de clientes satisfeitos / Número total de clientes) x 100%",
+        "metricas": [
+          "Perguntas de satisfação",
+          "Frequência e método de coleta"
+        ]
+      },
+      {
+        "kpi": "Taxa de Recontato",
+        "importancia": "Alta",
+        "formula": "(Número de recontatos / Número total de interações) x 100%",
+        "metricas": [
+          "Causas mais comuns de recontato",
+          "Métodos para reduzir recontato"
+        ]
+      },
+      {
+        "kpi": "Taxa de Retenção do Cliente",
+        "importancia": "Alta",
+        "formula": "(Número de clientes retidos / Número total de clientes) x 100%",
+        "metricas": [
+          "Frequência e método de coleta",
+          "Relação entre retenção e outros KPIs"
+        ]
+      }
+    ],
+    "valid": true,
+    "issues": []
+  },
+  {
+    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "scenario_id": "app_educacao_conv",
+    "model": "meta-llama-3.1-8b.Q4_K_M:latest",
+    "condition": "unlimited",
+    "prompt_hash": "f38f854b9ed8",
+    "latency_s": 10.48003719999906,
+    "prompt_tokens": 279,
+    "completion_tokens": 132,
+    "total_tokens": 411,
+    "output": "[{\"kpi\":\"Churn de Clientes\",\"importancia\":\"medio\",\"formula\":\"Clientes perdidos ÷ Base inicial × 100%\",\"metricas\":[\"clientes_perdidos\",\"base_inicial\"]},{\"kpi\":\"NPS\",\"importancia\":\"baixa\",\"formula\":\"%Promotores − %Detratores\",\"metricas\":[\"promotores\",\"detratores\",\"neutros\"]}]",
+    "parsed_items": [
+      {
+        "kpi": "Churn de Clientes",
+        "importancia": "medio",
+        "formula": "Clientes perdidos ÷ Base inicial × 100%",
+        "metricas": [
+          "clientes_perdidos",
+          "base_inicial"
+        ]
+      },
+      {
+        "kpi": "NPS",
+        "importancia": "baixa",
+        "formula": "%Promotores − %Detratores",
+        "metricas": [
+          "promotores",
+          "detratores",
+          "neutros"
+        ]
+      }
+    ],
+    "valid": true,
+    "issues": []
+  },
+  {
+    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "scenario_id": "app_educacao_conv",
+    "model": "llama3.1:8b",
+    "condition": "unlimited",
+    "prompt_hash": "f38f854b9ed8",
+    "latency_s": 32.03623100000004,
+    "prompt_tokens": 245,
+    "completion_tokens": 317,
+    "total_tokens": 562,
+    "output": "[{\"kpi\":\"Taxa de Conversão de Onboarding\",\"importancia\":\"Alta\",\"formula\":\"(Número de usuários que concluem o onboarding / Número total de usuários que iniciam o onboarding) x 100\",\"metricas\":[\"Conclusão do onboarding\",\"Usuários ativos\"]},{\"kpi\":\"Bounce Rate\",\"importancia\":\"Alta\",\"formula\":\"(Número de sessões únicas / Número total de sessões) x 100\",\"metricas\":[\"Sessões únicas\",\"Tempo médio na aplicação\"]},{\"kpi\":\"Taxa de Retenção dos Usuários\",\"importancia\":\"Alta\",\"formula\":\"(Número de usuários que permanecem no app após 7 dias / Número total de usuários que iniciam o onboarding) x 100\",\"metricas\":[\"Usuários ativos\",\"Tempo médio na aplicação\"]},{\"kpi\":\"Taxa de Abandono do Onboarding\",\"importancia\":\"Alta\",\"formula\":\"(Número de usuários que abandonam o onboarding / Número total de usuários que iniciam o onboarding) x 100\",\"metricas\":[\"Conclusão do onboarding\",\"Usuários ativos\"]}]",
+    "parsed_items": [
+      {
+        "kpi": "Taxa de Conversão de Onboarding",
+        "importancia": "Alta",
+        "formula": "(Número de usuários que concluem o onboarding / Número total de usuários que iniciam o onboarding) x 100",
+        "metricas": [
+          "Conclusão do onboarding",
+          "Usuários ativos"
+        ]
+      },
+      {
+        "kpi": "Bounce Rate",
+        "importancia": "Alta",
+        "formula": "(Número de sessões únicas / Número total de sessões) x 100",
+        "metricas": [
+          "Sessões únicas",
+          "Tempo médio na aplicação"
+        ]
+      },
+      {
+        "kpi": "Taxa de Retenção dos Usuários",
+        "importancia": "Alta",
+        "formula": "(Número de usuários que permanecem no app após 7 dias / Número total de usuários que iniciam o onboarding) x 100",
+        "metricas": [
+          "Usuários ativos",
+          "Tempo médio na aplicação"
+        ]
+      },
+      {
+        "kpi": "Taxa de Abandono do Onboarding",
+        "importancia": "Alta",
+        "formula": "(Número de usuários que abandonam o onboarding / Número total de usuários que iniciam o onboarding) x 100",
+        "metricas": [
+          "Conclusão do onboarding",
+          "Usuários ativos"
+        ]
+      }
+    ],
+    "valid": true,
+    "issues": []
+  },
+  {
+    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "scenario_id": "omni_telecom_sla",
+    "model": "meta-llama-3.1-8b.Q4_K_M:latest",
+    "condition": "unlimited",
+    "prompt_hash": "4a4f2290e266",
+    "latency_s": 9.831556699999055,
+    "prompt_tokens": 281,
+    "completion_tokens": 129,
+    "total_tokens": 410,
+    "output": "[{\"kpi\":\"Churn de Clientes\",\"importancia\":\"Elevada\",\"formula\":\"Clientes perdidos ÷ Base inicial × 100%\",\"metricas\":[\"clientes_perdidos\",\"base_inicial\"]},{\"kpi\":\"NPS\",\"importancia\":\"Media\",\"formula\":\"%Promotores−%Detratores\",\"metricas\":[\"promotores\",\"detratores\",\"neutros\"]}]",
+    "parsed_items": [
+      {
+        "kpi": "Churn de Clientes",
+        "importancia": "Elevada",
+        "formula": "Clientes perdidos ÷ Base inicial × 100%",
+        "metricas": [
+          "clientes_perdidos",
+          "base_inicial"
+        ]
+      },
+      {
+        "kpi": "NPS",
+        "importancia": "Media",
+        "formula": "%Promotores−%Detratores",
+        "metricas": [
+          "promotores",
+          "detratores",
+          "neutros"
+        ]
+      }
+    ],
+    "valid": true,
+    "issues": []
+  },
+  {
+    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "scenario_id": "omni_telecom_sla",
+    "model": "llama3.1:8b",
+    "condition": "unlimited",
+    "prompt_hash": "4a4f2290e266",
+    "latency_s": 32.67431039999974,
+    "prompt_tokens": 248,
+    "completion_tokens": 325,
+    "total_tokens": 573,
+    "output": "[{\"kpi\":\"Taxa de Atribuição de Venda Offline\",\"importancia\":\"Alta\",\"formula\":\"(Número de vendas offline atribuídas / Número total de vendas) x 100%\",\"metricas\":[\"Vendas Offline Atribuídas\",\"Vendas Totais\"]},{\"kpi\":\"Taxa de Atendimento ao Cliente no Chat\",\"importancia\":\"Alta\",\"formula\":\"(Número de atendimentos realizados no chat / Número total de requisições de atendimento) x 100%\",\"metricas\":[\"Atendimentos Realizados no Chat\",\"Requisições de Atendimento Totais\"]},{\"kpi\":\"Tempo Médio de Resposta (TMR) no Chat\",\"importancia\":\"Alta\",\"formula\":\"Tempo médio em segundos entre a requisição de atendimento e o início do atendimento\",\"metricas\":[\"Tempo Médio de Resposta\",\"Requisições de Atendimento Totais\"]},{\"kpi\":\"Taxa de Satisfação do Cliente (TSC)\",\"importancia\":\"Alta\",\"formula\":\"(Número de clientes satisfeitos / Número total de clientes atendidos) x 100%\",\"metricas\":[\"Clientes Satisfeitos\",\"Clientes Atendidos Totais\"]}]",
+    "parsed_items": [
+      {
+        "kpi": "Taxa de Atribuição de Venda Offline",
+        "importancia": "Alta",
+        "formula": "(Número de vendas offline atribuídas / Número total de vendas) x 100%",
+        "metricas": [
+          "Vendas Offline Atribuídas",
+          "Vendas Totais"
+        ]
+      },
+      {
+        "kpi": "Taxa de Atendimento ao Cliente no Chat",
+        "importancia": "Alta",
+        "formula": "(Número de atendimentos realizados no chat / Número total de requisições de atendimento) x 100%",
+        "metricas": [
+          "Atendimentos Realizados no Chat",
+          "Requisições de Atendimento Totais"
+        ]
+      },
+      {
+        "kpi": "Tempo Médio de Resposta (TMR) no Chat",
+        "importancia": "Alta",
+        "formula": "Tempo médio em segundos entre a requisição de atendimento e o início do atendimento",
+        "metricas": [
+          "Tempo Médio de Resposta",
+          "Requisições de Atendimento Totais"
+        ]
+      },
+      {
+        "kpi": "Taxa de Satisfação do Cliente (TSC)",
+        "importancia": "Alta",
+        "formula": "(Número de clientes satisfeitos / Número total de clientes atendidos) x 100%",
+        "metricas": [
+          "Clientes Satisfeitos",
+          "Clientes Atendidos Totais"
+        ]
+      }
+    ],
+    "valid": true,
+    "issues": []
+  },
+  {
+    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "scenario_id": "devops_auto_uptime",
+    "model": "meta-llama-3.1-8b.Q4_K_M:latest",
+    "condition": "unlimited",
+    "prompt_hash": "b95b34ff6477",
+    "latency_s": 9.711281700001564,
+    "prompt_tokens": 284,
+    "completion_tokens": 119,
+    "total_tokens": 403,
+    "output": "[]",
+    "parsed_items": [],
+    "valid": false,
+    "issues": [
+      "array_parse_failed",
+      "no_objects_found"
+    ]
+  },
+  {
+    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "scenario_id": "devops_auto_uptime",
+    "model": "llama3.1:8b",
+    "condition": "unlimited",
+    "prompt_hash": "b95b34ff6477",
+    "latency_s": 27.52461299999959,
+    "prompt_tokens": 248,
+    "completion_tokens": 228,
+    "total_tokens": 476,
+    "output": "[{\"kpi\":\"Taxa de Uptime\",\"importancia\":\"Alta\",\"formula\":\"(Tempo Total - Tempo Downtime) / Tempo Total * 100\",\"metricas\":[\"Tempo Total\",\"Tempo Downtime\"]},{\"kpi\":\"MTTR (Média Tempo para Restaurar Serviço)\",\"importancia\":\"Alta\",\"formula\":\"Tempo Downtime / Número de Ocorrências\",\"metricas\":[\"Tempo Downtime\",\"Número de Ocorrências\"]},{\"kpi\":\"Taxa de Erros Críticos\",\"importancia\":\"Média\",\"formula\":\"Número de Erros Críticos / Número Total de Requisições * 100\",\"metricas\":[\"Número de Erros Críticos\",\"Número Total de Requisições\"]},{\"kpi\":\"Tempo Médio para Resolução\",\"importancia\":\"Alta\",\"formula\":\"Tempo Downtime / Número de Ocorrências\",\"metricas\":[\"Tempo Downtime\",\"Número de Ocorrências\"]}]",
+    "parsed_items": [
+      {
+        "kpi": "Taxa de Uptime",
+        "importancia": "Alta",
+        "formula": "(Tempo Total - Tempo Downtime) / Tempo Total * 100",
+        "metricas": [
+          "Tempo Total",
+          "Tempo Downtime"
+        ]
+      },
+      {
+        "kpi": "MTTR (Média Tempo para Restaurar Serviço)",
+        "importancia": "Alta",
+        "formula": "Tempo Downtime / Número de Ocorrências",
+        "metricas": [
+          "Tempo Downtime",
+          "Número de Ocorrências"
+        ]
+      },
+      {
+        "kpi": "Taxa de Erros Críticos",
+        "importancia": "Média",
+        "formula": "Número de Erros Críticos / Número Total de Requisições * 100",
+        "metricas": [
+          "Número de Erros Críticos",
+          "Número Total de Requisições"
+        ]
+      },
+      {
+        "kpi": "Tempo Médio para Resolução",
+        "importancia": "Alta",
+        "formula": "Tempo Downtime / Número de Ocorrências",
+        "metricas": [
+          "Tempo Downtime",
+          "Número de Ocorrências"
+        ]
+      }
+    ],
+    "valid": true,
+    "issues": []
+  },
+  {
+    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "scenario_id": "risco_mobilidade_fraude",
+    "model": "meta-llama-3.1-8b.Q4_K_M:latest",
+    "condition": "unlimited",
+    "prompt_hash": "5da759f015d5",
+    "latency_s": 11.98322719999851,
+    "prompt_tokens": 280,
+    "completion_tokens": 211,
+    "total_tokens": 491,
+    "output": "[]",
+    "parsed_items": [],
+    "valid": false,
+    "issues": [
+      "array_parse_failed",
+      "no_objects_found"
+    ]
+  },
+  {
+    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "scenario_id": "risco_mobilidade_fraude",
+    "model": "llama3.1:8b",
+    "condition": "unlimited",
+    "prompt_hash": "5da759f015d5",
+    "latency_s": 29.67852800000037,
+    "prompt_tokens": 251,
+    "completion_tokens": 270,
+    "total_tokens": 521,
+    "output": "[{\"kpi\":\"Tempo Médio de Resolução de Fraudes\",\"importancia\":\"Alta\",\"formula\":\"(Soma do Tempo de Resolução de Todas as Fraudes) / Número de Fraudess\",\"metricas\":[\"Dia\"]},{\"kpi\":\"Taxa de Falso Positivo (FPR)\",\"importancia\":\"Alta\",\"formula\":\"(Número de Falsos Positivos) / (Número de Transações Verificadas)\",\"metricas\":[\"Porcentagem\"]},{\"kpi\":\"Taxa de Detecção de Fraudes (TDR)\",\"importancia\":\"Média\",\"formula\":\"(Número de Fraudess Detectadas) / Número de Transações Verificadas\",\"metricas\":[\"Porcentagem\"]},{\"kpi\":\"Tempo de Resolução de Fraudes por Equipe\",\"importancia\":\"Média\",\"formula\":\"(Soma do Tempo de Resolução de Todas as Fraudes) / Número de Membros da Equipe\",\"metricas\":[\"Dia\"]}]",
+    "parsed_items": [
+      {
+        "kpi": "Tempo Médio de Resolução de Fraudes",
+        "importancia": "Alta",
+        "formula": "(Soma do Tempo de Resolução de Todas as Fraudes) / Número de Fraudess",
+        "metricas": [
+          "Dia"
+        ]
+      },
+      {
+        "kpi": "Taxa de Falso Positivo (FPR)",
+        "importancia": "Alta",
+        "formula": "(Número de Falsos Positivos) / (Número de Transações Verificadas)",
+        "metricas": [
+          "Porcentagem"
+        ]
+      },
+      {
+        "kpi": "Taxa de Detecção de Fraudes (TDR)",
+        "importancia": "Média",
+        "formula": "(Número de Fraudess Detectadas) / Número de Transações Verificadas",
+        "metricas": [
+          "Porcentagem"
+        ]
+      },
+      {
+        "kpi": "Tempo de Resolução de Fraudes por Equipe",
+        "importancia": "Média",
+        "formula": "(Soma do Tempo de Resolução de Todas as Fraudes) / Número de Membros da Equipe",
+        "metricas": [
+          "Dia"
+        ]
+      }
+    ],
+    "valid": true,
+    "issues": []
+  },
+  {
+    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "scenario_id": "crm_agritech_reativacao",
+    "model": "meta-llama-3.1-8b.Q4_K_M:latest",
+    "condition": "unlimited",
+    "prompt_hash": "61c447743b1e",
+    "latency_s": 15.792861199999606,
+    "prompt_tokens": 283,
+    "completion_tokens": 417,
+    "total_tokens": 700,
+    "output": "[{\"kpi\":\"Reativação 30d\",\"importancia\":\"medio-termo\",\"formula\":\"Reativados 30d / Base inicial * 100%\",\"metricas\":[\"reativados\",\"base_inicial\"]},{\"kpi\":\"Unsubscribe Rate\",\"importancia\":\"imediata\",\"formula\":\"Descadastros / Entregues * 100%\",\"metricas\":[\"descadastros\",\"entregues\"]}]",
+    "parsed_items": [
+      {
+        "kpi": "Reativação 30d",
+        "importancia": "medio-termo",
+        "formula": "Reativados 30d / Base inicial * 100%",
+        "metricas": [
+          "reativados",
+          "base_inicial"
+        ]
+      },
+      {
+        "kpi": "Unsubscribe Rate",
+        "importancia": "imediata",
+        "formula": "Descadastros / Entregues * 100%",
+        "metricas": [
+          "descadastros",
+          "entregues"
+        ]
+      }
+    ],
+    "valid": true,
+    "issues": [
+      "array_parse_failed"
+    ]
+  },
+  {
+    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "scenario_id": "crm_agritech_reativacao",
+    "model": "llama3.1:8b",
+    "condition": "unlimited",
+    "prompt_hash": "61c447743b1e",
+    "latency_s": 26.624803800001246,
+    "prompt_tokens": 249,
+    "completion_tokens": 211,
+    "total_tokens": 460,
+    "output": "[{\"kpi\":\"Taxa de Reativação 30d\",\"importancia\":\"Alta\",\"formula\":\"(Número de clientes reativados nos últimos 30 dias / Número total de clientes desativados nos últimos 30 dias) x 100%\",\"metricas\":[\"Reativações\",\"Desativações\"]},{\"kpi\":\"Taxa de Desativação\",\"importancia\":\"Baixa\",\"formula\":\"(Número de clientes desativados / Número total de clientes ativos) x 100%\",\"metricas\":[\"Desativações\",\"Clientes ativos\"]},{\"kpi\":\"Taxa de Cancelamento (Unsubscribe)\",\"importancia\":\"Baixa\",\"formula\":\"(Número de cancelamentos / Número total de assinaturas) x 100%\",\"metricas\":[\"Cancelamentos\",\"Assinaturas\"]}]",
+    "parsed_items": [
+      {
+        "kpi": "Taxa de Reativação 30d",
+        "importancia": "Alta",
+        "formula": "(Número de clientes reativados nos últimos 30 dias / Número total de clientes desativados nos últimos 30 dias) x 100%",
+        "metricas": [
+          "Reativações",
+          "Desativações"
+        ]
+      },
+      {
+        "kpi": "Taxa de Desativação",
+        "importancia": "Baixa",
+        "formula": "(Número de clientes desativados / Número total de clientes ativos) x 100%",
+        "metricas": [
+          "Desativações",
+          "Clientes ativos"
+        ]
+      },
+      {
+        "kpi": "Taxa de Cancelamento (Unsubscribe)",
+        "importancia": "Baixa",
+        "formula": "(Número de cancelamentos / Número total de assinaturas) x 100%",
+        "metricas": [
+          "Cancelamentos",
+          "Assinaturas"
+        ]
+      }
+    ],
+    "valid": true,
+    "issues": []
+  },
+  {
+    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "scenario_id": "ops_logtech_otif",
+    "model": "meta-llama-3.1-8b.Q4_K_M:latest",
+    "condition": "unlimited",
+    "prompt_hash": "7720a374e4ee",
+    "latency_s": 10.498261200000343,
+    "prompt_tokens": 283,
+    "completion_tokens": 131,
+    "total_tokens": 414,
+    "output": "[{\"kpi\":\"OTIF\",\"importancia\":\"critica\",\"formula\":\"Entregues no prazo e corretos ÷ Entregues × 100%\",\"metricas\":[\"otif\",\"entregues\"]},{\"kpi\":\"Custo por Pedido\",\"importancia\":\"medio-terminal\",\"formula\":\"Custos operacionais ÷ Número de pedidos\",\"metricas\":[\"custos_operacionais\",\"pedidos\"]}]",
+    "parsed_items": [
+      {
+        "kpi": "OTIF",
+        "importancia": "critica",
+        "formula": "Entregues no prazo e corretos ÷ Entregues × 100%",
+        "metricas": [
+          "otif",
+          "entregues"
+        ]
+      },
+      {
+        "kpi": "Custo por Pedido",
+        "importancia": "medio-terminal",
+        "formula": "Custos operacionais ÷ Número de pedidos",
+        "metricas": [
+          "custos_operacionais",
+          "pedidos"
+        ]
+      }
+    ],
+    "valid": true,
+    "issues": []
+  },
+  {
+    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "scenario_id": "ops_logtech_otif",
+    "model": "llama3.1:8b",
+    "condition": "unlimited",
+    "prompt_hash": "7720a374e4ee",
+    "latency_s": 31.78623890000017,
+    "prompt_tokens": 250,
+    "completion_tokens": 311,
+    "total_tokens": 561,
+    "output": "[{\"kpi\":\"Taxa de Cumprimento em Tempo (OTIF)\",\"importancia\":\"Alta\",\"formula\":\"(Número de pedidos entregues no prazo / Número total de pedidos) * 100\",\"metricas\":[\"Pedidos entregues no prazo\",\"Número total de pedidos\"]},{\"kpi\":\"Custo por Pedido\",\"importancia\":\"Baixa\",\"formula\":\"(Custo total de logística / Número total de pedidos)\",\"metricas\":[\"Custo total de logística\",\"Número total de pedidos\"]},{\"kpi\":\"Taxa de Erro em Entrega\",\"importancia\":\"Alta\",\"formula\":\"(Número de erros em entrega / Número total de pedidos) * 100\",\"metricas\":[\"Erros em entrega\",\"Número total de pedidos\"]},{\"kpi\":\"Tempo Médio de Processamento de Pedido (TTP)\",\"importancia\":\"Média\",\"formula\":\"(Soma do tempo de processamento de cada pedido / Número total de pedidos)\",\"metricas\":[\"Tempo de processamento de cada pedido\",\"Número total de pedidos\"]},{\"kpi\":\"Taxa de Eficiência em Movimentação (TEM)\",\"importancia\":\"Alta\",\"formula\":\"(Quantidade de movimentos efetuados / Quantidade de movimentos planejados) * 100\",\"metricas\":[\"Movimentos efetuados\",\"Movimentos planejados\"]}]",
+    "parsed_items": [
+      {
+        "kpi": "Taxa de Cumprimento em Tempo (OTIF)",
+        "importancia": "Alta",
+        "formula": "(Número de pedidos entregues no prazo / Número total de pedidos) * 100",
+        "metricas": [
+          "Pedidos entregues no prazo",
+          "Número total de pedidos"
+        ]
+      },
+      {
+        "kpi": "Custo por Pedido",
+        "importancia": "Baixa",
+        "formula": "(Custo total de logística / Número total de pedidos)",
+        "metricas": [
+          "Custo total de logística",
+          "Número total de pedidos"
+        ]
+      },
+      {
+        "kpi": "Taxa de Erro em Entrega",
+        "importancia": "Alta",
+        "formula": "(Número de erros em entrega / Número total de pedidos) * 100",
+        "metricas": [
+          "Erros em entrega",
+          "Número total de pedidos"
+        ]
+      },
+      {
+        "kpi": "Tempo Médio de Processamento de Pedido (TTP)",
+        "importancia": "Média",
+        "formula": "(Soma do tempo de processamento de cada pedido / Número total de pedidos)",
+        "metricas": [
+          "Tempo de processamento de cada pedido",
+          "Número total de pedidos"
+        ]
+      },
+      {
+        "kpi": "Taxa de Eficiência em Movimentação (TEM)",
+        "importancia": "Alta",
+        "formula": "(Quantidade de movimentos efetuados / Quantidade de movimentos planejados) * 100",
+        "metricas": [
+          "Movimentos efetuados",
+          "Movimentos planejados"
+        ]
+      }
+    ],
+    "valid": true,
+    "issues": []
+  },
+  {
+    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "scenario_id": "prod_moda_entregab",
+    "model": "meta-llama-3.1-8b.Q4_K_M:latest",
+    "condition": "unlimited",
+    "prompt_hash": "015e0ee3ef3e",
+    "latency_s": 14.726552799998899,
+    "prompt_tokens": 285,
+    "completion_tokens": 401,
+    "total_tokens": 686,
+    "output": "[{\"kpi\":\"Entregabilidade de Email\",\"importancia\":\"Critica\",\"formula\":\"Obs em dia/Observações ÷ Obs × 100%\",\"metricas\":[\"obsolescoes\",\"observacoes\"]}]",
+    "parsed_items": [
+      {
+        "kpi": "Entregabilidade de Email",
+        "importancia": "Critica",
+        "formula": "Obs em dia/Observações ÷ Obs × 100%",
+        "metricas": [
+          "obsolescoes",
+          "observacoes"
+        ]
+      }
+    ],
+    "valid": true,
+    "issues": [
+      "array_parse_failed"
+    ]
+  },
+  {
+    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "scenario_id": "prod_moda_entregab",
+    "model": "llama3.1:8b",
+    "condition": "unlimited",
+    "prompt_hash": "015e0ee3ef3e",
+    "latency_s": 28.194888900001388,
+    "prompt_tokens": 248,
+    "completion_tokens": 239,
+    "total_tokens": 487,
+    "output": "[{\"kpi\":\"Taxa de Abertura de E-mails\",\"importancia\":\"Alta\",\"formula\":\"(Número de e-mails abertos / Número total de e-mails enviados) x 100\",\"metricas\":[\"E-mails enviados\",\"E-mails abertos\"]},{\"kpi\":\"Taxa de Bounce\",\"importancia\":\"Baixa\",\"formula\":\"(Número de bounces / Número total de e-mails enviados) x 100\",\"metricas\":[\"E-mails enviados\",\"Bounces\"]},{\"kpi\":\"Taxa de Abertura por Campanha\",\"importancia\":\"Alta\",\"formula\":\"(Número de e-mails abertos da campanha / Número total de e-mails enviados da campanha) x 100\",\"metricas\":[\"Campanhas enviadas\",\"E-mails abertos\"]},{\"kpi\":\"Taxa de Bounce por Campanha\",\"importancia\":\"Baixa\",\"formula\":\"(Número de bounces da campanha / Número total de e-mails enviados da campanha) x 100\",\"metricas\":[\"Campanhas enviadas\",\"Bounces\"]}]",
+    "parsed_items": [
+      {
+        "kpi": "Taxa de Abertura de E-mails",
+        "importancia": "Alta",
+        "formula": "(Número de e-mails abertos / Número total de e-mails enviados) x 100",
+        "metricas": [
+          "E-mails enviados",
+          "E-mails abertos"
+        ]
+      },
+      {
+        "kpi": "Taxa de Bounce",
+        "importancia": "Baixa",
+        "formula": "(Número de bounces / Número total de e-mails enviados) x 100",
+        "metricas": [
+          "E-mails enviados",
+          "Bounces"
+        ]
+      },
+      {
+        "kpi": "Taxa de Abertura por Campanha",
+        "importancia": "Alta",
+        "formula": "(Número de e-mails abertos da campanha / Número total de e-mails enviados da campanha) x 100",
+        "metricas": [
+          "Campanhas enviadas",
+          "E-mails abertos"
+        ]
+      },
+      {
+        "kpi": "Taxa de Bounce por Campanha",
+        "importancia": "Baixa",
+        "formula": "(Número de bounces da campanha / Número total de e-mails enviados da campanha) x 100",
+        "metricas": [
+          "Campanhas enviadas",
+          "Bounces"
+        ]
+      }
+    ],
+    "valid": true,
+    "issues": []
+  },
+  {
+    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "scenario_id": "crm_hotel_forecast",
+    "model": "meta-llama-3.1-8b.Q4_K_M:latest",
+    "condition": "unlimited",
+    "prompt_hash": "d50172c4d2e1",
+    "latency_s": 11.199215299999196,
+    "prompt_tokens": 277,
+    "completion_tokens": 205,
+    "total_tokens": 482,
+    "output": "[{\"kpi\":\"NPS\",\"importancia\":\"medio-terminal\",\"formula\":\"%Promotores − %Detratores\",\"metricas\":[\"promotores\",\"detratores\"]},{\"kpi\":\"Churn de Clientes\",\"importancia\":\"duração\",\"formula\":\"Clientes perdidos ÷ Base inicial × 100%\",\"metricas\":[\"clientes_perdidos\",\"base_inicial\"]},{\"kpi\":\"LTV/CAC\",\"importancia\":\"otimização de capital\",\"formula\":\"LTV ÷ CAC\",\"metricas\":[\"ltv\",\"cac\"]}]",
+    "parsed_items": [
+      {
+        "kpi": "NPS",
+        "importancia": "medio-terminal",
+        "formula": "%Promotores − %Detratores",
+        "metricas": [
+          "promotores",
+          "detratores"
+        ]
+      },
+      {
+        "kpi": "Churn de Clientes",
+        "importancia": "duração",
+        "formula": "Clientes perdidos ÷ Base inicial × 100%",
+        "metricas": [
+          "clientes_perdidos",
+          "base_inicial"
+        ]
+      },
+      {
+        "kpi": "LTV/CAC",
+        "importancia": "otimização de capital",
+        "formula": "LTV ÷ CAC",
+        "metricas": [
+          "ltv",
+          "cac"
+        ]
+      }
+    ],
+    "valid": true,
+    "issues": []
+  },
+  {
+    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "scenario_id": "crm_hotel_forecast",
+    "model": "llama3.1:8b",
+    "condition": "unlimited",
+    "prompt_hash": "d50172c4d2e1",
+    "latency_s": 31.925145999999586,
+    "prompt_tokens": 245,
+    "completion_tokens": 319,
+    "total_tokens": 564,
+    "output": "[{\"kpi\":\"Taxa de Concessão de Quartos\",\"importancia\":\"Alta\",\"formula\":\"(Número de quartos concedidos / Número total de reservas) x 100\",\"metricas\":[\"Reservas\",\"Concessões\"]},{\"kpi\":\"Taxa de Cancelamento de Reservas\",\"importancia\":\"Média\",\"formula\":\"(Número de cancelamentos de reservas / Número total de reservas) x 100\",\"metricas\":[\"Reservas\",\"Cancelamentos\"]},{\"kpi\":\"Taxa de Retorno de Clientes\",\"importancia\":\"Alta\",\"formula\":\"(Número de clientes que retornaram / Número total de clientes) x 100\",\"metricas\":[\"Clientes\",\"Retornos\"]},{\"kpi\":\"Tempo Médio de Estadia\",\"importancia\":\"Média\",\"formula\":\"Soma do tempo de estadia de todos os hóspedes / Número total de hóspedes\",\"metricas\":[\"Hóspedes\",\"Tempos de estadia\"]},{\"kpi\":\"Taxa de Previsão de Demanda\",\"importancia\":\"Alta\",\"formula\":\"(Número de reservas previstas / Número real de reservas) x 100\",\"metricas\":[\"Reservas\",\"Previsões\"]}]",
+    "parsed_items": [
+      {
+        "kpi": "Taxa de Concessão de Quartos",
+        "importancia": "Alta",
+        "formula": "(Número de quartos concedidos / Número total de reservas) x 100",
+        "metricas": [
+          "Reservas",
+          "Concessões"
+        ]
+      },
+      {
+        "kpi": "Taxa de Cancelamento de Reservas",
+        "importancia": "Média",
+        "formula": "(Número de cancelamentos de reservas / Número total de reservas) x 100",
+        "metricas": [
+          "Reservas",
+          "Cancelamentos"
+        ]
+      },
+      {
+        "kpi": "Taxa de Retorno de Clientes",
+        "importancia": "Alta",
+        "formula": "(Número de clientes que retornaram / Número total de clientes) x 100",
+        "metricas": [
+          "Clientes",
+          "Retornos"
+        ]
+      },
+      {
+        "kpi": "Tempo Médio de Estadia",
+        "importancia": "Média",
+        "formula": "Soma do tempo de estadia de todos os hóspedes / Número total de hóspedes",
+        "metricas": [
+          "Hóspedes",
+          "Tempos de estadia"
+        ]
+      },
+      {
+        "kpi": "Taxa de Previsão de Demanda",
+        "importancia": "Alta",
+        "formula": "(Número de reservas previstas / Número real de reservas) x 100",
+        "metricas": [
+          "Reservas",
+          "Previsões"
+        ]
+      }
+    ],
+    "valid": true,
+    "issues": []
+  },
+  {
+    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "scenario_id": "prod_eventos_rsvp",
+    "model": "meta-llama-3.1-8b.Q4_K_M:latest",
+    "condition": "unlimited",
+    "prompt_hash": "dd50bb01edd2",
+    "latency_s": 10.404386300000624,
+    "prompt_tokens": 280,
+    "completion_tokens": 120,
+    "total_tokens": 400,
+    "output": "[{\"kpi\":\"Taxa de RSVP confirmados\",\"importancia\":\"alta\",\"formula\":\"Confirmados/Rsvps*100%\",\"metricas\":[\"confirmados\",\"rsvps\"]},{\"kpi\":\"Engajamento em push\",\"importancia\":\"media\",\"formula\":\"Notificações emitidas * Engajamento (e.g., aberturas)\",\"metricas\":[\"notificações_emitidas\",\"engajamento\"]}]",
+    "parsed_items": [
+      {
+        "kpi": "Taxa de RSVP confirmados",
+        "importancia": "alta",
+        "formula": "Confirmados/Rsvps*100%",
+        "metricas": [
+          "confirmados",
+          "rsvps"
+        ]
+      },
+      {
+        "kpi": "Engajamento em push",
+        "importancia": "media",
+        "formula": "Notificações emitidas * Engajamento (e.g., aberturas)",
+        "metricas": [
+          "notificações_emitidas",
+          "engajamento"
+        ]
+      }
+    ],
+    "valid": true,
+    "issues": []
+  },
+  {
+    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "scenario_id": "prod_eventos_rsvp",
+    "model": "llama3.1:8b",
+    "condition": "unlimited",
+    "prompt_hash": "dd50bb01edd2",
+    "latency_s": 25.48945470000035,
+    "prompt_tokens": 243,
+    "completion_tokens": 189,
+    "total_tokens": 432,
+    "output": "[{\"kpi\":\"Taxa de RSVP Confirmado por E-mail\",\"importancia\":\"Alta\",\"formula\":\"(Número de RSVPs confirmados por e-mail / Número total de RSVPs por e-mail) x 100\",\"metricas\":[\"E-mail Aberto\",\"Clique em Link\"]},{\"kpi\":\"Taxa de RSVP Confirmado por Push\",\"importancia\":\"Média\",\"formula\":\"(Número de RSVPs confirmados por push / Número total de RSVPs por push) x 100\",\"metricas\":[\"Taxa de Abertura do Push\",\"Taxa de Clique no Push\"]},{\"kpi\":\"Taxa de Abandonamento de RSVP\",\"importancia\":\"Baixa\",\"formula\":\"(Número de RSVPs abandonados / Número total de RSVPs) x 100\",\"metricas\":[\"E-mail Não Aberto\",\"Push Não Aberto\"]}]",
+    "parsed_items": [
+      {
+        "kpi": "Taxa de RSVP Confirmado por E-mail",
+        "importancia": "Alta",
+        "formula": "(Número de RSVPs confirmados por e-mail / Número total de RSVPs por e-mail) x 100",
+        "metricas": [
+          "E-mail Aberto",
+          "Clique em Link"
+        ]
+      },
+      {
+        "kpi": "Taxa de RSVP Confirmado por Push",
+        "importancia": "Média",
+        "formula": "(Número de RSVPs confirmados por push / Número total de RSVPs por push) x 100",
+        "metricas": [
+          "Taxa de Abertura do Push",
+          "Taxa de Clique no Push"
+        ]
+      },
+      {
+        "kpi": "Taxa de Abandonamento de RSVP",
+        "importancia": "Baixa",
+        "formula": "(Número de RSVPs abandonados / Número total de RSVPs) x 100",
+        "metricas": [
+          "E-mail Não Aberto",
+          "Push Não Aberto"
+        ]
+      }
+    ],
+    "valid": true,
+    "issues": []
+  },
+  {
+    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "scenario_id": "people_conteudo_turnover",
+    "model": "meta-llama-3.1-8b.Q4_K_M:latest",
+    "condition": "unlimited",
+    "prompt_hash": "e9f3341b8ee2",
+    "latency_s": 10.893433700000969,
+    "prompt_tokens": 283,
+    "completion_tokens": 152,
+    "total_tokens": 435,
+    "output": "[{\"kpi\":\"Tenure\",\"importancia\":\"medio-termais\",\"formula\":\"Dias ativos\",\"metricas\":[\"durante_atividade\"]},{\"kpi\":\"Turnover Rate\",\"importancia\":\"período\",\"formula\":\"Saídas / Ativos * 100%\",\"metricas\":[\"saidas\",\"ativos\"]},{\"kpi\":\"Exit Interview Average Score\",\"importancia\":\"feedback_atribuído\",\"formula\":\"Média de scores no exit interview\",\"metricas\":[\"score_exit_interviews\"]}]",
+    "parsed_items": [
+      {
+        "kpi": "Tenure",
+        "importancia": "medio-termais",
+        "formula": "Dias ativos",
+        "metricas": [
+          "durante_atividade"
+        ]
+      },
+      {
+        "kpi": "Turnover Rate",
+        "importancia": "período",
+        "formula": "Saídas / Ativos * 100%",
+        "metricas": [
+          "saidas",
+          "ativos"
+        ]
+      },
+      {
+        "kpi": "Exit Interview Average Score",
+        "importancia": "feedback_atribuído",
+        "formula": "Média de scores no exit interview",
+        "metricas": [
+          "score_exit_interviews"
+        ]
+      }
+    ],
+    "valid": true,
+    "issues": []
+  },
+  {
+    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "scenario_id": "people_conteudo_turnover",
+    "model": "llama3.1:8b",
+    "condition": "unlimited",
+    "prompt_hash": "e9f3341b8ee2",
+    "latency_s": 31.53521489999912,
+    "prompt_tokens": 247,
+    "completion_tokens": 298,
+    "total_tokens": 545,
+    "output": "[{\"kpi\":\"Taxa de Turnover\",\"importancia\":\"Alta\",\"formula\":\"(Número de demissões / Número total de funcionários) x 100\",\"metricas\":[\"Demissões, Funcionários\"]},{\"kpi\":\"Tempo Médio de Permanência\",\"importancia\":\"Média\",\"formula\":\"Número médio de meses que os funcionários permanecem na empresa\",\"metricas\":[\"Funcionários, Data de admissão, Data de demissão\"]},{\"kpi\":\"Taxa de Retenção\",\"importancia\":\"Alta\",\"formula\":\"(Número total de funcionários - Número de demissões) / Número total de funcionários x 100\",\"metricas\":[\"Demissões, Funcionários\"]},{\"kpi\":\"Tempo de Seleção\",\"importancia\":\"Baixa\",\"formula\":\"Número médio de dias para preencher uma vaga\",\"metricas\":[\"Vagas abertas, Data de publicação do anúncio, Data de admissão\"]},{\"kpi\":\"Taxa de Satisfação dos Funcionários\",\"importancia\":\"Alta\",\"formula\":\"Índice de satisfação dos funcionários (por exemplo, por meio de questionário)\",\"metricas\":[\"Funcionários, Questões do questionário\"]}]",
+    "parsed_items": [
+      {
+        "kpi": "Taxa de Turnover",
+        "importancia": "Alta",
+        "formula": "(Número de demissões / Número total de funcionários) x 100",
+        "metricas": [
+          "Demissões, Funcionários"
+        ]
+      },
+      {
+        "kpi": "Tempo Médio de Permanência",
+        "importancia": "Média",
+        "formula": "Número médio de meses que os funcionários permanecem na empresa",
+        "metricas": [
+          "Funcionários, Data de admissão, Data de demissão"
+        ]
+      },
+      {
+        "kpi": "Taxa de Retenção",
+        "importancia": "Alta",
+        "formula": "(Número total de funcionários - Número de demissões) / Número total de funcionários x 100",
+        "metricas": [
+          "Demissões, Funcionários"
+        ]
+      },
+      {
+        "kpi": "Tempo de Seleção",
+        "importancia": "Baixa",
+        "formula": "Número médio de dias para preencher uma vaga",
+        "metricas": [
+          "Vagas abertas, Data de publicação do anúncio, Data de admissão"
+        ]
+      },
+      {
+        "kpi": "Taxa de Satisfação dos Funcionários",
+        "importancia": "Alta",
+        "formula": "Índice de satisfação dos funcionários (por exemplo, por meio de questionário)",
+        "metricas": [
+          "Funcionários, Questões do questionário"
+        ]
+      }
+    ],
+    "valid": true,
+    "issues": []
+  },
+  {
+    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "scenario_id": "perfsec_saas_mrr",
+    "model": "meta-llama-3.1-8b.Q4_K_M:latest",
+    "condition": "unlimited",
+    "prompt_hash": "cb187679b540",
+    "latency_s": 11.339528400001655,
+    "prompt_tokens": 283,
+    "completion_tokens": 205,
+    "total_tokens": 488,
+    "output": "[{\"kpi\":\"MQL Rate\",\"importancia\":\"medio\",\"formula\":\"MQLs ÷ Leads × 100%\",\"metricas\":[\"mqls\",\"leads\"]},{\"kpi\":\"CVR (Site)\",\"importancia\":\"baixa\",\"formula\":\"Conversões ÷ Sessões × 100%\",\"metricas\":[\"conversões\",\"sessões\"]},{\"kpi\":\"AOV\",\"importancia\":\"baixa\",\"formula\":\"Receita ÷ Nº de pedidos\",\"metricas\":[\"receita\",\"pedidos\"]}]",
+    "parsed_items": [
+      {
+        "kpi": "MQL Rate",
+        "importancia": "medio",
+        "formula": "MQLs ÷ Leads × 100%",
+        "metricas": [
+          "mqls",
+          "leads"
+        ]
+      },
+      {
+        "kpi": "CVR (Site)",
+        "importancia": "baixa",
+        "formula": "Conversões ÷ Sessões × 100%",
+        "metricas": [
+          "conversões",
+          "sessões"
+        ]
+      },
+      {
+        "kpi": "AOV",
+        "importancia": "baixa",
+        "formula": "Receita ÷ Nº de pedidos",
+        "metricas": [
+          "receita",
+          "pedidos"
+        ]
+      }
+    ],
+    "valid": true,
+    "issues": []
+  },
+  {
+    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "scenario_id": "perfsec_saas_mrr",
+    "model": "llama3.1:8b",
+    "condition": "unlimited",
+    "prompt_hash": "cb187679b540",
+    "latency_s": 35.283072500000344,
+    "prompt_tokens": 251,
+    "completion_tokens": 379,
+    "total_tokens": 630,
+    "output": "[{\"kpi\":\"Taxa de Conversão MQL\",\"importancia\":\"Alta\",\"formula\":\"(Número de Leads Qualificados / Número de Visitações ao Site) x 100\",\"metricas\":[\"Leads Qualificados\",\"Visitações ao Site\"]},{\"kpi\":\"Custo Por Lead (CPL)\",\"importancia\":\"Média\",\"formula\":\"Despesa Total com Marketing / Número de Leads Gerados\",\"metricas\":[\"Despesa Total com Marketing\",\"Número de Leads Gerados\"]},{\"kpi\":\"Taxa de Crescimento do MRR\",\"importancia\":\"Alta\",\"formula\":\"(MRR Atual - MRR Anterior) / MRR Anterior x 100\",\"metricas\":[\"MRR Atual\",\"MRR Anterior\"]},{\"kpi\":\"Número de Leads Qualificados\",\"importancia\":\"Alta\",\"formula\":\"Número de Contatos que atendem aos Critérios de Qualificação\",\"metricas\":[\"Contatos\",\"Critérios de Qualificação\"]},{\"kpi\":\"Taxa de Abertura da Caixa (Open Rate)\",\"importancia\":\"Média\",\"formula\":\"(Número de E-mails Abertos / Número Total de E-mails Enviados) x 100\",\"metricas\":[\"E-mails Abertos\",\"E-mails Enviados\"]},{\"kpi\":\"Taxa de Clique (Click-Through Rate, CTR)\",\"importancia\":\"Média\",\"formula\":\"(Número de Cliques / Número Total de E-mails Enviados) x 100\",\"metricas\":[\"Cliques\",\"E-mails Enviados\"]}]",
+    "parsed_items": [
+      {
+        "kpi": "Taxa de Conversão MQL",
+        "importancia": "Alta",
+        "formula": "(Número de Leads Qualificados / Número de Visitações ao Site) x 100",
+        "metricas": [
+          "Leads Qualificados",
+          "Visitações ao Site"
+        ]
+      },
+      {
+        "kpi": "Custo Por Lead (CPL)",
+        "importancia": "Média",
+        "formula": "Despesa Total com Marketing / Número de Leads Gerados",
+        "metricas": [
+          "Despesa Total com Marketing",
+          "Número de Leads Gerados"
+        ]
+      },
+      {
+        "kpi": "Taxa de Crescimento do MRR",
+        "importancia": "Alta",
+        "formula": "(MRR Atual - MRR Anterior) / MRR Anterior x 100",
+        "metricas": [
+          "MRR Atual",
+          "MRR Anterior"
+        ]
+      },
+      {
+        "kpi": "Número de Leads Qualificados",
+        "importancia": "Alta",
+        "formula": "Número de Contatos que atendem aos Critérios de Qualificação",
+        "metricas": [
+          "Contatos",
+          "Critérios de Qualificação"
+        ]
+      },
+      {
+        "kpi": "Taxa de Abertura da Caixa (Open Rate)",
+        "importancia": "Média",
+        "formula": "(Número de E-mails Abertos / Número Total de E-mails Enviados) x 100",
+        "metricas": [
+          "E-mails Abertos",
+          "E-mails Enviados"
+        ]
+      },
+      {
+        "kpi": "Taxa de Clique (Click-Through Rate, CTR)",
+        "importancia": "Média",
+        "formula": "(Número de Cliques / Número Total de E-mails Enviados) x 100",
+        "metricas": [
+          "Cliques",
+          "E-mails Enviados"
+        ]
+      }
+    ],
+    "valid": true,
+    "issues": []
+  },
+  {
+    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "scenario_id": "sales_edcorp_cac",
+    "model": "meta-llama-3.1-8b.Q4_K_M:latest",
+    "condition": "unlimited",
+    "prompt_hash": "ceac111c58b3",
+    "latency_s": 13.792720100000224,
+    "prompt_tokens": 276,
+    "completion_tokens": 344,
+    "total_tokens": 620,
+    "output": "[{\"kpi\":\"CAC\",\"importancia\":\"critica\",\"formula\":\"gastos_marginais / novos_clientes\",\"metricas\":[\"cash_acquisition\",\"new_clients\"]},{\"kpi\":\"Win Rate\",\"importancia\":\"normal\",\"formula\":\"Oportunidades ganhas ÷ Oportunidades × 100%\",\"metricas\":[\"oportunidades_ganhas\",\"oportunidades\"]},{\"kpi\":\"Average Deal Size\",\"importancia\":\"normal\",\"formula\":\"Receita ÷ Nº de negócios\",\"metricas\":[\"receita\",\"negócios\"]}]",
+    "parsed_items": [
+      {
+        "kpi": "CAC",
+        "importancia": "critica",
+        "formula": "gastos_marginais / novos_clientes",
+        "metricas": [
+          "cash_acquisition",
+          "new_clients"
+        ]
+      },
+      {
+        "kpi": "Win Rate",
+        "importancia": "normal",
+        "formula": "Oportunidades ganhas ÷ Oportunidades × 100%",
+        "metricas": [
+          "oportunidades_ganhas",
+          "oportunidades"
+        ]
+      },
+      {
+        "kpi": "Average Deal Size",
+        "importancia": "normal",
+        "formula": "Receita ÷ Nº de negócios",
+        "metricas": [
+          "receita",
+          "negócios"
+        ]
+      }
+    ],
+    "valid": true,
+    "issues": [
+      "array_parse_failed"
+    ]
+  },
+  {
+    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "scenario_id": "sales_edcorp_cac",
+    "model": "llama3.1:8b",
+    "condition": "unlimited",
+    "prompt_hash": "ceac111c58b3",
+    "latency_s": 34.74935639999967,
+    "prompt_tokens": 245,
+    "completion_tokens": 372,
+    "total_tokens": 617,
+    "output": "[{\"kpi\":\"Taxa de Conversão\",\"importancia\":\"Alta\",\"formula\":\"(Número de Vendas Fechadas / Número de Contatos Feitos) x 100%\",\"metricas\":[\"Vendas Fechadas\",\"Contatos Feitos\"]},{\"kpi\":\"Taxa de Abandono do Pipeline\",\"importancia\":\"Média\",\"formula\":\"(Número de Leads Adicionados - Número de Vendas Fechadas) / Número de Leads Adicionados x 100%\",\"metricas\":[\"Leads Adicionados\",\"Vendas Fechadas\"]},{\"kpi\":\"Custo por Aquisição (CAC)\",\"importancia\":\"Alta\",\"formula\":\"Total de Despesas com Vendas / Número de Vendas Fechadas\",\"metricas\":[\"Despesas com Vendas\",\"Vendas Fechadas\"]},{\"kpi\":\"Taxa de Crescimento do Pipeline\",\"importancia\":\"Média\",\"formula\":\"(Número de Leads Adicionados - Número de Leads Perdidos) / Número de Leads Adicionados x 100%\",\"metricas\":[\"Leads Adicionados\",\"Leads Perdidos\"]},{\"kpi\":\"Win Rate\",\"importancia\":\"Alta\",\"formula\":\"(Número de Vendas Fechadas / Número de Propostas Enviadas) x 100%\",\"metricas\":[\"Vendas Fechadas\",\"Propostas Enviadas\"]}]",
+    "parsed_items": [
+      {
+        "kpi": "Taxa de Conversão",
+        "importancia": "Alta",
+        "formula": "(Número de Vendas Fechadas / Número de Contatos Feitos) x 100%",
+        "metricas": [
+          "Vendas Fechadas",
+          "Contatos Feitos"
+        ]
+      },
+      {
+        "kpi": "Taxa de Abandono do Pipeline",
+        "importancia": "Média",
+        "formula": "(Número de Leads Adicionados - Número de Vendas Fechadas) / Número de Leads Adicionados x 100%",
+        "metricas": [
+          "Leads Adicionados",
+          "Vendas Fechadas"
+        ]
+      },
+      {
+        "kpi": "Custo por Aquisição (CAC)",
+        "importancia": "Alta",
+        "formula": "Total de Despesas com Vendas / Número de Vendas Fechadas",
+        "metricas": [
+          "Despesas com Vendas",
+          "Vendas Fechadas"
+        ]
+      },
+      {
+        "kpi": "Taxa de Crescimento do Pipeline",
+        "importancia": "Média",
+        "formula": "(Número de Leads Adicionados - Número de Leads Perdidos) / Número de Leads Adicionados x 100%",
+        "metricas": [
+          "Leads Adicionados",
+          "Leads Perdidos"
+        ]
+      },
+      {
+        "kpi": "Win Rate",
+        "importancia": "Alta",
+        "formula": "(Número de Vendas Fechadas / Número de Propostas Enviadas) x 100%",
+        "metricas": [
+          "Vendas Fechadas",
+          "Propostas Enviadas"
+        ]
+      }
+    ],
+    "valid": true,
+    "issues": []
+  },
+  {
+    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "scenario_id": "sales_gaming_checkout",
+    "model": "meta-llama-3.1-8b.Q4_K_M:latest",
+    "condition": "unlimited",
+    "prompt_hash": "bde52bd00ea0",
+    "latency_s": 11.201458800000182,
+    "prompt_tokens": 273,
+    "completion_tokens": 167,
+    "total_tokens": 440,
+    "output": "[{\"kpi\":\"CAC\",\"importancia\":\"medio\",\"formula\":\"Custo de aquisição*número de novos clientes\",\"metricas\":[\"caco\",\"novos_clientes\"]},{\"kpi\":\"AOV\",\"importancia\":\"baixa\",\"formula\":\"Receita atribuída / Número de pedidos\",\"metricas\":[\"receita\",\"pedidos\"]},{\"kpi\":\"MQL Rate\",\"importancia\":\"media\",\"formula\":\"MQL ÷ Leads × 100%\",\"metricas\":[\"mql\",\"leads\"]}]",
+    "parsed_items": [
+      {
+        "kpi": "CAC",
+        "importancia": "medio",
+        "formula": "Custo de aquisição*número de novos clientes",
+        "metricas": [
+          "caco",
+          "novos_clientes"
+        ]
+      },
+      {
+        "kpi": "AOV",
+        "importancia": "baixa",
+        "formula": "Receita atribuída / Número de pedidos",
+        "metricas": [
+          "receita",
+          "pedidos"
+        ]
+      },
+      {
+        "kpi": "MQL Rate",
+        "importancia": "media",
+        "formula": "MQL ÷ Leads × 100%",
+        "metricas": [
+          "mql",
+          "leads"
+        ]
+      }
+    ],
+    "valid": true,
+    "issues": []
+  },
+  {
+    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "scenario_id": "sales_gaming_checkout",
+    "model": "llama3.1:8b",
+    "condition": "unlimited",
+    "prompt_hash": "bde52bd00ea0",
+    "latency_s": 32.26535469999908,
+    "prompt_tokens": 244,
+    "completion_tokens": 319,
+    "total_tokens": 563,
+    "output": "[{\"kpi\":\"Taxa de Conversão de Checkout\",\"importancia\":\"Alta\",\"formula\":\"(Número de Compras / Número de Visualizações do Checkout) x 100\",\"metricas\":[\"Número de Compras\",\"Número de Visualizações do Checkout\"]},{\"kpi\":\"ARPPU (Renda por Usuário Ativo)\",\"importancia\":\"Média\",\"formula\":\"Valor Médio da Compra / Número de Usuários Ativos\",\"metricas\":[\"Valor Médio da Compra\",\"Número de Usuários Ativos\"]},{\"kpi\":\"Taxa de Abandono do Carrinho\",\"importancia\":\"Baixa\",\"formula\":\"(Número de Pedidos Cancelados / Número de Pedidos Iniciados) x 100\",\"metricas\":[\"Número de Pedidos Cancelados\",\"Número de Pedidos Iniciados\"]},{\"kpi\":\"Custo de Aquisição por Usuário Ativo\",\"importancia\":\"Alta\",\"formula\":\"Despesas com Marketing / Número de Usuários Ativos\",\"metricas\":[\"Despesas com Marketing\",\"Número de Usuários Ativos\"]},{\"kpi\":\"Taxa de Retenção dos Usuários\",\"importancia\":\"Média\",\"formula\":\"(Número de Usuários que Continuam a Jogar / Número de Novos Usuários) x 100\",\"metricas\":[\"Número de Usuários que Continuam a Jogar\",\"Número de Novos Usuários\"]}]",
+    "parsed_items": [
+      {
+        "kpi": "Taxa de Conversão de Checkout",
+        "importancia": "Alta",
+        "formula": "(Número de Compras / Número de Visualizações do Checkout) x 100",
+        "metricas": [
+          "Número de Compras",
+          "Número de Visualizações do Checkout"
+        ]
+      },
+      {
+        "kpi": "ARPPU (Renda por Usuário Ativo)",
+        "importancia": "Média",
+        "formula": "Valor Médio da Compra / Número de Usuários Ativos",
+        "metricas": [
+          "Valor Médio da Compra",
+          "Número de Usuários Ativos"
+        ]
+      },
+      {
+        "kpi": "Taxa de Abandono do Carrinho",
+        "importancia": "Baixa",
+        "formula": "(Número de Pedidos Cancelados / Número de Pedidos Iniciados) x 100",
+        "metricas": [
+          "Número de Pedidos Cancelados",
+          "Número de Pedidos Iniciados"
+        ]
+      },
+      {
+        "kpi": "Custo de Aquisição por Usuário Ativo",
+        "importancia": "Alta",
+        "formula": "Despesas com Marketing / Número de Usuários Ativos",
+        "metricas": [
+          "Despesas com Marketing",
+          "Número de Usuários Ativos"
+        ]
+      },
+      {
+        "kpi": "Taxa de Retenção dos Usuários",
+        "importancia": "Média",
+        "formula": "(Número de Usuários que Continuam a Jogar / Número de Novos Usuários) x 100",
+        "metricas": [
+          "Número de Usuários que Continuam a Jogar",
+          "Número de Novos Usuários"
+        ]
+      }
+    ],
+    "valid": true,
+    "issues": []
+  },
+  {
+    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "scenario_id": "crm_solar_churn90",
+    "model": "meta-llama-3.1-8b.Q4_K_M:latest",
+    "condition": "unlimited",
+    "prompt_hash": "bf6666a6973e",
+    "latency_s": 10.46504239999922,
+    "prompt_tokens": 284,
+    "completion_tokens": 128,
+    "total_tokens": 412,
+    "output": "[{\"kpi\":\"Churn de Clientes\",\"importancia\":\"H\",\"formula\":\"Clientes perdidos ÷ Base inicial × 100%\",\"metricas\":[\"clientes_perdidos\",\"base_inicial\"]},{\"kpi\":\"NPS\",\"importancia\":\"p\",\"formula\":\"\",\"metricas\":[]}]",
+    "parsed_items": [
+      {
+        "kpi": "Churn de Clientes",
+        "importancia": "H",
+        "formula": "Clientes perdidos ÷ Base inicial × 100%",
+        "metricas": [
+          "clientes_perdidos",
+          "base_inicial"
+        ]
+      },
+      {
+        "kpi": "NPS",
+        "importancia": "p",
+        "formula": "",
+        "metricas": []
+      }
+    ],
+    "valid": true,
+    "issues": [
+      "array_parse_failed"
+    ]
+  },
+  {
+    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "scenario_id": "crm_solar_churn90",
+    "model": "llama3.1:8b",
+    "condition": "unlimited",
+    "prompt_hash": "bf6666a6973e",
+    "latency_s": 32.13554130000011,
+    "prompt_tokens": 250,
+    "completion_tokens": 307,
+    "total_tokens": 557,
+    "output": "[{\"kpi\":\"Taxa de Churn em 90 dias\",\"importancia\":\"Alta\",\"formula\":\"(Número de clientes perdidos nos últimos 90 dias / Número total de clientes) x 100\",\"metricas\":[\"Clientes perdidos\",\"Clientes totais\"]},{\"kpi\":\"Custo de Aquisição por Novo Cliente\",\"importancia\":\"Média\",\"formula\":\"Custo de aquisição dos novos clientes / Número de novos clientes\",\"metricas\":[\"Custo de aquisição\",\"Novos clientes\"]},{\"kpi\":\"Taxa de Conversão do Lead em Oportunidade\",\"importancia\":\"Alta\",\"formula\":\"Número de leads convertidos em oportunidades / Número total de leads\",\"metricas\":[\"Leads convertidos\",\"Leads totais\"]},{\"kpi\":\"Taxa de Clique (CTR) nos Anúncios\",\"importancia\":\"Média\",\"formula\":\"Número de cliques nos anúncios / Número total de visualizações dos anúncios x 100\",\"metricas\":[\"Cliques nos anúncios\",\"Visualizações dos anúncios\"]},{\"kpi\":\"Taxa de Abertura da Caixa de Entrada (Open Rate)\",\"importancia\":\"Alta\",\"formula\":\"Número de e-mails abertos / Número total de e-mails enviados x 100\",\"metricas\":[\"E-mails abertos\",\"E-mails enviados\"]}]",
+    "parsed_items": [
+      {
+        "kpi": "Taxa de Churn em 90 dias",
+        "importancia": "Alta",
+        "formula": "(Número de clientes perdidos nos últimos 90 dias / Número total de clientes) x 100",
+        "metricas": [
+          "Clientes perdidos",
+          "Clientes totais"
+        ]
+      },
+      {
+        "kpi": "Custo de Aquisição por Novo Cliente",
+        "importancia": "Média",
+        "formula": "Custo de aquisição dos novos clientes / Número de novos clientes",
+        "metricas": [
+          "Custo de aquisição",
+          "Novos clientes"
+        ]
+      },
+      {
+        "kpi": "Taxa de Conversão do Lead em Oportunidade",
+        "importancia": "Alta",
+        "formula": "Número de leads convertidos em oportunidades / Número total de leads",
+        "metricas": [
+          "Leads convertidos",
+          "Leads totais"
+        ]
+      },
+      {
+        "kpi": "Taxa de Clique (CTR) nos Anúncios",
+        "importancia": "Média",
+        "formula": "Número de cliques nos anúncios / Número total de visualizações dos anúncios x 100",
+        "metricas": [
+          "Cliques nos anúncios",
+          "Visualizações dos anúncios"
+        ]
+      },
+      {
+        "kpi": "Taxa de Abertura da Caixa de Entrada (Open Rate)",
+        "importancia": "Alta",
+        "formula": "Número de e-mails abertos / Número total de e-mails enviados x 100",
+        "metricas": [
+          "E-mails abertos",
+          "E-mails enviados"
+        ]
+      }
+    ],
+    "valid": true,
+    "issues": []
+  },
+  {
+    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "scenario_id": "ads_imob_cpl",
+    "model": "meta-llama-3.1-8b.Q4_K_M:latest",
+    "condition": "unlimited",
+    "prompt_hash": "0cfc1eeb647b",
+    "latency_s": 10.451448600000731,
+    "prompt_tokens": 287,
+    "completion_tokens": 161,
+    "total_tokens": 448,
+    "output": "[{\"kpi\":\"CAC\",\"importancia\":\"medio\",\"formula\":\"gasto em aquisição / novos clientes\",\"metricas\":[\"cac\",\"novos_clientes\"]},{\"kpi\":\"CPA\",\"importancia\":\"baixa\",\"formula\":\"gasto em mídia * canal_optimo\",\"metricas\":[\"margem_roi\"]},{\"kpi\":\"MQL Rate\",\"importancia\":\"alta\",\"formula\":\"MQL ÷ Leads × 100%\",\"metricas\":[\"mql\",\"leads\"]}]",
+    "parsed_items": [
+      {
+        "kpi": "CAC",
+        "importancia": "medio",
+        "formula": "gasto em aquisição / novos clientes",
+        "metricas": [
+          "cac",
+          "novos_clientes"
+        ]
+      },
+      {
+        "kpi": "CPA",
+        "importancia": "baixa",
+        "formula": "gasto em mídia * canal_optimo",
+        "metricas": [
+          "margem_roi"
+        ]
+      },
+      {
+        "kpi": "MQL Rate",
+        "importancia": "alta",
+        "formula": "MQL ÷ Leads × 100%",
+        "metricas": [
+          "mql",
+          "leads"
+        ]
+      }
+    ],
+    "valid": true,
+    "issues": []
+  },
+  {
+    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "scenario_id": "ads_imob_cpl",
+    "model": "llama3.1:8b",
+    "condition": "unlimited",
+    "prompt_hash": "0cfc1eeb647b",
+    "latency_s": 29.656670999998823,
+    "prompt_tokens": 253,
+    "completion_tokens": 266,
+    "total_tokens": 519,
+    "output": "[{\"kpi\":\"CPL\",\"importancia\":\"Alta\",\"formula\":\"Custo de Aquisição por Lead / Número de Leads Gerados\",\"metricas\":[\"Custo de Aquisição por Lead\",\"Número de Leads Gerados\"]},{\"kpi\":\"Taxa de Qualificação\",\"importancia\":\"Alta\",\"formula\":\"Número de Leads Qualificados / Número Total de Leads Gerados\",\"metricas\":[\"Número de Leads Qualificados\",\"Número Total de Leads Gerados\"]},{\"kpi\":\"Custo por Conclusão\",\"importancia\":\"Média\",\"formula\":\"Custo de Aquisição por Lead / Número de Conclusões\",\"metricas\":[\"Custo de Aquisição por Lead\",\"Número de Conclusões\"]},{\"kpi\":\"Taxa de Retorno sobre o Investimento (ROI)\",\"importancia\":\"Alta\",\"formula\":\"(Valor Gerado - Custo) / Custo x 100%\",\"metricas\":[\"Valor Gerado\",\"Custo\"]}]",
+    "parsed_items": [
+      {
+        "kpi": "CPL",
+        "importancia": "Alta",
+        "formula": "Custo de Aquisição por Lead / Número de Leads Gerados",
+        "metricas": [
+          "Custo de Aquisição por Lead",
+          "Número de Leads Gerados"
+        ]
+      },
+      {
+        "kpi": "Taxa de Qualificação",
+        "importancia": "Alta",
+        "formula": "Número de Leads Qualificados / Número Total de Leads Gerados",
+        "metricas": [
+          "Número de Leads Qualificados",
+          "Número Total de Leads Gerados"
+        ]
+      },
+      {
+        "kpi": "Custo por Conclusão",
+        "importancia": "Média",
+        "formula": "Custo de Aquisição por Lead / Número de Conclusões",
+        "metricas": [
+          "Custo de Aquisição por Lead",
+          "Número de Conclusões"
+        ]
+      },
+      {
+        "kpi": "Taxa de Retorno sobre o Investimento (ROI)",
+        "importancia": "Alta",
+        "formula": "(Valor Gerado - Custo) / Custo x 100%",
+        "metricas": [
+          "Valor Gerado",
+          "Custo"
+        ]
+      }
+    ],
+    "valid": true,
+    "issues": []
+  }
+]

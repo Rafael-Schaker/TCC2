@@ -3,10 +3,12 @@ import hashlib
 import json
 import os
 import re
+import sys
 import time
+import unicodedata
 import uuid
 from collections.abc import Mapping, Sequence
-from typing import Any, Dict, Tuple
+from typing import Any, Dict, List, Tuple
 
 import ollama
 from langchain_core.prompts import ChatPromptTemplate
@@ -17,8 +19,9 @@ from langchain_core.prompts import ChatPromptTemplate
 
 MODELOS = [
     "meta-llama-3.1-8b.Q4_K_M:latest",
-    "llama-3.1:8b",
+    "llama3.1:8b",
 ]
+
 SCENARIOS = [
     {"id": "attr_streaming_mix",          "nicho": "Mídia/Publisher & Streaming",     "area": "Atribuição & Mix de Canais",     "objetivo": "otimizar o mix de canais para contribuição real e elevar ROAS em 15%"},
     {"id": "ads_telecom_cac",             "nicho": "Telecom & Internet",              "area": "Aquisição de Tráfego",            "objetivo": "reduzir o CAC em 20% mantendo volume de novos clientes"},
@@ -53,13 +56,22 @@ KEEP_ALIVE = "10m"
 NUM_CTX = 4096
 MAX_NEW_TOKENS = 2048
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+def _base_dir():
+    try:
+        return os.path.dirname(os.path.abspath(__file__))
+    except NameError:
+        return os.getcwd()
+
+BASE_DIR = _base_dir()
 RESULTS_UNLIMITED_JSON = os.path.join(BASE_DIR, "results.json")
 RESULTS_LIMITED_JSON   = os.path.join(BASE_DIR, "results_wcap.json")
 
 # =========================
 # Utils
 # =========================
+
+def log(msg: str):
+    print(msg, flush=True)
 
 def to_jsonable(obj):
     try:
@@ -81,23 +93,191 @@ def to_jsonable(obj):
         pass
     return repr(obj)
 
-ARRAY_RE = re.compile(r"\[\s*{.*?}\s*\]", flags=re.DOTALL)
-
-def sanitize_output_to_array_text(content: str) -> str:
-    """
-    Extrai o primeiro array JSON `[...]` do texto (remove cercas ```),
-    mantendo retorno em TEXTO (formato B requer `output` como string).
-    """
-    if not isinstance(content, str):
+def _strip_code_fences(s: str) -> str:
+    if not isinstance(s, str):
         return ""
-    txt = content.strip()
-    # remove cercas ```...``` se houver
-    if txt.startswith("```"):
-        txt = re.sub(r"^```[a-zA-Z0-9_+-]*\s*", "", txt)
-        txt = re.sub(r"\s*```$", "", txt)
-    # tenta capturar o primeiro array JSON
-    m = ARRAY_RE.search(txt)
-    return m.group(0) if m else txt
+    s = s.strip()
+    if s.startswith("```"):
+        s = re.sub(r"^```[a-zA-Z0-9_+-]*\s*", "", s)
+        s = re.sub(r"\s*```$", "", s)
+    return s.strip()
+
+def extract_first_json_array(text: str) -> str:
+    """Extrai o primeiro array JSON `[...]` como TEXTO (usa pilha de colchetes)."""
+    if not isinstance(text, str) or not text:
+        return ""
+    s = _strip_code_fences(text)
+
+    start = s.find("[")
+    if start == -1:
+        return s  # devolve texto original se não achar array
+    depth = 0
+    in_str = False
+    esc = False
+    for i in range(start, len(s)):
+        ch = s[i]
+        if in_str:
+            if esc:
+                esc = False
+            elif ch == "\\":
+                esc = True
+            elif ch == '"':
+                in_str = False
+        else:
+            if ch == '"':
+                in_str = True
+            elif ch == "[":
+                depth += 1
+            elif ch == "]":
+                depth -= 1
+                if depth == 0:
+                    return s[start:i+1]
+    return s  # sem fechamento adequado -> devolve original
+
+def extract_json_objects(s: str) -> List[str]:
+    """
+    Extrai substrings de objetos JSON balanceados `{...}` sem usar regex recursiva.
+    Trata strings e escapes para não quebrar em chaves dentro de strings.
+    """
+    if not isinstance(s, str) or not s:
+        return []
+    s = _strip_code_fences(s)
+
+    objs: List[str] = []
+    depth = 0
+    in_str = False
+    esc = False
+    start = -1
+    for i, ch in enumerate(s):
+        if in_str:
+            if esc:
+                esc = False
+            elif ch == "\\":
+                esc = True
+            elif ch == '"':
+                in_str = False
+            continue
+
+        if ch == '"':
+            in_str = True
+        elif ch == "{":
+            if depth == 0:
+                start = i
+            depth += 1
+        elif ch == "}":
+            if depth > 0:
+                depth -= 1
+                if depth == 0 and start != -1:
+                    objs.append(s[start:i+1])
+                    start = -1
+    return objs
+
+def _remove_accents(txt: str) -> str:
+    return unicodedata.normalize("NFKD", txt).encode("ascii", "ignore").decode("ascii")
+
+def _norm_key(k: str) -> str:
+    k2 = _remove_accents(k).lower().strip()
+    if k2 in {"kpi"}:
+        return "kpi"
+    if k2 in {"importancia", "importância"}:
+        return "importancia"
+    if k2 in {"formula", "fórmula"}:
+        return "formula"
+    if k2 in {"metricas", "métricas", "metrica", "métrica"}:
+        return "metricas"
+    return k2
+
+def _as_list_of_str(val: Any) -> List[str]:
+    if val is None:
+        return []
+    if isinstance(val, list):
+        out = []
+        for v in val:
+            if isinstance(v, (str, int, float, bool)):
+                out.append(str(v))
+        return out
+    if isinstance(val, (str, bytes)):
+        s = val.decode("utf-8", "replace") if isinstance(val, bytes) else str(val)
+        parts = re.split(r"[,\|;]+", s)
+        return [p.strip() for p in parts if p.strip()]
+    return [str(val)]
+
+def _normalize_item(obj: Any) -> Dict[str, Any]:
+    """Normaliza um item para {kpi, importancia, formula, metricas} (sem acentos nas chaves)."""
+    if not isinstance(obj, Mapping):
+        return {}
+    norm = {}
+    for k, v in obj.items():
+        nk = _norm_key(str(k))
+        norm[nk] = v
+
+    kpi = str(norm.get("kpi", "") or "").strip()
+    imp = str(norm.get("importancia", "") or "").strip()
+    frm = str(norm.get("formula", "") or "").strip()
+    mets = _as_list_of_str(norm.get("metricas", []))
+
+    if not kpi:
+        return {}
+    return {"kpi": kpi, "importancia": imp, "formula": frm, "metricas": mets}
+
+def _json_loads_try(text: str) -> Any:
+    try:
+        return json.loads(text)
+    except Exception:
+        return None
+
+def sanitize_output(raw_content: str, limit4: bool = False) -> Tuple[str, List[Dict[str, Any]], bool, List[str]]:
+    """
+    Garante um array JSON válido:
+    - tenta carregar o primeiro `[...]`;
+    - se falhar, varre por objetos `{...}` balanceados;
+    - normaliza chaves e garante metricas como lista.
+    """
+    issues: List[str] = []
+    s = _strip_code_fences(raw_content or "")
+    array_text = extract_first_json_array(s)
+
+    items: List[Dict[str, Any]] = []
+    valid = False
+
+    # 1) tentativa direta
+    arr = _json_loads_try(array_text)
+    if isinstance(arr, list):
+        for obj in arr:
+            it = _normalize_item(obj)
+            if it:
+                items.append(it)
+        if items:
+            valid = True
+        else:
+            issues.append("empty_array_after_normalize")
+    else:
+        issues.append("array_parse_failed")
+
+        # 2) fallback: objetos balanceados
+        objs_text = extract_json_objects(s)
+        if not objs_text:
+            issues.append("no_objects_found")
+        else:
+            salvaged = 0
+            for ot in objs_text:
+                obj = _json_loads_try(ot)
+                if isinstance(obj, Mapping):
+                    it = _normalize_item(obj)
+                    if it:
+                        items.append(it)
+                        salvaged += 1
+            if salvaged == 0:
+                issues.append("unrecoverable_objects")
+            else:
+                valid = True
+
+    # 3) respeitar limite (modo limited)
+    if limit4 and len(items) > 4:
+        items = items[:4]
+
+    out_text = json.dumps(items, ensure_ascii=False, separators=(",", ":"))
+    return out_text, items, valid, issues
 
 # =========================
 # Prompts
@@ -149,6 +329,14 @@ def montar_mensagens(scenario: Dict[str, Any], limited: bool) -> Tuple[str, str]
 # Execução Ollama
 # =========================
 
+def _model_disponivel(nome: str) -> bool:
+    try:
+        data = ollama.list()
+        modelos = [m.get("name") for m in (data.get("models") or [])]
+        return any((nome == m or nome in (m or "")) for m in modelos)
+    except Exception:
+        return True  # se der erro ao listar, tenta usar assim mesmo
+
 def run_ollama_chat(model: str, system_msg: str, user_msg: str) -> Dict[str, Any]:
     t0 = time.perf_counter()
     resp = ollama.chat(
@@ -168,7 +356,6 @@ def run_ollama_chat(model: str, system_msg: str, user_msg: str) -> Dict[str, Any
     )
     latency_s = time.perf_counter() - t0
 
-    # extrai conteúdo
     try:
         content = (resp.get("message", {}) or {}).get("content", "") or ""
     except AttributeError:
@@ -177,7 +364,6 @@ def run_ollama_chat(model: str, system_msg: str, user_msg: str) -> Dict[str, Any
         except Exception:
             content = ""
 
-    # Tokens
     def _iget(o, key, default=0):
         try:
             return int(getattr(o, key, None) or o.get(key) or default)
@@ -201,20 +387,32 @@ def run_ollama_chat(model: str, system_msg: str, user_msg: str) -> Dict[str, Any
 # Main
 # =========================
 
-def main():
-    request_id = str(uuid.uuid4())
+def safe_dump(path: str, data: list):
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+        f.flush()
+        os.fsync(f.fileno())
 
-    results_unlimited = []
-    results_limited   = []
+def main():
+    safe_dump(RESULTS_UNLIMITED_JSON, [])
+    safe_dump(RESULTS_LIMITED_JSON, [])
+    log(f"[Init] results (unlimited): {RESULTS_UNLIMITED_JSON}")
+    log(f"[Init] results (limited)  : {RESULTS_LIMITED_JSON}")
+
+    request_id = str(uuid.uuid4())
+    results_unlimited: List[Dict[str, Any]] = []
+    results_limited:   List[Dict[str, Any]] = []
 
     for sc in SCENARIOS:
+        log(f"\n[SCENARIO] {sc['id']}")
         for model in MODELOS:
-            # ------ UNLIMITED ------
+            # -------- UNLIMITED --------
             try:
                 system_msg, user_msg = montar_mensagens(sc, limited=False)
                 prompt_hash = hashlib.sha256((system_msg + "\n" + user_msg).encode("utf-8")).hexdigest()[:12]
                 run = run_ollama_chat(model, system_msg, user_msg)
-                results_unlimited.append({
+                out_text, items, valid, issues = sanitize_output(run["content"], limit4=False)
+                rec = {
                     "request_id": request_id,
                     "scenario_id": sc["id"],
                     "model": model,
@@ -224,27 +422,31 @@ def main():
                     "prompt_tokens": run["prompt_tokens"],
                     "completion_tokens": run["completion_tokens"],
                     "total_tokens": run["total_tokens"],
-                    # formato B: output como TEXTO (array JSON bruto ou texto original)
-                    "output": sanitize_output_to_array_text(run["content"]),
-                    # campos extras úteis (opcionais):
-                    "system_msg": system_msg,
-                    "user_msg": user_msg,
-                })
+                    "output": out_text,
+                    "parsed_items": items,
+                    "valid": valid,
+                    "issues": issues,
+                }
+                log(f"[OK] unlimited -> {model} (valid={valid}, items={len(items)})")
             except Exception as e:
-                results_unlimited.append({
+                rec = {
                     "request_id": request_id,
                     "scenario_id": sc.get("id"),
                     "model": model,
                     "condition": "unlimited",
                     "error": f"{type(e).__name__}: {e}",
-                })
+                }
+                log(f"[ERR] unlimited -> {model}: {rec['error']}")
+            results_unlimited.append(rec)
+            safe_dump(RESULTS_UNLIMITED_JSON, results_unlimited)
 
-            # ------ LIMITED (até 4 KPIs) ------
+            # -------- LIMITED (até 4) --------
             try:
                 system_msg, user_msg = montar_mensagens(sc, limited=True)
                 prompt_hash = hashlib.sha256((system_msg + "\n" + user_msg).encode("utf-8")).hexdigest()[:12]
                 run = run_ollama_chat(model, system_msg, user_msg)
-                results_limited.append({
+                out_text, items, valid, issues = sanitize_output(run["content"], limit4=True)
+                rec = {
                     "request_id": request_id,
                     "scenario_id": sc["id"],
                     "model": model,
@@ -254,25 +456,31 @@ def main():
                     "prompt_tokens": run["prompt_tokens"],
                     "completion_tokens": run["completion_tokens"],
                     "total_tokens": run["total_tokens"],
-                    "output": sanitize_output_to_array_text(run["content"]),
-                    "system_msg": system_msg,
-                    "user_msg": user_msg,
-                })
+                    "output": out_text,
+                    "parsed_items": items,
+                    "valid": valid,
+                    "issues": issues,
+                }
+                log(f"[OK] limited   -> {model} (valid={valid}, items={len(items)})")
             except Exception as e:
-                results_limited.append({
+                rec = {
                     "request_id": request_id,
                     "scenario_id": sc.get("id"),
                     "model": model,
                     "condition": "limited",
                     "error": f"{type(e).__name__}: {e}",
-                })
+                }
+                log(f"[ERR] limited   -> {model}: {rec['error']}")
+            results_limited.append(rec)
+            safe_dump(RESULTS_LIMITED_JSON, results_limited)
 
-    # grava no formato B: topo é uma LISTA
-    with open(RESULTS_UNLIMITED_JSON, "w", encoding="utf-8") as f:
-        json.dump(results_unlimited, f, ensure_ascii=False, indent=2)
-
-    with open(RESULTS_LIMITED_JSON, "w", encoding="utf-8") as f:
-        json.dump(results_limited, f, ensure_ascii=False, indent=2)
+    log("\n[SUMMARY]")
+    log(f"  Unlimited records: {len(results_unlimited)}  -> {RESULTS_UNLIMITED_JSON}")
+    log(f"  Limited   records: {len(results_limited)}    -> {RESULTS_LIMITED_JSON}")
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as e:
+        print(f"[FATAL] {type(e).__name__}: {e}", file=sys.stderr)
+        raise

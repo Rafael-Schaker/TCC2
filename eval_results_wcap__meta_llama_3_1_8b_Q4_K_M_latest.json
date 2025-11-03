@@ -1,0 +1,661 @@
+{
+  "file": "results_wcap.json",
+  "model_name": "meta-llama-3.1-8b.Q4_K_M:latest",
+  "by_scenario": {
+    "ads_imob_cpl": {
+      "TP": 0,
+      "FP": 3,
+      "FN": 5,
+      "TN": 307,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "denom": 1450800.0,
+      "mcc": -0.012453387034667947,
+      "npv": 0.9839743589743589,
+      "fdr": 1.0,
+      "pred": [
+        "aov",
+        "cac",
+        "mql rate"
+      ],
+      "gold": [
+        "cpa",
+        "cpl",
+        "ctr",
+        "taxa de conversao de landing page",
+        "taxa de qualificacao"
+      ],
+      "sid_norm": "ads imob cpl"
+    },
+    "ads_telecom_cac": {
+      "TP": 2,
+      "FP": 2,
+      "FN": 7,
+      "TN": 304,
+      "precision": 0.5,
+      "recall": 0.2222222222222222,
+      "f1": 0.30769230769230765,
+      "denom": 3425976.0,
+      "mcc": 0.32091815508932386,
+      "npv": 0.977491961414791,
+      "fdr": 0.5,
+      "pred": [
+        "aov",
+        "cac",
+        "mql rate",
+        "win rate"
+      ],
+      "gold": [
+        "cac",
+        "cpa",
+        "cpc",
+        "cpl",
+        "ctr",
+        "taxa de conversao",
+        "taxa de conversao por canal",
+        "taxa de qualificacao",
+        "win rate"
+      ],
+      "sid_norm": "ads telecom cac"
+    },
+    "app_educacao_conv": {
+      "TP": 1,
+      "FP": 3,
+      "FN": 4,
+      "TN": 307,
+      "precision": 0.25,
+      "recall": 0.2,
+      "f1": 0.22222222222222224,
+      "denom": 1928200.0,
+      "mcc": 0.21244473707425351,
+      "npv": 0.9871382636655949,
+      "fdr": 0.75,
+      "pred": [
+        "aov",
+        "churn de clientes",
+        "nps",
+        "retencao 30d"
+      ],
+      "gold": [
+        "bounce rate",
+        "dau mau",
+        "nps",
+        "taxa de conversao",
+        "taxa de conversao de onboarding"
+      ],
+      "sid_norm": "app educacao conv"
+    },
+    "attr_streaming_mix": {
+      "TP": 0,
+      "FP": 3,
+      "FN": 12,
+      "TN": 300,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "denom": 3403296.0,
+      "mcc": -0.019514284806274117,
+      "npv": 0.9615384615384616,
+      "fdr": 1.0,
+      "pred": [
+        "aov",
+        "cac",
+        "mql rate"
+      ],
+      "gold": [
+        "attribution share",
+        "cpa",
+        "cpc",
+        "cpm",
+        "ctr",
+        "custo por atribuicao por canal",
+        "incremental revenue",
+        "roas",
+        "share of voice",
+        "taxa de conversao por canal",
+        "taxa de retorno sobre atribuicao",
+        "taxa de retorno sobre investimento"
+      ],
+      "sid_norm": "attr streaming mix"
+    },
+    "brand_fintech_roas": {
+      "TP": 0,
+      "FP": 3,
+      "FN": 6,
+      "TN": 306,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "denom": 1735344.0,
+      "mcc": -0.013664058598604919,
+      "npv": 0.9807692307692307,
+      "fdr": 1.0,
+      "pred": [
+        "aov",
+        "cac",
+        "mql rate"
+      ],
+      "gold": [
+        "cpc",
+        "cpm",
+        "ctr",
+        "roas",
+        "share of voice",
+        "taxa de conversao"
+      ],
+      "sid_norm": "brand fintech roas"
+    },
+    "comun_marketplace_ret30": {
+      "TP": 3,
+      "FP": 1,
+      "FN": 3,
+      "TN": 308,
+      "precision": 0.75,
+      "recall": 0.5,
+      "f1": 0.6,
+      "denom": 2306376.0,
+      "mcc": 0.6064494061463128,
+      "npv": 0.9903536977491961,
+      "fdr": 0.25,
+      "pred": [
+        "aov",
+        "churn de clientes",
+        "nps",
+        "retencao 30d"
+      ],
+      "gold": [
+        "arpu",
+        "churn de clientes",
+        "dau mau",
+        "engajamento composto",
+        "nps",
+        "retencao 30d"
+      ],
+      "sid_norm": "comun marketplace ret30"
+    },
+    "crm_agritech_reativacao": {
+      "TP": 2,
+      "FP": 0,
+      "FN": 6,
+      "TN": 307,
+      "precision": 1.0,
+      "recall": 0.25,
+      "f1": 0.4,
+      "denom": 1537456.0,
+      "mcc": 0.49518447848415986,
+      "npv": 0.9808306709265175,
+      "fdr": 0.0,
+      "pred": [
+        "reativacao 30d",
+        "unsubscribe rate"
+      ],
+      "gold": [
+        "bounce rate de e mail",
+        "ctr",
+        "entregabilidade de e mail",
+        "reativacao 30d",
+        "spam complaint rate",
+        "taxa de abertura",
+        "taxa de conversao",
+        "unsubscribe rate"
+      ],
+      "sid_norm": "crm agritech reativacao"
+    },
+    "crm_hotel_forecast": {
+      "TP": 0,
+      "FP": 3,
+      "FN": 5,
+      "TN": 307,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "denom": 1450800.0,
+      "mcc": -0.012453387034667947,
+      "npv": 0.9839743589743589,
+      "fdr": 1.0,
+      "pred": [
+        "aov",
+        "churn de clientes",
+        "nps"
+      ],
+      "gold": [
+        "acuracia de previsao",
+        "arpu",
+        "mape",
+        "taxa de no show",
+        "taxa de ocupacao"
+      ],
+      "sid_norm": "crm hotel forecast"
+    },
+    "crm_ong_donativos": {
+      "TP": 1,
+      "FP": 2,
+      "FN": 5,
+      "TN": 307,
+      "precision": 0.3333333333333333,
+      "recall": 0.16666666666666666,
+      "f1": 0.2222222222222222,
+      "denom": 1735344.0,
+      "mcc": 0.22545696687698116,
+      "npv": 0.9839743589743589,
+      "fdr": 0.6666666666666666,
+      "pred": [
+        "aov",
+        "churn de doadores",
+        "nps"
+      ],
+      "gold": [
+        "arpu",
+        "churn de doadores",
+        "custo por doador recorrente",
+        "ltv do doador",
+        "taxa de conversao",
+        "taxa de doacao recorrente"
+      ],
+      "sid_norm": "crm ong donativos"
+    },
+    "crm_solar_churn90": {
+      "TP": 0,
+      "FP": 3,
+      "FN": 6,
+      "TN": 306,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "denom": 1735344.0,
+      "mcc": -0.013664058598604919,
+      "npv": 0.9807692307692307,
+      "fdr": 1.0,
+      "pred": [
+        "aov",
+        "churn de clientes",
+        "nps"
+      ],
+      "gold": [
+        "churn 90d",
+        "ctr",
+        "opt in rate",
+        "retencao 90d",
+        "taxa de abertura",
+        "taxa de conversao"
+      ],
+      "sid_norm": "crm solar churn90"
+    },
+    "cs_saude_csat_fcr": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 6,
+      "TN": 309,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "denom": 0.0,
+      "mcc": 0.0,
+      "npv": 0.9809523809523809,
+      "fdr": 0.0,
+      "pred": [],
+      "gold": [
+        "csat",
+        "fcr",
+        "sla de atendimento",
+        "taxa de resolucao no primeiro contato",
+        "tempo de primeira resposta",
+        "tempo medio de atendimento"
+      ],
+      "sid_norm": "cs saude csat fcr"
+    },
+    "devops_auto_uptime": {
+      "TP": 2,
+      "FP": 0,
+      "FN": 2,
+      "TN": 311,
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1": 0.6666666666666666,
+      "denom": 778744.0,
+      "mcc": 0.704844033684819,
+      "npv": 0.9936102236421726,
+      "fdr": 0.0,
+      "pred": [
+        "mttr",
+        "uptime"
+      ],
+      "gold": [
+        "change failure rate",
+        "deployment frequency",
+        "mttr",
+        "uptime"
+      ],
+      "sid_norm": "devops auto uptime"
+    },
+    "growth_saasb2c_trialpaid": {
+      "TP": 0,
+      "FP": 4,
+      "FN": 6,
+      "TN": 305,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "denom": 2306376.0,
+      "mcc": -0.01580324185397558,
+      "npv": 0.9807073954983923,
+      "fdr": 1.0,
+      "pred": [
+        "aov",
+        "churn de clientes",
+        "nps",
+        "retencao 30d"
+      ],
+      "gold": [
+        "arpu",
+        "churn de mrr",
+        "conversao trial pago",
+        "mrr",
+        "payback cac",
+        "taxa de conversao"
+      ],
+      "sid_norm": "growth saasb2c trialpaid"
+    },
+    "omni_telecom_sla": {
+      "TP": 0,
+      "FP": 3,
+      "FN": 6,
+      "TN": 306,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "denom": 1735344.0,
+      "mcc": -0.013664058598604919,
+      "npv": 0.9807692307692307,
+      "fdr": 1.0,
+      "pred": [
+        "arpu",
+        "churn de clientes",
+        "nps"
+      ],
+      "gold": [
+        "atribuicao de vendas offline",
+        "csat",
+        "fcr",
+        "sla de atendimento",
+        "taxa de conversao por canal",
+        "tempo de espera no chat"
+      ],
+      "sid_norm": "omni telecom sla"
+    },
+    "onboarding_imob_d7": {
+      "TP": 1,
+      "FP": 2,
+      "FN": 5,
+      "TN": 307,
+      "precision": 0.3333333333333333,
+      "recall": 0.16666666666666666,
+      "f1": 0.2222222222222222,
+      "denom": 1735344.0,
+      "mcc": 0.22545696687698116,
+      "npv": 0.9839743589743589,
+      "fdr": 0.6666666666666666,
+      "pred": [
+        "ativacao d7",
+        "churn de clientes",
+        "nps"
+      ],
+      "gold": [
+        "ativacao d7",
+        "bounce rate",
+        "conclusao de onboarding",
+        "retencao d7",
+        "tempo ate primeira acao",
+        "tempo de onboarding"
+      ],
+      "sid_norm": "onboarding imob d7"
+    },
+    "ops_logtech_otif": {
+      "TP": 2,
+      "FP": 0,
+      "FN": 2,
+      "TN": 311,
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1": 0.6666666666666666,
+      "denom": 778744.0,
+      "mcc": 0.704844033684819,
+      "npv": 0.9936102236421726,
+      "fdr": 0.0,
+      "pred": [
+        "custo por pedido",
+        "otif"
+      ],
+      "gold": [
+        "custo por pedido",
+        "fill rate",
+        "lead time de pedido",
+        "otif"
+      ],
+      "sid_norm": "ops logtech otif"
+    },
+    "people_conteudo_turnover": {
+      "TP": 2,
+      "FP": 0,
+      "FN": 2,
+      "TN": 311,
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1": 0.6666666666666666,
+      "denom": 778744.0,
+      "mcc": 0.704844033684819,
+      "npv": 0.9936102236421726,
+      "fdr": 0.0,
+      "pred": [
+        "offer acceptance rate",
+        "time to hire"
+      ],
+      "gold": [
+        "custo por contratacao",
+        "offer acceptance rate",
+        "time to hire",
+        "turnover"
+      ],
+      "sid_norm": "people conteudo turnover"
+    },
+    "perfsec_saas_mrr": {
+      "TP": 2,
+      "FP": 2,
+      "FN": 4,
+      "TN": 307,
+      "precision": 0.5,
+      "recall": 0.3333333333333333,
+      "f1": 0.4,
+      "denom": 2306376.0,
+      "mcc": 0.3990318568128834,
+      "npv": 0.9871382636655949,
+      "fdr": 0.5,
+      "pred": [
+        "churn de clientes",
+        "cpa",
+        "mql rate",
+        "mrr"
+      ],
+      "gold": [
+        "average deal size",
+        "cpl",
+        "duracao do ciclo de vendas",
+        "mql rate",
+        "mrr",
+        "win rate"
+      ],
+      "sid_norm": "perfsec saas mrr"
+    },
+    "pricing_ondemand_ticket": {
+      "TP": 1,
+      "FP": 3,
+      "FN": 3,
+      "TN": 308,
+      "precision": 0.25,
+      "recall": 0.25,
+      "f1": 0.25,
+      "denom": 1547536.0,
+      "mcc": 0.24035369774919615,
+      "npv": 0.9903536977491961,
+      "fdr": 0.75,
+      "pred": [
+        "aov",
+        "cac",
+        "churn de clientes",
+        "mql rate"
+      ],
+      "gold": [
+        "abandono de carrinho",
+        "aov",
+        "arpu",
+        "taxa de conversao"
+      ],
+      "sid_norm": "pricing ondemand ticket"
+    },
+    "prod_eventos_rsvp": {
+      "TP": 1,
+      "FP": 1,
+      "FN": 3,
+      "TN": 310,
+      "precision": 0.5,
+      "recall": 0.25,
+      "f1": 0.3333333333333333,
+      "denom": 778744.0,
+      "mcc": 0.3478892577833431,
+      "npv": 0.9904153354632588,
+      "fdr": 0.5,
+      "pred": [
+        "nps",
+        "rsvp confirmado"
+      ],
+      "gold": [
+        "ctr",
+        "rsvp confirmado",
+        "taxa de abertura",
+        "tempo para confirmar rsvp"
+      ],
+      "sid_norm": "prod eventos rsvp"
+    },
+    "prod_moda_entregab": {
+      "TP": 1,
+      "FP": 0,
+      "FN": 4,
+      "TN": 310,
+      "precision": 1.0,
+      "recall": 0.2,
+      "f1": 0.33333333333333337,
+      "denom": 486700.0,
+      "mcc": 0.4443559713780868,
+      "npv": 0.9872611464968153,
+      "fdr": 0.0,
+      "pred": [
+        "entregabilidade de e mail"
+      ],
+      "gold": [
+        "bounce rate de e mail",
+        "ctr",
+        "entregabilidade de e mail",
+        "spam complaint rate",
+        "taxa de abertura"
+      ],
+      "sid_norm": "prod moda entregab"
+    },
+    "retencao_saasb2b_churn": {
+      "TP": 3,
+      "FP": 0,
+      "FN": 2,
+      "TN": 310,
+      "precision": 1.0,
+      "recall": 0.6,
+      "f1": 0.7499999999999999,
+      "denom": 1450800.0,
+      "mcc": 0.7721099961494128,
+      "npv": 0.9935897435897436,
+      "fdr": 0.0,
+      "pred": [
+        "churn de clientes",
+        "nps",
+        "retencao 30d"
+      ],
+      "gold": [
+        "arpu",
+        "churn de clientes",
+        "churn de mrr",
+        "nps",
+        "retencao 30d"
+      ],
+      "sid_norm": "retencao saasb2b churn"
+    },
+    "sales_edcorp_cac": {
+      "TP": 3,
+      "FP": 0,
+      "FN": 2,
+      "TN": 310,
+      "precision": 1.0,
+      "recall": 0.6,
+      "f1": 0.7499999999999999,
+      "denom": 1450800.0,
+      "mcc": 0.7721099961494128,
+      "npv": 0.9935897435897436,
+      "fdr": 0.0,
+      "pred": [
+        "average deal size",
+        "cac",
+        "win rate"
+      ],
+      "gold": [
+        "average deal size",
+        "cac",
+        "cpl",
+        "duracao do ciclo de vendas",
+        "win rate"
+      ],
+      "sid_norm": "sales edcorp cac"
+    },
+    "sales_gaming_checkout": {
+      "TP": 0,
+      "FP": 2,
+      "FN": 5,
+      "TN": 308,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "denom": 970300.0,
+      "mcc": -0.010151891892510348,
+      "npv": 0.9840255591054313,
+      "fdr": 1.0,
+      "pred": [
+        "aov",
+        "cac"
+      ],
+      "gold": [
+        "abandono de checkout",
+        "arppu",
+        "conversao de checkout",
+        "taxa de conversao",
+        "tempo de checkout"
+      ],
+      "sid_norm": "sales gaming checkout"
+    }
+  },
+  "macro_avg": {
+    "precision": 0.43402777777777785,
+    "recall": 0.218287037037037,
+    "f1": 0.28295940170940165,
+    "denom": 1575562.0,
+    "mcc": 0.2943718841336206,
+    "npv": 0.9851842550223652,
+    "fdr": 0.5243055555555556
+  },
+  "totals": {
+    "TP": 27,
+    "FP": 40,
+    "FN": 111,
+    "TN": 7382
+  },
+  "evaluated_scenarios": 24,
+  "skipped_scenarios": [
+    "risco_mobilidade_fraude"
+  ]
+}
