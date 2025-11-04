@@ -1,11 +1,11 @@
 [
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "attr_streaming_mix",
     "model": "meta-llama-3.1-8b.Q4_K_M:latest",
     "condition": "limited",
     "prompt_hash": "385616d54a90",
-    "latency_s": 35.79044059999978,
+    "latency_s": 4.166188500006683,
     "prompt_tokens": 292,
     "completion_tokens": 223,
     "total_tokens": 515,
@@ -48,16 +48,15 @@
         ]
       }
     ],
-    "valid": true,
-    "issues": []
+    "valid": true
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "attr_streaming_mix",
     "model": "llama3.1:8b",
     "condition": "limited",
     "prompt_hash": "385616d54a90",
-    "latency_s": 11.407549099998505,
+    "latency_s": 10.200980400011758,
     "prompt_tokens": 258,
     "completion_tokens": 230,
     "total_tokens": 488,
@@ -100,16 +99,15 @@
         ]
       }
     ],
-    "valid": true,
-    "issues": []
+    "valid": true
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "ads_telecom_cac",
     "model": "meta-llama-3.1-8b.Q4_K_M:latest",
     "condition": "limited",
     "prompt_hash": "e276e4b62b7c",
-    "latency_s": 4.575878999999986,
+    "latency_s": 4.56106500000169,
     "prompt_tokens": 280,
     "completion_tokens": 246,
     "total_tokens": 526,
@@ -152,16 +150,15 @@
         ]
       }
     ],
-    "valid": true,
-    "issues": []
+    "valid": true
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "ads_telecom_cac",
     "model": "llama3.1:8b",
     "condition": "limited",
     "prompt_hash": "e276e4b62b7c",
-    "latency_s": 13.070178899999519,
+    "latency_s": 12.222069099996588,
     "prompt_tokens": 250,
     "completion_tokens": 271,
     "total_tokens": 521,
@@ -204,16 +201,15 @@
         ]
       }
     ],
-    "valid": true,
-    "issues": []
+    "valid": true
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "brand_fintech_roas",
     "model": "meta-llama-3.1-8b.Q4_K_M:latest",
     "condition": "limited",
     "prompt_hash": "0c0caf93de3f",
-    "latency_s": 4.95405159999973,
+    "latency_s": 4.935758499996155,
     "prompt_tokens": 274,
     "completion_tokens": 267,
     "total_tokens": 541,
@@ -256,16 +252,15 @@
         ]
       }
     ],
-    "valid": true,
-    "issues": []
+    "valid": true
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "brand_fintech_roas",
     "model": "llama3.1:8b",
     "condition": "limited",
     "prompt_hash": "0c0caf93de3f",
-    "latency_s": 11.35703260000082,
+    "latency_s": 9.514753600000404,
     "prompt_tokens": 245,
     "completion_tokens": 216,
     "total_tokens": 461,
@@ -308,16 +303,15 @@
         ]
       }
     ],
-    "valid": true,
-    "issues": []
+    "valid": true
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "crm_ong_donativos",
     "model": "meta-llama-3.1-8b.Q4_K_M:latest",
     "condition": "limited",
     "prompt_hash": "aaf6d9abec87",
-    "latency_s": 4.535584900000686,
+    "latency_s": 4.564838799997233,
     "prompt_tokens": 286,
     "completion_tokens": 244,
     "total_tokens": 530,
@@ -361,16 +355,15 @@
         ]
       }
     ],
-    "valid": true,
-    "issues": []
+    "valid": true
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "crm_ong_donativos",
     "model": "llama3.1:8b",
     "condition": "limited",
     "prompt_hash": "aaf6d9abec87",
-    "latency_s": 13.923411400000987,
+    "latency_s": 12.150177400006214,
     "prompt_tokens": 255,
     "completion_tokens": 269,
     "total_tokens": 524,
@@ -413,16 +406,15 @@
         ]
       }
     ],
-    "valid": true,
-    "issues": []
+    "valid": true
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "pricing_ondemand_ticket",
     "model": "meta-llama-3.1-8b.Q4_K_M:latest",
     "condition": "limited",
     "prompt_hash": "e195facb95c0",
-    "latency_s": 4.329585399998905,
+    "latency_s": 4.336147800000617,
     "prompt_tokens": 281,
     "completion_tokens": 233,
     "total_tokens": 514,
@@ -465,16 +457,15 @@
         ]
       }
     ],
-    "valid": true,
-    "issues": []
+    "valid": true
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "pricing_ondemand_ticket",
     "model": "llama3.1:8b",
     "condition": "limited",
     "prompt_hash": "e195facb95c0",
-    "latency_s": 11.483762699999716,
+    "latency_s": 9.832345299990266,
     "prompt_tokens": 249,
     "completion_tokens": 220,
     "total_tokens": 469,
@@ -517,16 +508,15 @@
         ]
       }
     ],
-    "valid": true,
-    "issues": []
+    "valid": true
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "onboarding_imob_d7",
     "model": "meta-llama-3.1-8b.Q4_K_M:latest",
     "condition": "limited",
     "prompt_hash": "c2a32c141084",
-    "latency_s": 5.250566599999729,
+    "latency_s": 5.2607891999941785,
     "prompt_tokens": 281,
     "completion_tokens": 285,
     "total_tokens": 566,
@@ -570,16 +560,15 @@
         ]
       }
     ],
-    "valid": true,
-    "issues": []
+    "valid": true
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "onboarding_imob_d7",
     "model": "llama3.1:8b",
     "condition": "limited",
     "prompt_hash": "c2a32c141084",
-    "latency_s": 15.213199499999973,
+    "latency_s": 13.027463100006571,
     "prompt_tokens": 251,
     "completion_tokens": 295,
     "total_tokens": 546,
@@ -622,16 +611,15 @@
         ]
       }
     ],
-    "valid": true,
-    "issues": []
+    "valid": true
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "retencao_saasb2b_churn",
     "model": "meta-llama-3.1-8b.Q4_K_M:latest",
     "condition": "limited",
     "prompt_hash": "dcc8aa0b2c35",
-    "latency_s": 5.322526599999037,
+    "latency_s": 5.321749499998987,
     "prompt_tokens": 281,
     "completion_tokens": 288,
     "total_tokens": 569,
@@ -671,18 +659,15 @@
         ]
       }
     ],
-    "valid": true,
-    "issues": [
-      "array_parse_failed"
-    ]
+    "valid": true
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "retencao_saasb2b_churn",
     "model": "llama3.1:8b",
     "condition": "limited",
     "prompt_hash": "dcc8aa0b2c35",
-    "latency_s": 12.028694700000415,
+    "latency_s": 9.887286600001971,
     "prompt_tokens": 250,
     "completion_tokens": 225,
     "total_tokens": 475,
@@ -721,16 +706,15 @@
         ]
       }
     ],
-    "valid": true,
-    "issues": []
+    "valid": true
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "growth_saasb2c_trialpaid",
     "model": "meta-llama-3.1-8b.Q4_K_M:latest",
     "condition": "limited",
     "prompt_hash": "71f4acf8d52c",
-    "latency_s": 4.885732200000348,
+    "latency_s": 4.887412900003255,
     "prompt_tokens": 282,
     "completion_tokens": 264,
     "total_tokens": 546,
@@ -774,16 +758,15 @@
         ]
       }
     ],
-    "valid": true,
-    "issues": []
+    "valid": true
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "growth_saasb2c_trialpaid",
     "model": "llama3.1:8b",
     "condition": "limited",
     "prompt_hash": "71f4acf8d52c",
-    "latency_s": 15.563772900000913,
+    "latency_s": 13.322891600008006,
     "prompt_tokens": 251,
     "completion_tokens": 300,
     "total_tokens": 551,
@@ -822,16 +805,15 @@
         ]
       }
     ],
-    "valid": true,
-    "issues": []
+    "valid": true
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "comun_marketplace_ret30",
     "model": "meta-llama-3.1-8b.Q4_K_M:latest",
     "condition": "limited",
     "prompt_hash": "17cee66a9a4d",
-    "latency_s": 4.982043800000611,
+    "latency_s": 4.9984055000095395,
     "prompt_tokens": 273,
     "completion_tokens": 270,
     "total_tokens": 543,
@@ -875,16 +857,15 @@
         ]
       }
     ],
-    "valid": true,
-    "issues": []
+    "valid": true
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "comun_marketplace_ret30",
     "model": "llama3.1:8b",
     "condition": "limited",
     "prompt_hash": "17cee66a9a4d",
-    "latency_s": 10.224351799999567,
+    "latency_s": 8.887997099998756,
     "prompt_tokens": 241,
     "completion_tokens": 196,
     "total_tokens": 437,
@@ -918,34 +899,29 @@
         ]
       }
     ],
-    "valid": true,
-    "issues": []
+    "valid": true
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "cs_saude_csat_fcr",
     "model": "meta-llama-3.1-8b.Q4_K_M:latest",
     "condition": "limited",
     "prompt_hash": "d6f7dd184b33",
-    "latency_s": 8.203134899998986,
+    "latency_s": 8.155524200003128,
     "prompt_tokens": 292,
     "completion_tokens": 445,
     "total_tokens": 737,
     "output": "[]",
     "parsed_items": [],
-    "valid": false,
-    "issues": [
-      "array_parse_failed",
-      "no_objects_found"
-    ]
+    "valid": false
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "cs_saude_csat_fcr",
     "model": "llama3.1:8b",
     "condition": "limited",
     "prompt_hash": "d6f7dd184b33",
-    "latency_s": 13.186893399999462,
+    "latency_s": 11.36595770000713,
     "prompt_tokens": 260,
     "completion_tokens": 255,
     "total_tokens": 515,
@@ -984,16 +960,15 @@
         ]
       }
     ],
-    "valid": true,
-    "issues": []
+    "valid": true
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "app_educacao_conv",
     "model": "meta-llama-3.1-8b.Q4_K_M:latest",
     "condition": "limited",
     "prompt_hash": "f996f0b08993",
-    "latency_s": 4.971781199999896,
+    "latency_s": 4.977337299991632,
     "prompt_tokens": 282,
     "completion_tokens": 269,
     "total_tokens": 551,
@@ -1037,16 +1012,15 @@
         ]
       }
     ],
-    "valid": true,
-    "issues": []
+    "valid": true
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "app_educacao_conv",
     "model": "llama3.1:8b",
     "condition": "limited",
     "prompt_hash": "f996f0b08993",
-    "latency_s": 14.342724699999962,
+    "latency_s": 12.02604130000691,
     "prompt_tokens": 248,
     "completion_tokens": 266,
     "total_tokens": 514,
@@ -1085,16 +1059,15 @@
         ]
       }
     ],
-    "valid": true,
-    "issues": []
+    "valid": true
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "omni_telecom_sla",
     "model": "meta-llama-3.1-8b.Q4_K_M:latest",
     "condition": "limited",
     "prompt_hash": "a5c4a67d21d5",
-    "latency_s": 4.385793599998578,
+    "latency_s": 4.365455000006477,
     "prompt_tokens": 284,
     "completion_tokens": 235,
     "total_tokens": 519,
@@ -1138,16 +1111,15 @@
         ]
       }
     ],
-    "valid": true,
-    "issues": []
+    "valid": true
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "omni_telecom_sla",
     "model": "llama3.1:8b",
     "condition": "limited",
     "prompt_hash": "a5c4a67d21d5",
-    "latency_s": 13.129866700001003,
+    "latency_s": 11.862597900006222,
     "prompt_tokens": 251,
     "completion_tokens": 268,
     "total_tokens": 519,
@@ -1190,16 +1162,15 @@
         ]
       }
     ],
-    "valid": true,
-    "issues": []
+    "valid": true
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "devops_auto_uptime",
     "model": "meta-llama-3.1-8b.Q4_K_M:latest",
     "condition": "limited",
     "prompt_hash": "1ef0c219a863",
-    "latency_s": 4.456091099998957,
+    "latency_s": 4.47218630000134,
     "prompt_tokens": 287,
     "completion_tokens": 238,
     "total_tokens": 525,
@@ -1241,16 +1212,15 @@
         ]
       }
     ],
-    "valid": true,
-    "issues": []
+    "valid": true
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "devops_auto_uptime",
     "model": "llama3.1:8b",
     "condition": "limited",
     "prompt_hash": "1ef0c219a863",
-    "latency_s": 12.0509361000004,
+    "latency_s": 10.280482500005746,
     "prompt_tokens": 251,
     "completion_tokens": 229,
     "total_tokens": 480,
@@ -1293,16 +1263,15 @@
         ]
       }
     ],
-    "valid": true,
-    "issues": []
+    "valid": true
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "risco_mobilidade_fraude",
     "model": "meta-llama-3.1-8b.Q4_K_M:latest",
     "condition": "limited",
     "prompt_hash": "ed9567748802",
-    "latency_s": 3.914286200000788,
+    "latency_s": 3.9297803999943426,
     "prompt_tokens": 283,
     "completion_tokens": 211,
     "total_tokens": 494,
@@ -1345,16 +1314,15 @@
         ]
       }
     ],
-    "valid": true,
-    "issues": []
+    "valid": true
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "risco_mobilidade_fraude",
     "model": "llama3.1:8b",
     "condition": "limited",
     "prompt_hash": "ed9567748802",
-    "latency_s": 11.439199699998426,
+    "latency_s": 9.92711980000604,
     "prompt_tokens": 254,
     "completion_tokens": 225,
     "total_tokens": 479,
@@ -1393,16 +1361,15 @@
         ]
       }
     ],
-    "valid": true,
-    "issues": []
+    "valid": true
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "crm_agritech_reativacao",
     "model": "meta-llama-3.1-8b.Q4_K_M:latest",
     "condition": "limited",
     "prompt_hash": "64850cbbdb7b",
-    "latency_s": 2.357715600001029,
+    "latency_s": 2.3525136999960523,
     "prompt_tokens": 286,
     "completion_tokens": 127,
     "total_tokens": 413,
@@ -1427,16 +1394,15 @@
         ]
       }
     ],
-    "valid": true,
-    "issues": []
+    "valid": true
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "crm_agritech_reativacao",
     "model": "llama3.1:8b",
     "condition": "limited",
     "prompt_hash": "64850cbbdb7b",
-    "latency_s": 13.072353899999143,
+    "latency_s": 10.381497100010165,
     "prompt_tokens": 252,
     "completion_tokens": 241,
     "total_tokens": 493,
@@ -1478,16 +1444,15 @@
         ]
       }
     ],
-    "valid": true,
-    "issues": []
+    "valid": true
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "ops_logtech_otif",
     "model": "meta-llama-3.1-8b.Q4_K_M:latest",
     "condition": "limited",
     "prompt_hash": "2c45280c6b67",
-    "latency_s": 4.723520100000314,
+    "latency_s": 4.75657019999926,
     "prompt_tokens": 286,
     "completion_tokens": 255,
     "total_tokens": 541,
@@ -1529,16 +1494,15 @@
         ]
       }
     ],
-    "valid": true,
-    "issues": []
+    "valid": true
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "ops_logtech_otif",
     "model": "llama3.1:8b",
     "condition": "limited",
     "prompt_hash": "2c45280c6b67",
-    "latency_s": 11.825852499998291,
+    "latency_s": 9.93797070000437,
     "prompt_tokens": 253,
     "completion_tokens": 233,
     "total_tokens": 486,
@@ -1572,18 +1536,15 @@
         ]
       }
     ],
-    "valid": true,
-    "issues": [
-      "array_parse_failed"
-    ]
+    "valid": true
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "prod_moda_entregab",
     "model": "meta-llama-3.1-8b.Q4_K_M:latest",
     "condition": "limited",
     "prompt_hash": "dfb5fadbdd38",
-    "latency_s": 4.348112699999547,
+    "latency_s": 4.37362139999459,
     "prompt_tokens": 288,
     "completion_tokens": 234,
     "total_tokens": 522,
@@ -1607,18 +1568,15 @@
         ]
       }
     ],
-    "valid": true,
-    "issues": [
-      "array_parse_failed"
-    ]
+    "valid": true
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "prod_moda_entregab",
     "model": "llama3.1:8b",
     "condition": "limited",
     "prompt_hash": "dfb5fadbdd38",
-    "latency_s": 14.766019400000005,
+    "latency_s": 12.09232909999264,
     "prompt_tokens": 251,
     "completion_tokens": 282,
     "total_tokens": 533,
@@ -1661,16 +1619,15 @@
         ]
       }
     ],
-    "valid": true,
-    "issues": []
+    "valid": true
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "crm_hotel_forecast",
     "model": "meta-llama-3.1-8b.Q4_K_M:latest",
     "condition": "limited",
     "prompt_hash": "a0d6e73aecf6",
-    "latency_s": 4.207197100000485,
+    "latency_s": 4.226870300000883,
     "prompt_tokens": 280,
     "completion_tokens": 226,
     "total_tokens": 506,
@@ -1714,16 +1671,15 @@
         ]
       }
     ],
-    "valid": true,
-    "issues": []
+    "valid": true
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "crm_hotel_forecast",
     "model": "llama3.1:8b",
     "condition": "limited",
     "prompt_hash": "a0d6e73aecf6",
-    "latency_s": 14.060870299999806,
+    "latency_s": 11.626145399990492,
     "prompt_tokens": 248,
     "completion_tokens": 275,
     "total_tokens": 523,
@@ -1766,16 +1722,15 @@
         ]
       }
     ],
-    "valid": true,
-    "issues": []
+    "valid": true
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "prod_eventos_rsvp",
     "model": "meta-llama-3.1-8b.Q4_K_M:latest",
     "condition": "limited",
     "prompt_hash": "360c4ee8e957",
-    "latency_s": 5.371175199999925,
+    "latency_s": 5.411145299993223,
     "prompt_tokens": 283,
     "completion_tokens": 291,
     "total_tokens": 574,
@@ -1819,16 +1774,15 @@
         ]
       }
     ],
-    "valid": true,
-    "issues": []
+    "valid": true
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "prod_eventos_rsvp",
     "model": "llama3.1:8b",
     "condition": "limited",
     "prompt_hash": "360c4ee8e957",
-    "latency_s": 15.662651200000255,
+    "latency_s": 13.008711100002984,
     "prompt_tokens": 246,
     "completion_tokens": 300,
     "total_tokens": 546,
@@ -1871,16 +1825,15 @@
         ]
       }
     ],
-    "valid": true,
-    "issues": []
+    "valid": true
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "people_conteudo_turnover",
     "model": "meta-llama-3.1-8b.Q4_K_M:latest",
     "condition": "limited",
     "prompt_hash": "820d37170746",
-    "latency_s": 6.038510200000019,
+    "latency_s": 6.04372569998668,
     "prompt_tokens": 286,
     "completion_tokens": 328,
     "total_tokens": 614,
@@ -1923,16 +1876,15 @@
         ]
       }
     ],
-    "valid": true,
-    "issues": []
+    "valid": true
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "people_conteudo_turnover",
     "model": "llama3.1:8b",
     "condition": "limited",
     "prompt_hash": "820d37170746",
-    "latency_s": 12.521203800000876,
+    "latency_s": 10.899728500007768,
     "prompt_tokens": 250,
     "completion_tokens": 250,
     "total_tokens": 500,
@@ -1975,16 +1927,15 @@
         ]
       }
     ],
-    "valid": true,
-    "issues": []
+    "valid": true
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "perfsec_saas_mrr",
     "model": "meta-llama-3.1-8b.Q4_K_M:latest",
     "condition": "limited",
     "prompt_hash": "775684e69138",
-    "latency_s": 4.23672070000066,
+    "latency_s": 4.2529626000032295,
     "prompt_tokens": 286,
     "completion_tokens": 228,
     "total_tokens": 514,
@@ -2027,16 +1978,15 @@
         ]
       }
     ],
-    "valid": true,
-    "issues": []
+    "valid": true
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "perfsec_saas_mrr",
     "model": "llama3.1:8b",
     "condition": "limited",
     "prompt_hash": "775684e69138",
-    "latency_s": 12.233939399999144,
+    "latency_s": 10.360059400001774,
     "prompt_tokens": 254,
     "completion_tokens": 236,
     "total_tokens": 490,
@@ -2078,16 +2028,15 @@
         ]
       }
     ],
-    "valid": true,
-    "issues": []
+    "valid": true
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "sales_edcorp_cac",
     "model": "meta-llama-3.1-8b.Q4_K_M:latest",
     "condition": "limited",
     "prompt_hash": "b6cf6534cc90",
-    "latency_s": 4.954875399998855,
+    "latency_s": 4.964026000001468,
     "prompt_tokens": 279,
     "completion_tokens": 268,
     "total_tokens": 547,
@@ -2130,16 +2079,15 @@
         ]
       }
     ],
-    "valid": true,
-    "issues": []
+    "valid": true
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "sales_edcorp_cac",
     "model": "llama3.1:8b",
     "condition": "limited",
     "prompt_hash": "b6cf6534cc90",
-    "latency_s": 8.28550770000038,
+    "latency_s": 7.265704500008724,
     "prompt_tokens": 248,
     "completion_tokens": 165,
     "total_tokens": 413,
@@ -2170,16 +2118,15 @@
         ]
       }
     ],
-    "valid": true,
-    "issues": []
+    "valid": true
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "sales_gaming_checkout",
     "model": "meta-llama-3.1-8b.Q4_K_M:latest",
     "condition": "limited",
     "prompt_hash": "d230e382be0e",
-    "latency_s": 6.331841699999131,
+    "latency_s": 6.336640399997123,
     "prompt_tokens": 276,
     "completion_tokens": 345,
     "total_tokens": 621,
@@ -2204,18 +2151,15 @@
         ]
       }
     ],
-    "valid": true,
-    "issues": [
-      "array_parse_failed"
-    ]
+    "valid": true
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "sales_gaming_checkout",
     "model": "llama3.1:8b",
     "condition": "limited",
     "prompt_hash": "d230e382be0e",
-    "latency_s": 16.195198899999014,
+    "latency_s": 12.842660299997078,
     "prompt_tokens": 247,
     "completion_tokens": 294,
     "total_tokens": 541,
@@ -2258,16 +2202,15 @@
         ]
       }
     ],
-    "valid": true,
-    "issues": []
+    "valid": true
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "crm_solar_churn90",
     "model": "meta-llama-3.1-8b.Q4_K_M:latest",
     "condition": "limited",
     "prompt_hash": "204f8273f3df",
-    "latency_s": 4.983606399999189,
+    "latency_s": 4.976890700010699,
     "prompt_tokens": 287,
     "completion_tokens": 269,
     "total_tokens": 556,
@@ -2311,16 +2254,15 @@
         ]
       }
     ],
-    "valid": true,
-    "issues": []
+    "valid": true
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "crm_solar_churn90",
     "model": "llama3.1:8b",
     "condition": "limited",
     "prompt_hash": "204f8273f3df",
-    "latency_s": 12.340090399999099,
+    "latency_s": 11.071221399994101,
     "prompt_tokens": 253,
     "completion_tokens": 244,
     "total_tokens": 497,
@@ -2363,16 +2305,15 @@
         ]
       }
     ],
-    "valid": true,
-    "issues": []
+    "valid": true
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "ads_imob_cpl",
     "model": "meta-llama-3.1-8b.Q4_K_M:latest",
     "condition": "limited",
     "prompt_hash": "d86c42bca689",
-    "latency_s": 4.7276051999997435,
+    "latency_s": 4.729418800008716,
     "prompt_tokens": 290,
     "completion_tokens": 255,
     "total_tokens": 545,
@@ -2415,16 +2356,15 @@
         ]
       }
     ],
-    "valid": true,
-    "issues": []
+    "valid": true
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "ads_imob_cpl",
     "model": "llama3.1:8b",
     "condition": "limited",
     "prompt_hash": "d86c42bca689",
-    "latency_s": 8.940318700000716,
+    "latency_s": 7.681336800000281,
     "prompt_tokens": 256,
     "completion_tokens": 174,
     "total_tokens": 430,
@@ -2463,7 +2403,6 @@
         ]
       }
     ],
-    "valid": true,
-    "issues": []
+    "valid": true
   }
 ]

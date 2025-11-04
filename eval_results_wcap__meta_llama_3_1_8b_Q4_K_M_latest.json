@@ -62,17 +62,17 @@
       "sid_norm": "ads telecom cac"
     },
     "app_educacao_conv": {
-      "TP": 3,
-      "FP": 1,
-      "FN": 4,
-      "TN": 307,
-      "precision": 0.75,
-      "recall": 0.42857142857142855,
-      "f1": 0.5454545454545454,
+      "TP": 2,
+      "FP": 2,
+      "FN": 5,
+      "TN": 306,
+      "precision": 0.5,
+      "recall": 0.2857142857142857,
+      "f1": 0.36363636363636365,
       "denom": 2682064.0,
-      "mcc": 0.559931328524279,
-      "npv": 0.9871382636655949,
-      "fdr": 0.25,
+      "mcc": 0.3675885057487633,
+      "npv": 0.9839228295819936,
+      "fdr": 0.5,
       "pred": [
         "aov",
         "churn de clientes",
@@ -81,10 +81,10 @@
       ],
       "gold": [
         "bounce rate",
-        "churn de clientes",
         "dau mau",
         "nps",
         "retencao 30d",
+        "taxa de churn",
         "taxa de conversao",
         "taxa de conversao de onboarding"
       ],
@@ -275,7 +275,7 @@
       "pred": [
         "aov",
         "churn de clientes",
-        "cvr clicks",
+        "cvr",
         "nps"
       ],
       "gold": [
@@ -444,22 +444,22 @@
       "sid_norm": "ops logtech otif"
     },
     "people_conteudo_turnover": {
-      "TP": 3,
-      "FP": 1,
-      "FN": 1,
-      "TN": 310,
-      "precision": 0.75,
-      "recall": 0.75,
-      "f1": 0.75,
+      "TP": 2,
+      "FP": 2,
+      "FN": 2,
+      "TN": 309,
+      "precision": 0.5,
+      "recall": 0.5,
+      "f1": 0.5,
       "denom": 1547536.0,
-      "mcc": 0.7467845659163987,
-      "npv": 0.9967845659163987,
-      "fdr": 0.25,
+      "mcc": 0.49356913183279744,
+      "npv": 0.9935691318327974,
+      "fdr": 0.5,
       "pred": [
+        "indice de turnover",
         "offer acceptance rate",
         "retencao d30",
-        "time to hire",
-        "turnover"
+        "time to hire"
       ],
       "gold": [
         "custo por contratacao",
@@ -524,22 +524,22 @@
       "sid_norm": "pricing ondemand ticket"
     },
     "prod_eventos_rsvp": {
-      "TP": 1,
-      "FP": 3,
-      "FN": 3,
-      "TN": 308,
-      "precision": 0.25,
-      "recall": 0.25,
-      "f1": 0.25,
+      "TP": 2,
+      "FP": 2,
+      "FN": 2,
+      "TN": 309,
+      "precision": 0.5,
+      "recall": 0.5,
+      "f1": 0.5,
       "denom": 1547536.0,
-      "mcc": 0.24035369774919615,
-      "npv": 0.9903536977491961,
-      "fdr": 0.75,
+      "mcc": 0.49356913183279744,
+      "npv": 0.9935691318327974,
+      "fdr": 0.5,
       "pred": [
+        "ctr",
         "e mail",
         "nps",
-        "rsvp confirmado",
-        "taxa de cliques ctr"
+        "rsvp confirmado"
       ],
       "gold": [
         "ctr",
@@ -653,19 +653,19 @@
     }
   },
   "macro_avg": {
-    "precision": 0.40972222222222227,
-    "recall": 0.2331349206349206,
-    "f1": 0.28410293410293413,
+    "precision": 0.3993055555555556,
+    "recall": 0.22718253968253965,
+    "f1": 0.27652717652717657,
     "denom": 1830097.5,
-    "mcc": 0.2919089611403123,
-    "npv": 0.9852989407419804,
-    "fdr": 0.5486111111111112
+    "mcc": 0.28389467685799913,
+    "npv": 0.9851649643218301,
+    "fdr": 0.5590277777777778
   },
   "totals": {
-    "TP": 30,
-    "FP": 48,
-    "FN": 110,
-    "TN": 7372
+    "TP": 29,
+    "FP": 49,
+    "FN": 111,
+    "TN": 7371
   },
   "evaluated_scenarios": 24,
   "skipped_scenarios": [

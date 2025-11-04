@@ -80,10 +80,10 @@
       ],
       "gold": [
         "bounce rate",
-        "churn de clientes",
         "dau mau",
         "nps",
         "retencao 30d",
+        "taxa de churn",
         "taxa de conversao",
         "taxa de conversao de onboarding"
       ],
@@ -123,21 +123,21 @@
       "sid_norm": "attr streaming mix"
     },
     "brand_fintech_roas": {
-      "TP": 3,
-      "FP": 0,
-      "FN": 3,
-      "TN": 309,
-      "precision": 1.0,
-      "recall": 0.5,
-      "f1": 0.6666666666666666,
+      "TP": 2,
+      "FP": 1,
+      "FN": 4,
+      "TN": 308,
+      "precision": 0.6666666666666666,
+      "recall": 0.3333333333333333,
+      "f1": 0.4444444444444444,
       "denom": 1735344.0,
-      "mcc": 0.7036990178281534,
-      "npv": 0.9903846153846154,
-      "fdr": 0.0,
+      "mcc": 0.46457799235256725,
+      "npv": 0.9871794871794872,
+      "fdr": 0.3333333333333333,
       "pred": [
         "cpm",
         "roas",
-        "taxa de conversao"
+        "taxa de conversao por clique"
       ],
       "gold": [
         "cpc",
@@ -255,21 +255,21 @@
       "sid_norm": "crm ong donativos"
     },
     "crm_solar_churn90": {
-      "TP": 2,
-      "FP": 1,
-      "FN": 4,
-      "TN": 308,
-      "precision": 0.6666666666666666,
-      "recall": 0.3333333333333333,
-      "f1": 0.4444444444444444,
+      "TP": 1,
+      "FP": 2,
+      "FN": 5,
+      "TN": 307,
+      "precision": 0.3333333333333333,
+      "recall": 0.16666666666666666,
+      "f1": 0.2222222222222222,
       "denom": 1735344.0,
-      "mcc": 0.46457799235256725,
-      "npv": 0.9871794871794872,
-      "fdr": 0.3333333333333333,
+      "mcc": 0.22545696687698116,
+      "npv": 0.9839743589743589,
+      "fdr": 0.6666666666666666,
       "pred": [
         "churn 90d",
         "custo por aquisicao",
-        "taxa de conversao"
+        "taxa de conversao por clique"
       ],
       "gold": [
         "churn 90d",
@@ -371,7 +371,7 @@
       "npv": 0.9808306709265175,
       "fdr": 1.0,
       "pred": [
-        "taxa de conversao",
+        "taxa de conversao por clique",
         "tempo medio de atendimento"
       ],
       "gold": [
@@ -435,20 +435,20 @@
       "sid_norm": "ops logtech otif"
     },
     "people_conteudo_turnover": {
-      "TP": 2,
-      "FP": 0,
-      "FN": 2,
-      "TN": 311,
-      "precision": 1.0,
-      "recall": 0.5,
-      "f1": 0.6666666666666666,
+      "TP": 1,
+      "FP": 1,
+      "FN": 3,
+      "TN": 310,
+      "precision": 0.5,
+      "recall": 0.25,
+      "f1": 0.3333333333333333,
       "denom": 778744.0,
-      "mcc": 0.704844033684819,
-      "npv": 0.9936102236421726,
-      "fdr": 0.0,
+      "mcc": 0.3478892577833431,
+      "npv": 0.9904153354632588,
+      "fdr": 0.5,
       "pred": [
         "custo por contratacao",
-        "turnover"
+        "indice de turnover"
       ],
       "gold": [
         "custo por contratacao",
@@ -558,20 +558,20 @@
       "sid_norm": "prod moda entregab"
     },
     "retencao_saasb2b_churn": {
-      "TP": 2,
-      "FP": 2,
-      "FN": 3,
-      "TN": 308,
-      "precision": 0.5,
-      "recall": 0.4,
-      "f1": 0.4444444444444445,
+      "TP": 1,
+      "FP": 3,
+      "FN": 4,
+      "TN": 307,
+      "precision": 0.25,
+      "recall": 0.2,
+      "f1": 0.22222222222222224,
       "denom": 1928200.0,
-      "mcc": 0.4392925071704903,
-      "npv": 0.9903536977491961,
-      "fdr": 0.5,
+      "mcc": 0.21244473707425351,
+      "npv": 0.9871382636655949,
+      "fdr": 0.75,
       "pred": [
-        "churn de clientes",
         "nps",
+        "taxa de churn",
         "taxa de reativacao",
         "taxa de satisfacao do cliente csat"
       ],
@@ -636,19 +636,19 @@
     }
   },
   "macro_avg": {
-    "precision": 0.5590277777777778,
-    "recall": 0.24687950937950942,
-    "f1": 0.3354166666666667,
+    "precision": 0.5,
+    "recall": 0.21424062049062054,
+    "f1": 0.29375,
     "denom": 1467116.1666666667,
-    "mcc": 0.3594596847088929,
-    "npv": 0.9857300092615201,
-    "fdr": 0.44097222222222215
+    "mcc": 0.3152078265026894,
+    "npv": 0.9851958184834881,
+    "fdr": 0.49999999999999994
   },
   "totals": {
-    "TP": 33,
-    "FP": 27,
-    "FN": 107,
-    "TN": 7393
+    "TP": 29,
+    "FP": 31,
+    "FN": 111,
+    "TN": 7389
   },
   "evaluated_scenarios": 24,
   "skipped_scenarios": [

@@ -56,15 +56,9 @@ KEEP_ALIVE = "10m"
 NUM_CTX = 4096
 MAX_NEW_TOKENS = 2048
 
-def _base_dir():
-    try:
-        return os.path.dirname(os.path.abspath(__file__))
-    except NameError:
-        return os.getcwd()
 
-BASE_DIR = _base_dir()
-RESULTS_UNLIMITED_JSON = os.path.join(BASE_DIR, "results.json")
-RESULTS_LIMITED_JSON   = os.path.join(BASE_DIR, "results_wcap.json")
+RESULTS_UNLIMITED_JSON = os.path.join("results.json")
+RESULTS_LIMITED_JSON   = os.path.join( "results_wcap.json")
 
 # =========================
 # Utils
@@ -398,10 +392,6 @@ def main():
     safe_dump(RESULTS_LIMITED_JSON, [])
     log(f"[Init] results (unlimited): {RESULTS_UNLIMITED_JSON}")
     log(f"[Init] results (limited)  : {RESULTS_LIMITED_JSON}")
-
-    for m in MODELOS:
-        if not _model_disponivel(m):
-            log(f"[WARN] Modelo não encontrado via ollama.list(): {m} (tentarei mesmo assim)")
 
     request_id = str(uuid.uuid4())
     results_unlimited: List[Dict[str, Any]] = []

@@ -79,10 +79,10 @@
       ],
       "gold": [
         "bounce rate",
-        "churn de clientes",
         "dau mau",
         "nps",
         "retencao 30d",
+        "taxa de churn",
         "taxa de conversao",
         "taxa de conversao de onboarding"
       ],
@@ -149,21 +149,21 @@
       "sid_norm": "brand fintech roas"
     },
     "comun_marketplace_ret30": {
-      "TP": 2,
-      "FP": 1,
-      "FN": 4,
-      "TN": 308,
-      "precision": 0.6666666666666666,
-      "recall": 0.3333333333333333,
-      "f1": 0.4444444444444444,
+      "TP": 1,
+      "FP": 2,
+      "FN": 5,
+      "TN": 307,
+      "precision": 0.3333333333333333,
+      "recall": 0.16666666666666666,
+      "f1": 0.2222222222222222,
       "denom": 1735344.0,
-      "mcc": 0.46457799235256725,
-      "npv": 0.9871794871794872,
-      "fdr": 0.3333333333333333,
+      "mcc": 0.22545696687698116,
+      "npv": 0.9839743589743589,
+      "fdr": 0.6666666666666666,
       "pred": [
-        "engajamento composto",
+        "indice de engajamento composto",
         "retencao 30d",
-        "taxa de satisfacao do cliente"
+        "taxa de satisfacao"
       ],
       "gold": [
         "arpu",
@@ -176,21 +176,21 @@
       "sid_norm": "comun marketplace ret30"
     },
     "crm_agritech_reativacao": {
-      "TP": 0,
-      "FP": 3,
-      "FN": 8,
-      "TN": 304,
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
+      "TP": 1,
+      "FP": 2,
+      "FN": 7,
+      "TN": 305,
+      "precision": 0.3333333333333333,
+      "recall": 0.125,
+      "f1": 0.18181818181818182,
       "denom": 2298816.0,
-      "mcc": -0.015829206186005598,
-      "npv": 0.9743589743589743,
-      "fdr": 1.0,
+      "mcc": 0.1919291250053179,
+      "npv": 0.9775641025641025,
+      "fdr": 0.6666666666666666,
       "pred": [
         "taxa de reativacao",
         "taxa de reativacao 30d",
-        "unsubscribe"
+        "unsubscribe rate"
       ],
       "gold": [
         "bounce rate de e mail",
@@ -253,22 +253,22 @@
       "sid_norm": "crm ong donativos"
     },
     "crm_solar_churn90": {
-      "TP": 2,
-      "FP": 2,
-      "FN": 4,
-      "TN": 307,
-      "precision": 0.5,
-      "recall": 0.3333333333333333,
-      "f1": 0.4,
+      "TP": 3,
+      "FP": 1,
+      "FN": 3,
+      "TN": 308,
+      "precision": 0.75,
+      "recall": 0.5,
+      "f1": 0.6,
       "denom": 2306376.0,
-      "mcc": 0.3990318568128834,
-      "npv": 0.9871382636655949,
-      "fdr": 0.5,
+      "mcc": 0.6064494061463128,
+      "npv": 0.9903536977491961,
+      "fdr": 0.25,
       "pred": [
         "churn 90d",
+        "ctr",
         "custo por aquisicao",
-        "taxa de abertura",
-        "taxa de cliques ctr"
+        "taxa de abertura"
       ],
       "gold": [
         "churn 90d",
@@ -371,7 +371,7 @@
       "fdr": 0.5,
       "pred": [
         "atribuicao de vendas offline",
-        "taxa de satisfacao do cliente"
+        "taxa de satisfacao"
       ],
       "gold": [
         "atribuicao de vendas offline",
@@ -396,10 +396,10 @@
       "npv": 0.9870967741935484,
       "fdr": 0.6,
       "pred": [
+        "abandono de checkout",
         "ativacao d7",
         "conclusao de onboarding",
         "retencao d30",
-        "taxa de abandono de carrinho",
         "taxa de ativacao"
       ],
       "gold": [
@@ -437,21 +437,21 @@
       "sid_norm": "ops logtech otif"
     },
     "people_conteudo_turnover": {
-      "TP": 1,
-      "FP": 2,
-      "FN": 3,
-      "TN": 309,
-      "precision": 0.3333333333333333,
-      "recall": 0.25,
-      "f1": 0.28571428571428575,
+      "TP": 0,
+      "FP": 3,
+      "FN": 4,
+      "TN": 308,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
       "denom": 1164384.0,
-      "mcc": 0.28079832572137037,
-      "npv": 0.9903846153846154,
-      "fdr": 0.6666666666666666,
+      "mcc": -0.011120725771143381,
+      "npv": 0.9871794871794872,
+      "fdr": 1.0,
       "pred": [
+        "indice de turnover",
         "retencao d30",
-        "taxa de satisfacao do cliente",
-        "turnover"
+        "taxa de satisfacao"
       ],
       "gold": [
         "custo por contratacao",
@@ -475,9 +475,9 @@
       "fdr": 0.5,
       "pred": [
         "cpl",
+        "ctr",
         "mql rate",
-        "taxa de abertura",
-        "taxa de cliques ctr"
+        "taxa de abertura"
       ],
       "gold": [
         "average deal size",
@@ -576,8 +576,8 @@
       "pred": [
         "custo por aquisicao",
         "nps",
-        "taxa de reativacao",
-        "taxa de retencao mensal churn reverso"
+        "taxa de churn",
+        "taxa de reativacao"
       ],
       "gold": [
         "arpu",
@@ -643,13 +643,13 @@
     }
   },
   "macro_avg": {
-    "precision": 0.4854166666666668,
-    "recall": 0.24163961038961038,
-    "f1": 0.31511937136937135,
+    "precision": 0.4819444444444445,
+    "recall": 0.23643127705627706,
+    "f1": 0.3098644411144411,
     "denom": 1649808.6666666667,
-    "mcc": 0.32998415163205297,
-    "npv": 0.9857166841728139,
-    "fdr": 0.47291666666666665
+    "mcc": 0.3251564767802468,
+    "npv": 0.985717113584417,
+    "fdr": 0.4763888888888888
   },
   "totals": {
     "TP": 33,

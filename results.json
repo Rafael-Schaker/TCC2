@@ -1,11 +1,11 @@
 [
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "attr_streaming_mix",
     "model": "meta-llama-3.1-8b.Q4_K_M:latest",
     "condition": "unlimited",
     "prompt_hash": "a7c3b58eb228",
-    "latency_s": 29.672328799999377,
+    "latency_s": 11.943163300005835,
     "prompt_tokens": 289,
     "completion_tokens": 164,
     "total_tokens": 453,
@@ -43,12 +43,12 @@
     "issues": []
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "attr_streaming_mix",
     "model": "llama3.1:8b",
     "condition": "unlimited",
     "prompt_hash": "a7c3b58eb228",
-    "latency_s": 39.833943500001624,
+    "latency_s": 23.04655480000656,
     "prompt_tokens": 255,
     "completion_tokens": 174,
     "total_tokens": 429,
@@ -95,12 +95,12 @@
     "issues": []
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "ads_telecom_cac",
     "model": "meta-llama-3.1-8b.Q4_K_M:latest",
     "condition": "unlimited",
     "prompt_hash": "234e0f7ee429",
-    "latency_s": 11.831099400000312,
+    "latency_s": 12.415793099993607,
     "prompt_tokens": 277,
     "completion_tokens": 224,
     "total_tokens": 501,
@@ -131,12 +131,12 @@
     ]
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "ads_telecom_cac",
     "model": "llama3.1:8b",
     "condition": "unlimited",
     "prompt_hash": "234e0f7ee429",
-    "latency_s": 24.484934399999474,
+    "latency_s": 23.21525660000043,
     "prompt_tokens": 247,
     "completion_tokens": 174,
     "total_tokens": 421,
@@ -174,12 +174,12 @@
     "issues": []
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "brand_fintech_roas",
     "model": "meta-llama-3.1-8b.Q4_K_M:latest",
     "condition": "unlimited",
     "prompt_hash": "a497e01fd26c",
-    "latency_s": 11.26494620000085,
+    "latency_s": 11.263836700003594,
     "prompt_tokens": 271,
     "completion_tokens": 194,
     "total_tokens": 465,
@@ -210,12 +210,12 @@
     ]
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "brand_fintech_roas",
     "model": "llama3.1:8b",
     "condition": "unlimited",
     "prompt_hash": "a497e01fd26c",
-    "latency_s": 29.286650500000178,
+    "latency_s": 27.018427899995004,
     "prompt_tokens": 242,
     "completion_tokens": 256,
     "total_tokens": 498,
@@ -262,12 +262,12 @@
     "issues": []
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "crm_ong_donativos",
     "model": "meta-llama-3.1-8b.Q4_K_M:latest",
     "condition": "unlimited",
     "prompt_hash": "69a260822f55",
-    "latency_s": 11.251408699999956,
+    "latency_s": 11.859439899999416,
     "prompt_tokens": 283,
     "completion_tokens": 191,
     "total_tokens": 474,
@@ -306,12 +306,12 @@
     "issues": []
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "crm_ong_donativos",
     "model": "llama3.1:8b",
     "condition": "unlimited",
     "prompt_hash": "69a260822f55",
-    "latency_s": 32.6284085999996,
+    "latency_s": 29.707605499992496,
     "prompt_tokens": 252,
     "completion_tokens": 317,
     "total_tokens": 569,
@@ -358,12 +358,12 @@
     "issues": []
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "pricing_ondemand_ticket",
     "model": "meta-llama-3.1-8b.Q4_K_M:latest",
     "condition": "unlimited",
     "prompt_hash": "9c71f2a8fcfd",
-    "latency_s": 10.83442599999944,
+    "latency_s": 10.907293299998855,
     "prompt_tokens": 278,
     "completion_tokens": 137,
     "total_tokens": 415,
@@ -392,12 +392,12 @@
     "issues": []
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "pricing_ondemand_ticket",
     "model": "llama3.1:8b",
     "condition": "unlimited",
     "prompt_hash": "9c71f2a8fcfd",
-    "latency_s": 29.74895319999996,
+    "latency_s": 27.527868200006196,
     "prompt_tokens": 246,
     "completion_tokens": 262,
     "total_tokens": 508,
@@ -453,12 +453,12 @@
     "issues": []
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "onboarding_imob_d7",
     "model": "meta-llama-3.1-8b.Q4_K_M:latest",
     "condition": "unlimited",
     "prompt_hash": "85ca3d03f863",
-    "latency_s": 9.694194899999275,
+    "latency_s": 10.457362799992552,
     "prompt_tokens": 278,
     "completion_tokens": 117,
     "total_tokens": 395,
@@ -487,12 +487,12 @@
     "issues": []
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "onboarding_imob_d7",
     "model": "llama3.1:8b",
     "condition": "unlimited",
     "prompt_hash": "85ca3d03f863",
-    "latency_s": 34.82071689999975,
+    "latency_s": 31.14582469999732,
     "prompt_tokens": 248,
     "completion_tokens": 361,
     "total_tokens": 609,
@@ -547,12 +547,12 @@
     "issues": []
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "retencao_saasb2b_churn",
     "model": "meta-llama-3.1-8b.Q4_K_M:latest",
     "condition": "unlimited",
     "prompt_hash": "dcbc8932ec16",
-    "latency_s": 10.677972399998907,
+    "latency_s": 10.362411399997654,
     "prompt_tokens": 278,
     "completion_tokens": 140,
     "total_tokens": 418,
@@ -582,12 +582,12 @@
     "issues": []
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "retencao_saasb2b_churn",
     "model": "llama3.1:8b",
     "condition": "unlimited",
     "prompt_hash": "dcbc8932ec16",
-    "latency_s": 26.710567599999194,
+    "latency_s": 24.381038599996828,
     "prompt_tokens": 247,
     "completion_tokens": 206,
     "total_tokens": 453,
@@ -630,12 +630,12 @@
     "issues": []
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "growth_saasb2c_trialpaid",
     "model": "meta-llama-3.1-8b.Q4_K_M:latest",
     "condition": "unlimited",
     "prompt_hash": "4478ba440b88",
-    "latency_s": 9.916571899999326,
+    "latency_s": 10.725889299996197,
     "prompt_tokens": 279,
     "completion_tokens": 132,
     "total_tokens": 411,
@@ -665,12 +665,12 @@
     "issues": []
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "growth_saasb2c_trialpaid",
     "model": "llama3.1:8b",
     "condition": "unlimited",
     "prompt_hash": "4478ba440b88",
-    "latency_s": 33.40387190000001,
+    "latency_s": 30.157411699998192,
     "prompt_tokens": 248,
     "completion_tokens": 327,
     "total_tokens": 575,
@@ -691,12 +691,12 @@
     ]
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "comun_marketplace_ret30",
     "model": "meta-llama-3.1-8b.Q4_K_M:latest",
     "condition": "unlimited",
     "prompt_hash": "78a420e59f25",
-    "latency_s": 10.69344700000147,
+    "latency_s": 11.468645999993896,
     "prompt_tokens": 270,
     "completion_tokens": 171,
     "total_tokens": 441,
@@ -735,12 +735,12 @@
     "issues": []
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "comun_marketplace_ret30",
     "model": "llama3.1:8b",
     "condition": "unlimited",
     "prompt_hash": "78a420e59f25",
-    "latency_s": 30.114412099999754,
+    "latency_s": 28.387234499998158,
     "prompt_tokens": 238,
     "completion_tokens": 281,
     "total_tokens": 519,
@@ -787,12 +787,12 @@
     "issues": []
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "cs_saude_csat_fcr",
     "model": "meta-llama-3.1-8b.Q4_K_M:latest",
     "condition": "unlimited",
     "prompt_hash": "88e1bf7a1c72",
-    "latency_s": 11.632436099998813,
+    "latency_s": 11.844323099998292,
     "prompt_tokens": 289,
     "completion_tokens": 188,
     "total_tokens": 477,
@@ -823,12 +823,12 @@
     ]
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "cs_saude_csat_fcr",
     "model": "llama3.1:8b",
     "condition": "unlimited",
     "prompt_hash": "88e1bf7a1c72",
-    "latency_s": 35.39456559999962,
+    "latency_s": 32.62904090000666,
     "prompt_tokens": 257,
     "completion_tokens": 386,
     "total_tokens": 643,
@@ -884,12 +884,12 @@
     "issues": []
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "app_educacao_conv",
     "model": "meta-llama-3.1-8b.Q4_K_M:latest",
     "condition": "unlimited",
     "prompt_hash": "f38f854b9ed8",
-    "latency_s": 10.48003719999906,
+    "latency_s": 10.141157099991688,
     "prompt_tokens": 279,
     "completion_tokens": 132,
     "total_tokens": 411,
@@ -919,12 +919,12 @@
     "issues": []
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "app_educacao_conv",
     "model": "llama3.1:8b",
     "condition": "unlimited",
     "prompt_hash": "f38f854b9ed8",
-    "latency_s": 32.03623100000004,
+    "latency_s": 30.057613400000264,
     "prompt_tokens": 245,
     "completion_tokens": 317,
     "total_tokens": 562,
@@ -971,12 +971,12 @@
     "issues": []
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "omni_telecom_sla",
     "model": "meta-llama-3.1-8b.Q4_K_M:latest",
     "condition": "unlimited",
     "prompt_hash": "4a4f2290e266",
-    "latency_s": 9.831556699999055,
+    "latency_s": 10.64661409999826,
     "prompt_tokens": 281,
     "completion_tokens": 129,
     "total_tokens": 410,
@@ -1006,12 +1006,12 @@
     "issues": []
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "omni_telecom_sla",
     "model": "llama3.1:8b",
     "condition": "unlimited",
     "prompt_hash": "4a4f2290e266",
-    "latency_s": 32.67431039999974,
+    "latency_s": 29.37502580000728,
     "prompt_tokens": 248,
     "completion_tokens": 325,
     "total_tokens": 573,
@@ -1058,12 +1058,12 @@
     "issues": []
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "devops_auto_uptime",
     "model": "meta-llama-3.1-8b.Q4_K_M:latest",
     "condition": "unlimited",
     "prompt_hash": "b95b34ff6477",
-    "latency_s": 9.711281700001564,
+    "latency_s": 10.529008600002271,
     "prompt_tokens": 284,
     "completion_tokens": 119,
     "total_tokens": 403,
@@ -1076,12 +1076,12 @@
     ]
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "devops_auto_uptime",
     "model": "llama3.1:8b",
     "condition": "unlimited",
     "prompt_hash": "b95b34ff6477",
-    "latency_s": 27.52461299999959,
+    "latency_s": 26.177526300001773,
     "prompt_tokens": 248,
     "completion_tokens": 228,
     "total_tokens": 476,
@@ -1128,12 +1128,12 @@
     "issues": []
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "risco_mobilidade_fraude",
     "model": "meta-llama-3.1-8b.Q4_K_M:latest",
     "condition": "unlimited",
     "prompt_hash": "5da759f015d5",
-    "latency_s": 11.98322719999851,
+    "latency_s": 11.979080299992347,
     "prompt_tokens": 280,
     "completion_tokens": 211,
     "total_tokens": 491,
@@ -1146,12 +1146,12 @@
     ]
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "risco_mobilidade_fraude",
     "model": "llama3.1:8b",
     "condition": "unlimited",
     "prompt_hash": "5da759f015d5",
-    "latency_s": 29.67852800000037,
+    "latency_s": 27.185403399998904,
     "prompt_tokens": 251,
     "completion_tokens": 270,
     "total_tokens": 521,
@@ -1194,12 +1194,12 @@
     "issues": []
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "crm_agritech_reativacao",
     "model": "meta-llama-3.1-8b.Q4_K_M:latest",
     "condition": "unlimited",
     "prompt_hash": "61c447743b1e",
-    "latency_s": 15.792861199999606,
+    "latency_s": 15.936125800013542,
     "prompt_tokens": 283,
     "completion_tokens": 417,
     "total_tokens": 700,
@@ -1230,12 +1230,12 @@
     ]
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "crm_agritech_reativacao",
     "model": "llama3.1:8b",
     "condition": "unlimited",
     "prompt_hash": "61c447743b1e",
-    "latency_s": 26.624803800001246,
+    "latency_s": 24.532360099998186,
     "prompt_tokens": 249,
     "completion_tokens": 211,
     "total_tokens": 460,
@@ -1273,12 +1273,12 @@
     "issues": []
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "ops_logtech_otif",
     "model": "meta-llama-3.1-8b.Q4_K_M:latest",
     "condition": "unlimited",
     "prompt_hash": "7720a374e4ee",
-    "latency_s": 10.498261200000343,
+    "latency_s": 11.49230460000399,
     "prompt_tokens": 283,
     "completion_tokens": 131,
     "total_tokens": 414,
@@ -1307,12 +1307,12 @@
     "issues": []
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "ops_logtech_otif",
     "model": "llama3.1:8b",
     "condition": "unlimited",
     "prompt_hash": "7720a374e4ee",
-    "latency_s": 31.78623890000017,
+    "latency_s": 29.063050199998543,
     "prompt_tokens": 250,
     "completion_tokens": 311,
     "total_tokens": 561,
@@ -1368,12 +1368,12 @@
     "issues": []
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "prod_moda_entregab",
     "model": "meta-llama-3.1-8b.Q4_K_M:latest",
     "condition": "unlimited",
     "prompt_hash": "015e0ee3ef3e",
-    "latency_s": 14.726552799998899,
+    "latency_s": 15.699192200001562,
     "prompt_tokens": 285,
     "completion_tokens": 401,
     "total_tokens": 686,
@@ -1395,12 +1395,12 @@
     ]
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "prod_moda_entregab",
     "model": "llama3.1:8b",
     "condition": "unlimited",
     "prompt_hash": "015e0ee3ef3e",
-    "latency_s": 28.194888900001388,
+    "latency_s": 25.70339390001027,
     "prompt_tokens": 248,
     "completion_tokens": 239,
     "total_tokens": 487,
@@ -1447,12 +1447,12 @@
     "issues": []
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "crm_hotel_forecast",
     "model": "meta-llama-3.1-8b.Q4_K_M:latest",
     "condition": "unlimited",
     "prompt_hash": "d50172c4d2e1",
-    "latency_s": 11.199215299999196,
+    "latency_s": 11.757367999991402,
     "prompt_tokens": 277,
     "completion_tokens": 205,
     "total_tokens": 482,
@@ -1490,12 +1490,12 @@
     "issues": []
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "crm_hotel_forecast",
     "model": "llama3.1:8b",
     "condition": "unlimited",
     "prompt_hash": "d50172c4d2e1",
-    "latency_s": 31.925145999999586,
+    "latency_s": 29.51038160000462,
     "prompt_tokens": 245,
     "completion_tokens": 319,
     "total_tokens": 564,
@@ -1551,12 +1551,12 @@
     "issues": []
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "prod_eventos_rsvp",
     "model": "meta-llama-3.1-8b.Q4_K_M:latest",
     "condition": "unlimited",
     "prompt_hash": "dd50bb01edd2",
-    "latency_s": 10.404386300000624,
+    "latency_s": 9.673712100004195,
     "prompt_tokens": 280,
     "completion_tokens": 120,
     "total_tokens": 400,
@@ -1585,12 +1585,12 @@
     "issues": []
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "prod_eventos_rsvp",
     "model": "llama3.1:8b",
     "condition": "unlimited",
     "prompt_hash": "dd50bb01edd2",
-    "latency_s": 25.48945470000035,
+    "latency_s": 23.9176892000105,
     "prompt_tokens": 243,
     "completion_tokens": 189,
     "total_tokens": 432,
@@ -1628,12 +1628,12 @@
     "issues": []
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "people_conteudo_turnover",
     "model": "meta-llama-3.1-8b.Q4_K_M:latest",
     "condition": "unlimited",
     "prompt_hash": "e9f3341b8ee2",
-    "latency_s": 10.893433700000969,
+    "latency_s": 10.862964999992982,
     "prompt_tokens": 283,
     "completion_tokens": 152,
     "total_tokens": 435,
@@ -1669,12 +1669,12 @@
     "issues": []
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "people_conteudo_turnover",
     "model": "llama3.1:8b",
     "condition": "unlimited",
     "prompt_hash": "e9f3341b8ee2",
-    "latency_s": 31.53521489999912,
+    "latency_s": 27.94282720000774,
     "prompt_tokens": 247,
     "completion_tokens": 298,
     "total_tokens": 545,
@@ -1725,12 +1725,12 @@
     "issues": []
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "perfsec_saas_mrr",
     "model": "meta-llama-3.1-8b.Q4_K_M:latest",
     "condition": "unlimited",
     "prompt_hash": "cb187679b540",
-    "latency_s": 11.339528400001655,
+    "latency_s": 11.480300800001714,
     "prompt_tokens": 283,
     "completion_tokens": 205,
     "total_tokens": 488,
@@ -1768,12 +1768,12 @@
     "issues": []
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "perfsec_saas_mrr",
     "model": "llama3.1:8b",
     "condition": "unlimited",
     "prompt_hash": "cb187679b540",
-    "latency_s": 35.283072500000344,
+    "latency_s": 31.915326199989067,
     "prompt_tokens": 251,
     "completion_tokens": 379,
     "total_tokens": 630,
@@ -1838,12 +1838,12 @@
     "issues": []
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "sales_edcorp_cac",
     "model": "meta-llama-3.1-8b.Q4_K_M:latest",
     "condition": "unlimited",
     "prompt_hash": "ceac111c58b3",
-    "latency_s": 13.792720100000224,
+    "latency_s": 14.359246599997277,
     "prompt_tokens": 276,
     "completion_tokens": 344,
     "total_tokens": 620,
@@ -1883,12 +1883,12 @@
     ]
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "sales_edcorp_cac",
     "model": "llama3.1:8b",
     "condition": "unlimited",
     "prompt_hash": "ceac111c58b3",
-    "latency_s": 34.74935639999967,
+    "latency_s": 32.30025509999541,
     "prompt_tokens": 245,
     "completion_tokens": 372,
     "total_tokens": 617,
@@ -1944,12 +1944,12 @@
     "issues": []
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "sales_gaming_checkout",
     "model": "meta-llama-3.1-8b.Q4_K_M:latest",
     "condition": "unlimited",
     "prompt_hash": "bde52bd00ea0",
-    "latency_s": 11.201458800000182,
+    "latency_s": 11.076210100000026,
     "prompt_tokens": 273,
     "completion_tokens": 167,
     "total_tokens": 440,
@@ -1987,12 +1987,12 @@
     "issues": []
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "sales_gaming_checkout",
     "model": "llama3.1:8b",
     "condition": "unlimited",
     "prompt_hash": "bde52bd00ea0",
-    "latency_s": 32.26535469999908,
+    "latency_s": 29.45592449999822,
     "prompt_tokens": 244,
     "completion_tokens": 319,
     "total_tokens": 563,
@@ -2048,12 +2048,12 @@
     "issues": []
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "crm_solar_churn90",
     "model": "meta-llama-3.1-8b.Q4_K_M:latest",
     "condition": "unlimited",
     "prompt_hash": "bf6666a6973e",
-    "latency_s": 10.46504239999922,
+    "latency_s": 10.020783999993,
     "prompt_tokens": 284,
     "completion_tokens": 128,
     "total_tokens": 412,
@@ -2081,12 +2081,12 @@
     ]
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "crm_solar_churn90",
     "model": "llama3.1:8b",
     "condition": "unlimited",
     "prompt_hash": "bf6666a6973e",
-    "latency_s": 32.13554130000011,
+    "latency_s": 29.431952400002046,
     "prompt_tokens": 250,
     "completion_tokens": 307,
     "total_tokens": 557,
@@ -2142,12 +2142,12 @@
     "issues": []
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "ads_imob_cpl",
     "model": "meta-llama-3.1-8b.Q4_K_M:latest",
     "condition": "unlimited",
     "prompt_hash": "0cfc1eeb647b",
-    "latency_s": 10.451448600000731,
+    "latency_s": 11.11860849999357,
     "prompt_tokens": 287,
     "completion_tokens": 161,
     "total_tokens": 448,
@@ -2184,12 +2184,12 @@
     "issues": []
   },
   {
-    "request_id": "4695e99d-2cf6-45f1-8c0d-2a85b8e8d8b8",
+    "request_id": "7c351ab7-3360-47ef-aae5-7332004c7112",
     "scenario_id": "ads_imob_cpl",
     "model": "llama3.1:8b",
     "condition": "unlimited",
     "prompt_hash": "0cfc1eeb647b",
-    "latency_s": 29.656670999998823,
+    "latency_s": 27.299106300008134,
     "prompt_tokens": 253,
     "completion_tokens": 266,
     "total_tokens": 519,

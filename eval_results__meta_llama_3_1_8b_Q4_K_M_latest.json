@@ -59,27 +59,27 @@
       "sid_norm": "ads telecom cac"
     },
     "app_educacao_conv": {
-      "TP": 2,
-      "FP": 0,
-      "FN": 5,
-      "TN": 308,
-      "precision": 1.0,
-      "recall": 0.2857142857142857,
-      "f1": 0.4444444444444445,
+      "TP": 1,
+      "FP": 1,
+      "FN": 6,
+      "TN": 307,
+      "precision": 0.5,
+      "recall": 0.14285714285714285,
+      "f1": 0.22222222222222224,
       "denom": 1349656.0,
-      "mcc": 0.530235947238971,
-      "npv": 0.9840255591054313,
-      "fdr": 0.0,
+      "mcc": 0.2590925651281336,
+      "npv": 0.9808306709265175,
+      "fdr": 0.5,
       "pred": [
         "churn de clientes",
         "nps"
       ],
       "gold": [
         "bounce rate",
-        "churn de clientes",
         "dau mau",
         "nps",
         "retencao 30d",
+        "taxa de churn",
         "taxa de conversao",
         "taxa de conversao de onboarding"
       ],
@@ -426,19 +426,19 @@
       "sid_norm": "ops logtech otif"
     },
     "people_conteudo_turnover": {
-      "TP": 1,
-      "FP": 0,
-      "FN": 3,
-      "TN": 311,
-      "precision": 1.0,
-      "recall": 0.25,
-      "f1": 0.4,
+      "TP": 0,
+      "FP": 1,
+      "FN": 4,
+      "TN": 310,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
       "denom": 390616.0,
-      "mcc": 0.497605732451057,
-      "npv": 0.9904458598726115,
-      "fdr": 0.0,
+      "mcc": -0.006400073729274045,
+      "npv": 0.9872611464968153,
+      "fdr": 1.0,
       "pred": [
-        "turnover"
+        "indice de turnover"
       ],
       "gold": [
         "custo por contratacao",
@@ -462,7 +462,7 @@
       "fdr": 0.6666666666666666,
       "pred": [
         "aov",
-        "cvr clicks",
+        "cvr",
         "mql rate"
       ],
       "gold": [
@@ -626,19 +626,19 @@
     }
   },
   "macro_avg": {
-    "precision": 0.45138888888888884,
-    "recall": 0.16259920634920635,
-    "f1": 0.23270502645502644,
+    "precision": 0.38888888888888884,
+    "recall": 0.14623015873015874,
+    "f1": 0.20677910052910053,
     "denom": 1221482.0,
-    "mcc": 0.25851954563959095,
-    "npv": 0.9841500782797256,
-    "fdr": 0.5069444444444444
+    "mcc": 0.2262216627941256,
+    "npv": 0.9838842615482792,
+    "fdr": 0.5694444444444444
   },
   "totals": {
-    "TP": 21,
-    "FP": 30,
-    "FN": 119,
-    "TN": 7390
+    "TP": 19,
+    "FP": 32,
+    "FN": 121,
+    "TN": 7388
   },
   "evaluated_scenarios": 24,
   "skipped_scenarios": [
