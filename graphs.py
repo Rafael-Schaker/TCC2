@@ -1,15 +1,14 @@
 import json
+import re
 from pathlib import Path
 
-import matplotlib
-
-matplotlib.use("Agg")
-import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
+# ---------- Config ----------
 CWD = Path(".").resolve()
 OUT = (CWD / "kpi_charts"); OUT.mkdir(parents=True, exist_ok=True)
+XLSX_PATH = OUT / "kpi_charts_data.xlsx"
 
 EVAL_FILES = {
     "trained_no_wcap": "eval_results__meta_llama_3_1_8b_Q4_K_M_latest.json",
@@ -19,96 +18,94 @@ EVAL_FILES = {
 }
 RESULT_FILES = ["results.json", "results_wcap.json"]
 
-# keep your label mapping exactly as defined
 MODEL_MAP = {
     "meta-llama-3.1-8b.Q4_K_M:latest": "llama3.1:trained",
     "llama3.1:8b": "llama3.1:base",
 }
 
-jload = lambda p: json.loads(Path(p).read_text(encoding="utf-8"))
-num = lambda df, cols: df.assign(**{c: pd.to_numeric(df.get(c), errors="coerce") for c in cols})
+# ---------- Helpers ----------
+def jload(p: Path):
+    return json.loads(p.read_text(encoding="utf-8"))
 
-def bar(series, labels, title, ylabel, outname):
-    ax = series.plot(kind="bar", figsize=(6,4))
-    ax.set(title=title, ylabel=ylabel, xlabel="Run")
-    ax.tick_params(axis="x", rotation=45)
-    for i, p in enumerate(ax.patches):
-        ax.annotate(labels.iloc[i], (p.get_x()+p.get_width()/2, p.get_height()),
-                    xytext=(0,4), textcoords="offset points", ha="center", va="bottom", fontsize=8)
-    plt.tight_layout(); plt.savefig(OUT/outname, dpi=160); plt.close()
-    print(f"[OK] saved: {OUT/outname}")
+def num(df: pd.DataFrame, cols):
+    return df.assign(**{c: pd.to_numeric(df.get(c), errors="coerce") for c in cols})
 
-print(f"[INFO] working dir: {CWD}")
+def sanitize_sheet_name(name: str) -> str:
+    n = re.sub(r'[:\\/\?\*\[\]]', '_', str(name))
+    return n[:31] if len(n) > 31 else n
 
-# ----- macro metrics -----
-rows = []
+# ---------- Macro (eval_results*.json) ----------
+macro_rows = []
 for run, fname in EVAL_FILES.items():
     p = CWD / fname
-    print(f"[CHK] {fname} -> {'OK' if p.exists() else 'NOT FOUND'}")
-    if not p.exists(): continue
+    if not p.exists():
+        continue
     d = jload(p)
     macro, model_raw = d.get("macro_avg", {}), d.get("model_name", "")
-    rows.append({
+    macro_rows.append({
         "run": run,
-        "model": MODEL_MAP.get(model_raw, model_raw or "llama3.1:base"),
+        "model_raw": model_raw,
+        "model_label": MODEL_MAP.get(model_raw, model_raw or "llama3.1:base"),
         "macro_precision": macro.get("precision"),
         "macro_recall": macro.get("recall"),
         "macro_f1": macro.get("f1"),
         "macro_mcc": macro.get("mcc"),
+        "source_file": fname,
     })
 
-if rows:
-    df = pd.DataFrame(rows)
-    df = num(df, ["macro_precision","macro_recall","macro_f1","macro_mcc"])
-    df = (df.assign(xlabel=lambda x: x["run"].str.replace("_"," "))
-            .sort_values("run").set_index("xlabel"))
-    charts = [
-        ("macro_f1","Macro F1 by run","Macro F1","macro_f1_by_run.png"),
-        ("macro_precision","Macro Precision by run","Macro Precision","macro_precision_by_run.png"),
-        ("macro_recall","Macro Recall by run","Macro Recall","macro_recall_by_run.png"),
-        ("macro_mcc","Macro MCC by run","Macro MCC","macro_mcc_by_run.png"),
-    ]
-    for col, title, ylab, fname in charts:
-        bar(df[col], df["model"], title, ylab, fname)
-else:
-    print("[WARN] no eval_results*.json loaded, skipping macro charts")
+macro_df = pd.DataFrame(macro_rows)
+if not macro_df.empty:
+    macro_df = num(macro_df, ["macro_precision","macro_recall","macro_f1","macro_mcc"])
 
-# ----- tokens vs latency -----
+# ---------- Runs (results*.json) ----------
 runs = []
 for fname in RESULT_FILES:
     p = CWD / fname
-    print(f"[CHK] {fname} -> {'OK' if p.exists() else 'NOT FOUND'}")
-    if not p.exists(): continue
-    r = jload(p)
-    runs += (r["results"] if isinstance(r, dict) and "results" in r else (r if isinstance(r, list) else []))
+    if not p.exists():
+        continue
+    data = jload(p)
+    items = data["results"] if isinstance(data, dict) and "results" in data else (data if isinstance(data, list) else [])
+    for it in items:
+        if not isinstance(it, dict): 
+            continue
+        it = dict(it)
+        it["_source_file"] = fname
+        runs.append(it)
 
-if runs:
-    rdf = pd.json_normalize(runs)
-    for c in ["latency_s","total_tokens","prompt_tokens","completion_tokens","model"]:
-        if c not in rdf.columns: rdf[c] = np.nan
-    rdf = num(rdf, ["latency_s","total_tokens","prompt_tokens","completion_tokens"])
-    rdf.loc[rdf["total_tokens"].isna(), "total_tokens"] = rdf["prompt_tokens"].fillna(0)+rdf["completion_tokens"].fillna(0)
-    rdf = rdf.dropna(subset=["total_tokens","latency_s"]).copy()
-    rdf["model_label"] = rdf["model"].map(MODEL_MAP).fillna(rdf["model"]).replace({
-        "meta-llama-3.1-8b.Q4_K_M:latest": "llama3.1:trained",
-        "llama3.1:8b": "llama3.1:base",
-    })
+runs_df = pd.json_normalize(runs) if runs else pd.DataFrame()
 
-    plt.figure(figsize=(6,4))
-    for m, dsub in rdf.groupby("model_label"):
-        plt.scatter(dsub["total_tokens"], dsub["latency_s"], alpha=0.8, label=str(m))
-    x, y = rdf["total_tokens"].values, rdf["latency_s"].values
-    corr = float("nan")
-    if len(x) >= 2 and np.isfinite(x).all() and np.isfinite(y).all():
-        m, b = np.polyfit(x, y, 1); xs = np.linspace(x.min(), x.max(), 100)
-        plt.plot(xs, m*xs+b, linestyle="--", linewidth=1)
-        corr = np.corrcoef(x, y)[0, 1]
-    plt.xlabel("Total tokens"); plt.ylabel("Latency (s)")
-    plt.title(f"Tokens vs Latency (all runs)\nOverall correlation ~= {corr:.3f}")
-    plt.legend(); plt.tight_layout()
-    plt.savefig(OUT/"tokens_vs_latency_all.png", dpi=160); plt.close()
-    print(f"[OK] saved: {OUT/'tokens_vs_latency_all.png'}")
+# garantir colunas mínimas
+for c in ["latency_s","total_tokens","prompt_tokens","completion_tokens","model",
+          "scenario_id","condition","request_id","_source_file"]:
+    if c not in runs_df.columns:
+        runs_df[c] = np.nan
+
+# numéricos e total_tokens
+if not runs_df.empty:
+    runs_df = num(runs_df, ["latency_s","total_tokens","prompt_tokens","completion_tokens"])
+    runs_df.loc[runs_df["total_tokens"].isna(), "total_tokens"] = \
+        runs_df["prompt_tokens"].fillna(0) + runs_df["completion_tokens"].fillna(0)
+    runs_df["model_label"] = runs_df["model"].map(MODEL_MAP).fillna(runs_df["model"])
+
+# ---------- Salvar Excel ----------
+sheets = {}
+if not macro_df.empty:
+    sheets["macro"] = macro_df
+if not runs_df.empty:
+    cols = ["_source_file","model","model_label","scenario_id","condition",
+            "total_tokens","prompt_tokens","completion_tokens","latency_s","request_id"]
+    sheets["runs"] = runs_df[cols].sort_values(["_source_file","model_label","scenario_id"], na_position="last")
+
+if sheets:
+    # tenta xlsxwriter; se não tiver, usa engine padrão
+    try:
+        with pd.ExcelWriter(XLSX_PATH, engine="xlsxwriter") as writer:
+            for name, df in sheets.items():
+                df.to_excel(writer, sheet_name=sanitize_sheet_name(name), index=False)
+    except Exception:
+        with pd.ExcelWriter(XLSX_PATH) as writer:
+            for name, df in sheets.items():
+                df.to_excel(writer, sheet_name=sanitize_sheet_name(name), index=False)
+    print(f"[OK] Excel salvo em: {XLSX_PATH}")
 else:
-    print("[WARN] no results*.json loaded, skipping tokens vs latency")
-
-print(f"Done. Output dir: {OUT}")
+    print("[WARN] nada para escrever no Excel.")
